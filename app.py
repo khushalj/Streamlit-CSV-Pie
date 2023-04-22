@@ -14,9 +14,9 @@ def main():
         # Read the CSV file into a Pandas DataFrame
         df = pd.read_csv(uploaded_file)
 
-        # Calculate the percentage of open and closed ports
+        # Calculate the percentage of open and close ports
         total_ports = len(df)
-        open_ports = len(df[df['state'] == 'open'])
+        Open_ports = len(df[df['State'] == 'open'])
         close_ports = total_ports - open_ports
         open_percentage = round(open_ports / total_ports * 100, 2)
         close_percentage = round(close_ports / total_ports * 100, 2)
@@ -24,9 +24,6 @@ def main():
         # Create a pie chart to display the data
         data = {'State': ['Open', 'Close'], 'Percentage': [open_percentage, close_percentage]}
         fig = px.pie(data, values='Percentage', names='State')
-
-        # Set the chart title and labels
-        fig.update_layout(title="Port State Analysis", xaxis_title="State", yaxis_title="Percentage")
 
         # Display the pie chart
         st.plotly_chart(fig)
