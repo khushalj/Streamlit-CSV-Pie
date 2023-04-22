@@ -23,7 +23,7 @@ def main():
 
         # Create a pie chart to display the data
         data = {'State': ['Open', 'Close'], 'Percentage': [open_percentage, close_percentage]}
-        fig = px.pie(data, values='Percentage', names='State')
+        fig = px.pie(data, values='Percentage', names='State', color_discrete_sequence=['yellow', 'teal'])
 
         # Display the pie chart
         st.plotly_chart(fig)
