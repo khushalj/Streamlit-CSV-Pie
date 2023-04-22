@@ -16,7 +16,7 @@ def main():
 
         # Calculate the percentage of open and close ports
         total_ports = len(df)
-        Open_ports = len(df[df['State'] == 'open'])
+        open_ports = len(df[df['State'] == 'Open'])
         close_ports = total_ports - open_ports
         open_percentage = round(open_ports / total_ports * 100, 2)
         close_percentage = round(close_ports / total_ports * 100, 2)
