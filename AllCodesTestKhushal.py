@@ -112,7 +112,7 @@ def main():
         # If login button clicked, re-attempt authentication
         if login_button:
             authenticated = login()
-            if authenticated
+            if authenticated:
 # Define main function to run the app
 def main():
     # Authenticate user
