@@ -9,6 +9,18 @@ import plotly.express as px
 import altair as alt
 from time import strftime
 import time
+# --- USER AUTHENTICATION ---
+with open('config.yaml') as file:
+    config = yaml.load(file, Loader=yaml.SafeLoader)
+authenticator = stauth.Authenticate(
+    config['credentials'],
+    config['cookie']['name'],
+    config['cookie']['key'],
+    config['cookie']['expiry_days'],
+    config['preauthorized']
+)
+
+name, authentication_status, username = authenticator.login('Login', 'main')
 
 
 def port():
@@ -90,15 +102,15 @@ def netstats():
                                           'InterfaceDescription', 'Name', 'Source', 'SystemName'])
             st.write(subset)
 
-#if authentication_status == False:
-    #st.error("Username/password is incorrect")
+if authentication_status == False:
+    st.error("Username/password is incorrect")
 
-#if authentication_status == None:
-    #st.warning("Please enter your username and password")
+if authentication_status == None:
+    st.warning("Please enter your username and password")
 
-#if authentication_status:
+if authentication_status:
     # ---- SIDEBAR ----
-    #authenticator.logout("Logout", "sidebar")
+    authenticator.logout("Logout", "sidebar")
     st.sidebar.title(f"Welcome {name}")
     with st.sidebar:
         selected = option_menu(
