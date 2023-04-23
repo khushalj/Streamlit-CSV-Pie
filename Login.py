@@ -90,11 +90,11 @@ def netstats():
                                           'InterfaceDescription', 'Name', 'Source', 'SystemName'])
             st.write(subset)
 
-if authentication_status == False:
-    st.error("Username/password is incorrect")
+#if authentication_status == False:
+    #st.error("Username/password is incorrect")
 
-if authentication_status == None:
-    st.warning("Please enter your username and password")
+#if authentication_status == None:
+    #st.warning("Please enter your username and password")
 
 if authentication_status:
     # ---- SIDEBAR ----
