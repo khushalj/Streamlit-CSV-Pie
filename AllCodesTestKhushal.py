@@ -45,7 +45,7 @@ def network_audit():
     # Display selected sub-page
     if sub_page == "Firewall Stats":
         st.title("Firewall Stats")
-        csv_link = "https://example.com/firewall_stats.csv" # Replace with actual CSV link
+        csv_link = "https://github.com/khushalj/Streamlit-CSV-Pie/blob/f34aa05eb5dfcef63084e743b24a09557c46524f/firewall_status.csv" # Firewall CSV link
         df = pd.read_csv(csv_link)
         # Create a dictionary to map boolean values to checkmark or cross symbols
         status_dict = {True: "✅", False: "❌"}
