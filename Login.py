@@ -1,6 +1,7 @@
 import pickle
 from pathlib import Path
-import streamlit as st
+import streamlit as st  # pip install streamlit
+import streamlit_authenticator as stauth
 import yaml
 from streamlit_option_menu import option_menu
 import pandas as pd
@@ -9,32 +10,93 @@ import altair as alt
 from time import strftime
 import time
 
-# Define the correct username and password
-USERNAME = 'Khushal'
-PASSWORD = '7eae7644'
 
-# --- USER AUTHENTICATION ---
-def login():
-    return st.text_input('Username'), st.text_input('Password', type='password')
+def port():
+    # Upload CSV
+    uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
+    if uploaded_file is not None:
+        df = pd.read_csv(uploaded_file)
+        # Create a dictionary to map boolean values to checkmark or cross symbols
+        # status_dict = {True: "✅", False: "❌"}
+        # # Replace the boolean values with checkmark or cross symbols
+        # df["Enabled"] = df["Enabled"].map(status_dict)
+        #Table BG
+        st.markdown(
+            '<style>div.row-widget.stRadio > div{background-color: #f4f4f4}</style>',
+            unsafe_allow_html=True,
+        )
+        total_ports = len(df)
+        open_ports = len(df[df['State'] == 'Open'])
+        close_ports = total_ports - open_ports
+        open_percentage = round(open_ports / total_ports * 100, 2)
+        close_percentage = round(close_ports / total_ports * 100, 2)
 
-def authenticate(username, password):
-    return username == USERNAME and password == PASSWORD
+        # Create a pie chart to display the data
+        data = {'State': ['Open', 'Close'], 'Percentage': [open_percentage, close_percentage]}
+        fig = px.pie(data, values='Percentage', names='State')
+        left_column, right_column = st.columns(2)
+        # Display the pie chart
+        with left_column:
+            st.write(df)
+        with right_column:
+            st.plotly_chart(fig)
 
-def logout():
-    session_state = st.session_state
-    session_state['authenticated'] = False
+        # Display table
 
-if 'authenticated' not in st.session_state:
-    st.session_state['authenticated'] = False
+def firewall():
+    # Upload CSV
+    uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
 
-if not st.session_state['authenticated']:
+    if uploaded_file is not None:
+        df = pd.read_csv(uploaded_file)
+
+        # Create a dictionary to map boolean values to checkmark or cross symbols
+        status_dict = {True: "✅", False: "❌"}
+
+        # Replace the boolean values with checkmark or cross symbols
+        df["Enabled"] = df["Enabled"].map(status_dict)
+
+        #Table BG
+        st.markdown(
+            '<style>div.row-widget.stRadio > div{background-color: #f4f4f4}</style>',
+            unsafe_allow_html=True,
+        )
+
+        # Display table
+        st.write(df)
+
+def netstats():
+    file = st.file_uploader("Upload CSV file", type=["csv"])
+    if file:
+        df = pd.read_csv(file)
+
+        # Create a bar chart of InterfaceAlias and Source
+        chart = alt.Chart(df).mark_bar().encode(
+            x='InterfaceAlias',
+            y='count()',
+            color='Source'
+        ).properties(
+            width=600,
+            height=400
+        )
+        st.altair_chart(chart)
+
+        # Create a table of statistics for each InterfaceAlias
+        interfaces = df['InterfaceAlias'].unique()
+        for interface in interfaces:
+            st.write('## ' + interface)
+            subset = df[df['InterfaceAlias'] == interface]
+            subset = subset.drop(columns=['ifAlias', 'ifDesc', 'Caption', 'Description', 'ElementName', 'InstanceID',
+                                          'InterfaceDescription', 'Name', 'Source', 'SystemName'])
+            st.write(subset)
+
+if authentication_status == False:
+    st.error("Username/password is incorrect")
+
+if authentication_status == None:
     st.warning("Please enter your username and password")
-    username, password = login()
-    if authenticate(username, password):
-        st.session_state['authenticated'] = True
-    else:
-        st.error("Username/password is incorrect")
-else:
+
+if authentication_status:
     # ---- SIDEBAR ----
     authenticator.logout("Logout", "sidebar")
     st.sidebar.title(f"Welcome {name}")
@@ -121,5 +183,4 @@ else:
 
     if selected == "Malware Logs":
         st.title(f"{selected}")
-
 
