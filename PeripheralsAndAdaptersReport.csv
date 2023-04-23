@@ -1,0 +1,168 @@
+﻿Device Name,Device ID,Class,Status
+
+Microsoft ACPI-Compliant Embedded Controller,ACPI\PNP0C09\1,System,OK
+
+ACPI Wake Alarm,ACPI\ACPI000E\1,System,OK
+
+Motherboard resources,ACPI\PNP0C02\4&2FEAE042&0,System,OK
+
+Direct memory access controller,ACPI\PNP0200\4&1B28F883&0,System,OK
+
+Volume Manager,ROOT\VOLMGR\0000,System,OK
+
+High precision event timer,ACPI\PNP0103\2&DABA3FF&2,System,OK
+
+PCI standard host CPU bridge,PCI\VEN_1022&DEV_144E&SUBSYS_00000000&REV_00\3&11583659&2&C6,System,OK
+
+WAN Miniport (PPPOE),SWD\MSRRAS\MS_PPPOEMINIPORT,Net,OK
+
+PCI standard host CPU bridge,PCI\VEN_1022&DEV_1632&SUBSYS_00000000&REV_00\3&11583659&2&08,System,OK
+
+PCI standard host CPU bridge,PCI\VEN_1022&DEV_1632&SUBSYS_00000000&REV_00\3&11583659&2&10,System,OK
+
+PCI standard host CPU bridge,PCI\VEN_1022&DEV_1632&SUBSYS_00000000&REV_00\3&11583659&2&40,System,OK
+
+Microsoft Basic Display Driver,ROOT\BASICDISPLAY\0000,System,OK
+
+ACPI Thermal Zone,ACPI\THERMALZONE\THRM,System,OK
+
+AMD GPIO Controller,ACPI\AMDI0030\0,System,OK
+
+PCI Express Root Port,PCI\VEN_1022&DEV_1635&SUBSYS_16351022&REV_00\3&11583659&2&41,System,OK
+
+PCI Express Root Port,PCI\VEN_1022&DEV_1635&SUBSYS_16351022&REV_00\3&11583659&2&42,System,OK
+
+VirtualBox Host-Only Ethernet Adapter,ROOT\NET\0000,Net,OK
+
+Windscribe VPN,ROOT\NET\0002,Net,OK
+
+Windscribe Windtun420,ROOT\NET\0003,Net,OK
+
+Microsoft Wi-Fi Direct Virtual Adapter,{5D624F94-8850-40C3-A3FA-A4FD2080BAF3}\VWIFIMP_WFD\5&32F435F4&0&11,Net,OK
+
+Microsoft Wi-Fi Direct Virtual Adapter #2,{5D624F94-8850-40C3-A3FA-A4FD2080BAF3}\VWIFIMP_WFD\5&32F435F4&0&12,Net,OK
+
+ACPI Processor Container Device,ACPI\ACPI0010\1,System,OK
+
+Microsoft Windows Management Interface for ACPI,ACPI\PNP0C14\0,System,OK
+
+VMware Virtual Ethernet Adapter for VMnet1,ROOT\VMWARE\0000,Net,OK
+
+VMware Virtual Ethernet Adapter for VMnet8,ROOT\VMWARE\0001,Net,OK
+
+PCI standard host CPU bridge,PCI\VEN_1022&DEV_144B&SUBSYS_00000000&REV_00\3&11583659&2&C3,System,OK
+
+High Definition Audio Controller,PCI\VEN_10DE&DEV_10FA&SUBSYS_87B1103C&REV_A1\4&203EC6B6&0&0109,System,OK
+
+WAN Miniport (PPTP),SWD\MSRRAS\MS_PPTPMINIPORT,Net,OK
+
+Microsoft Hyper-V Virtualization Infrastructure Driver,ROOT\VID\0000,System,OK
+
+WAN Miniport (IKEv2),SWD\MSRRAS\MS_AGILEVPNMINIPORT,Net,OK
+
+Composite Bus Enumerator,ROOT\COMPOSITEBUS\0000,System,OK
+
+Microsoft Virtual Drive Enumerator,ROOT\VDRVROOT\0000,System,OK
+
+PCI Express Root Port,PCI\VEN_1022&DEV_1634&SUBSYS_14531022&REV_00\3&11583659&2&0A,System,OK
+
+PCI Express Root Port,PCI\VEN_1022&DEV_1634&SUBSYS_14531022&REV_00\3&11583659&2&11,System,OK
+
+PCI Express Root Port,PCI\VEN_1022&DEV_1634&SUBSYS_14531022&REV_00\3&11583659&2&14,System,OK
+
+HP Mobile Data Protection Sensor,ACPI\HPQ6007\3&11583659&2,System,OK
+
+AMD SMBus,PCI\VEN_1022&DEV_790B&SUBSYS_790B1022&REV_51\3&11583659&2&A0,System,OK
+
+Microsoft Kernel Debug Network Adapter,ROOT\KDNIC\0000,Net,OK
+
+ACPI Lid,ACPI\PNP0C0D\2&DABA3FF&2,System,OK
+
+HP Omen Driver,ACPI\HPIC0004\3&11583659&2,System,OK
+
+Intel(R) Wi-Fi 6 AX200 160MHz,PCI\VEN_8086&DEV_2723&SUBSYS_00848086&REV_1A\4&247BF9B8&0&0011,Net,OK
+
+Realtek Gaming GbE Family Controller,PCI\VEN_10EC&DEV_8168&SUBSYS_87B1103C&REV_16\4&16ADBEB8&0&000A,Net,OK
+
+System speaker,ACPI\PNP0800\4&1B28F883&0,System,OK
+
+High Definition Audio Controller,PCI\VEN_1022&DEV_15E3&SUBSYS_87B1103C&REV_00\4&2FEAE042&0&0641,System,OK
+
+UMBus Root Bus Enumerator,ROOT\UMBUS\0000,System,OK
+
+Charge Arbitration Driver,ROOT\CAD\0000,System,OK
+
+PCI standard host CPU bridge,PCI\VEN_1022&DEV_144D&SUBSYS_00000000&REV_00\3&11583659&2&C5,System,OK
+
+System board,ACPI\PNP0C01\C8,System,OK
+
+WAN Miniport (Network Monitor),SWD\MSRRAS\MS_NDISWANBH,Net,OK
+
+WAN Miniport (IP),SWD\MSRRAS\MS_NDISWANIP,Net,OK
+
+PCI Express Root Complex,ACPI\PNP0A08\0,System,OK
+
+System timer,ACPI\PNP0100\4&1B28F883&0,System,OK
+
+PCI standard host CPU bridge,PCI\VEN_1022&DEV_1449&SUBSYS_00000000&REV_00\3&11583659&2&C1,System,OK
+
+PCI standard host CPU bridge,PCI\VEN_1022&DEV_1630&SUBSYS_87B1103C&REV_00\3&11583659&2&00,System,OK
+
+Microsoft ACPI-Compliant System,ACPI_HAL\PNP0C08\0,System,OK
+
+Microsoft Basic Render Driver,ROOT\BASICRENDER\0000,System,OK
+
+WAN Miniport (SSTP),SWD\MSRRAS\MS_SSTPMINIPORT,Net,OK
+
+PCI standard host CPU bridge,PCI\VEN_1022&DEV_144A&SUBSYS_00000000&REV_00\3&11583659&2&C2,System,OK
+
+Microsoft UEFI-Compliant System,ACPI_HAL\UEFI\0,System,OK
+
+ACPI Fixed Feature Button,ACPI\FIXEDBUTTON\2&DABA3FF&2,System,OK
+
+Virtual Gamepad Emulation Bus,SWD\DRIVERENUM\{2ABAC65E-84B2-4DBD-8AB1-2A2894991813}#HPINCVIGEMBUSOMENFUSIONSOFTWARE&4&2342E40&1,System,OK
+
+PCI Express Root Port,PCI\VEN_1022&DEV_1633&SUBSYS_14531022&REV_00\3&11583659&2&09,System,OK
+
+Motherboard resources,ACPI\PNP0C02\15,System,OK
+
+Motherboard resources,ACPI\PNP0C02\90,System,OK
+
+VMware VMCI Host Device,ROOT\VMWVMCIHOSTDEV\0000,System,OK
+
+PCI standard host CPU bridge,PCI\VEN_1022&DEV_144F&SUBSYS_00000000&REV_00\3&11583659&2&C7,System,OK
+
+NVVHCI Enumerator,ROOT\UNNAMED_DEVICE\0002,System,OK
+
+ACPI Power Button,ACPI\PNP0C0C\AA,System,OK
+
+NDIS Virtual Network Adapter Enumerator,ROOT\NDISVIRTUALBUS\0000,System,OK
+
+AMD I2C Controller,ACPI\AMDI0010\3,System,OK
+
+PCI standard ISA bridge,PCI\VEN_1022&DEV_790E&SUBSYS_790E1022&REV_51\3&11583659&2&A3,System,OK
+
+PCI standard host CPU bridge,PCI\VEN_1022&DEV_144C&SUBSYS_00000000&REV_00\3&11583659&2&C4,System,OK
+
+Motherboard resources,ACPI\PNP0C02\700,System,OK
+
+AMD Audio CoProcessor,PCI\VEN_1022&DEV_15E2&SUBSYS_87B1103C&REV_01\4&2FEAE042&0&0541,System,OK
+
+Microsoft System Management BIOS Driver,ROOT\MSSMBIOS\0000,System,OK
+
+PCI standard host CPU bridge,PCI\VEN_1022&DEV_1448&SUBSYS_00000000&REV_00\3&11583659&2&C0,System,OK
+
+HP Application Driver,ACPI\HPIC0003\3&11583659&2,System,OK
+
+System CMOS/real time clock,ACPI\PNP0B00\4&1B28F883&0,System,OK
+
+Plug and Play Software Device Enumerator,ROOT\SYSTEM\0000,System,OK
+
+Remote Desktop Device Redirector Bus,ROOT\RDPBUS\0000,System,OK
+
+WAN Miniport (IPv6),SWD\MSRRAS\MS_NDISWANIPV6,Net,OK
+
+Programmable interrupt controller,ACPI\PNP0000\4&1B28F883&0,System,OK
+
+WAN Miniport (L2TP),SWD\MSRRAS\MS_L2TPMINIPORT,Net,OK
+
