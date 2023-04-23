@@ -51,7 +51,7 @@ if __name__ == "__main__":
                     pass
         else:
             st.error("Invalid Login ID or Password")
-                        elif choice == "Vulnerability Assessment":
+            elif choice == "Vulnerability Assessment":
                 # Write code for Vulnerability Assessment page here
                 pass
             elif choice == "Malware Logs":
@@ -59,4 +59,3 @@ if __name__ == "__main__":
                 pass
     else:
         pass
-
