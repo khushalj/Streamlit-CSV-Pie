@@ -1,4 +1,4 @@
-import pickle
+import pickle5
 from pathlib import Path
 import streamlit as st  # pip install streamlit
 import streamlit_authenticator as stauth
