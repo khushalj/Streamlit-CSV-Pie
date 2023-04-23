@@ -96,9 +96,9 @@ def netstats():
 #if authentication_status == None:
     #st.warning("Please enter your username and password")
 
-if authentication_status:
+#if authentication_status:
     # ---- SIDEBAR ----
-    authenticator.logout("Logout", "sidebar")
+    #authenticator.logout("Logout", "sidebar")
     st.sidebar.title(f"Welcome {name}")
     with st.sidebar:
         selected = option_menu(
