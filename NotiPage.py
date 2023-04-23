@@ -12,23 +12,21 @@ st.set_page_config(
 )
 st.title("Audit Dashboard",)
 st.subheader('Notifications 🗒')
-with st.spinner("Computing..."):
+with st.spinner("Listening..."):
     time.sleep(3)
-st.error('firewall parameters are not enabled', icon="⚠")
-with st.spinner("Computing..."):
+st.error(' Firewall are not enabled for one or more Domains', icon="⚠")
+with st.spinner("Listening..."):
+    time.sleep(2)
+st.error(' Ports [21] & [22] are open', icon="⚠")
+with st.spinner("Listening..."):
+    time.sleep(1)
+st.error(' No active backup present', icon="⚠")
+with st.spinner("Listening..."):
+    time.sleep(2)
+st.success(' System is Up-to Date', icon = "🟢")
+with st.spinner("Listening..."):
     time.sleep(3)
-st.error('2 major service ports open', icon="⚠")
-with st.spinner("Computing..."):
-    time.sleep(3)
-st.error('Active backup not present', icon="⚠")
-with st.spinner("Computing..."):
-    time.sleep(3)
-st.success('windows updated', icon = "🟢")
-with st.spinner("Computing..."):
-    time.sleep(3)
-st.success('7 active users found', icon = "🟢")
-st.balloons()
-
+st.success(' 2 Active Users Found', icon = "🟢")
 
 # Define a function that checks a condition and generates a notification if true
 def check_condition():
