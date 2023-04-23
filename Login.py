@@ -7,7 +7,7 @@ from streamlit_option_menu import option_menu
 import pandas as pd
 import plotly.express as px
 # --- USER AUTHENTICATION ---
-with open('/Users/aishworyann/Desktop/Streamlit Authenticator/config.yaml') as file:
+with open('https://raw.githubusercontent.com/khushalj/Streamlit-CSV-Pie/main/config.yaml') as file:
     config = yaml.load(file, Loader=yaml.SafeLoader)
 authenticator = stauth.Authenticate(
     config['credentials'],
