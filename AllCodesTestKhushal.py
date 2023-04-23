@@ -113,13 +113,6 @@ def main():
         if login_button:
             authenticated = login()
             if authenticated:
-# Define main function to run the app
-def main():
-    # Authenticate user
-    authenticated = login()
-
-    # If authentication successful, display app
-    if authenticated:
         st.sidebar.success("Logged in as securitybulls")
 
         # Display sidebar menu
