@@ -13,9 +13,9 @@ os_properties = df.loc[df['Name'].isin(['OS Name', 'OS Configuration', 'OS Versi
 # Set the page title
 st.set_page_config(page_title="System Information")
 
-# Display the tables with headings
+# Display the tables with headings and set the width to 100%
 st.write("Host Details")
-st.dataframe(host_details, width=800, height=300)
+st.dataframe(host_details.style.set_table_styles([{'selector': 'table', 'props': [('width', '100%')]}]), width=800, height=300)
 
 st.write("OS Properties")
-st.dataframe(os_properties, width=800, height=300)
+st.dataframe(os_properties.style.set_table_styles([{'selector': 'table', 'props': [('width', '100%')]}]), width=800, height=300)
