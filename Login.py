@@ -20,8 +20,10 @@ def load_lottieurl(url: str):
     return r.json()
 lottie_url_search = "https://assets3.lottiefiles.com/packages/lf20_1PD1tpvlop.json"
 lottie_url_hello = "https://assets3.lottiefiles.com/packages/lf20_nOfkZot060.json"
+lottie_url_welcome= "https://assets1.lottiefiles.com/packages/lf20_llbjwp92qL.json"
 lottie_hello = load_lottieurl(lottie_url_hello)
 lottie_search = load_lottieurl(lottie_url_search)
+lottie_welcome=load_lottieurl(lottie_url_welcome)
 # --- USER AUTHENTICATION ---
 # with open('config.yaml') as file:
 #     config = yaml.load(file, Loader=yaml.SafeLoader)
@@ -169,6 +171,10 @@ with st.sidebar:
         )
 if selected=="Home":
     st.title(f"{selected}")
+     with st_lottie_spinner(lottie_welcome,width=600,height=400,loop=False,quality='high'):
+        time.sleep(9)
+    with st_lottie_spinner(lottie_search, width=700, height=400, loop=True, quality='high'):
+        time.sleep(10)
 
 if selected== "Notifications":
         st.title(f"{selected}")
