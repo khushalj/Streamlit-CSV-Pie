@@ -156,8 +156,8 @@ if selected=="Home":
     st.title(f"{selected}")
 
 if selected== "Notification":
-        st.title(f"{selected}")
-        st.subheader('Notifications 🗒')
+        st.title(f"{Notifications 🗒}")
+        #st.subheader('Notifications 🗒')
         with st.spinner("Listening..."):
             time.sleep(3)
         st.error(' Firewall are not enabled for one or more Domains 🧱❌')
