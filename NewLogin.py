@@ -18,14 +18,14 @@ def app():
     if st.button("Submit"):
         if user_input == username and pass_input == password:
             st.success("Login successful!")
-            st.write("Click the button to go to the website:")
-            # Display button with link to website
-            st.button("Go to website", on_click=open_website)
+            st.write("Click the button below to visit the website.")
+            # Display button to hyperlink to website
+            st.button("Visit website", on_click=redirect_to_website)
         else:
             st.error("Incorrect username or password")
 
-# Function to open website
-def open_website():
+# Function to redirect to website
+def redirect_to_website():
     st.experimental_set_query_params(token="abc123")
     st.experimental_redirect("https://khushalj-streamlit-csv-pie-newlogin-32ttdc.streamlit.app/")
 
