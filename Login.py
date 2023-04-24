@@ -19,7 +19,7 @@ def load_lottieurl(url: str):
         return None
     return r.json()
 lottie_url_search = "https://assets3.lottiefiles.com/packages/lf20_1PD1tpvlop.json"
-lottie_url_hello = "https://assets4.lottiefiles.com/packages/lf20_3EzYpfKNps.json"
+lottie_url_hello = "https://assets3.lottiefiles.com/packages/lf20_nOfkZot060.json"
 lottie_hello = load_lottieurl(lottie_url_hello)
 lottie_search = load_lottieurl(lottie_url_search)
 # --- USER AUTHENTICATION ---
