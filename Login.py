@@ -156,8 +156,8 @@ def portList():
 
 
 with st.sidebar:
-    st_lottie(lottie_hello, loop=True, quality='high', key="hello")
-st.sidebar.title(f" AISH !")
+    st_lottie(lottie_hello,widht=300, height=300, loop=True, quality='high', key="hello")
+st.sidebar.title(f"Welcome AISH !")
 
 with st.sidebar:
         selected = option_menu(
