@@ -1,33 +1,22 @@
-import streamlit as st
 import pandas as pd
+import streamlit as st
 
-# Read the CSV file
-df = pd.read_csv("system_info.csv")
+# Load the CSV file into a Pandas DataFrame
+df = pd.read_csv('systeminfo.csv')
 
-# Select columns for Host Details and OS Properties
-host_cols = ["Host Name", "Registered Owner", "Registered Organization"]
-os_cols = ["OS Name", "OS Configuration", "OS Version", "OS Manufacturer", "OS Build Type", "Product ID", "Original Install Date", "System Boot Time"]
+# Create two new DataFrames with the required columns
+host_df = df[['Host Name', 'Registered Owner', 'Registered Organization']]
+os_df = df[['OS Name', 'OS Configuration', 'OS Version', 'OS Manufacturer', 'OS Build Type', 'Product ID', 'Original Install Date', 'System Boot Time']]
 
-# Create dataframes for Host Details and OS Properties
-host_df = df[host_cols].transpose()
-os_df = df[os_cols].transpose()
+# Set column headers and styles
+host_style = "<style>th {color: #f63366; font-size: 20px;}</style>"
+os_style = "<style>th {color: #3f88c5; font-size: 20px;}</style>"
+st.write(host_style, unsafe_allow_html=True)
+st.write(os_style, unsafe_allow_html=True)
 
-# Set column and row names
-host_df.columns = [""]
-os_df.columns = [""]
+# Show the data in a tabular format
+st.write('<h2 style="color: #f63366;">Host Details</h2>', unsafe_allow_html=True)
+st.table(host_df.style.set_properties(**{'font-size': '20px'}))
 
-# Create style strings for headers
-host_style = "<style>h3 {color: #f63366;}</style>"
-os_style = "<style>h3 {color: #3f88c5;}</style>"
-
-# Write headers and data for Host Details
-st.markdown(host_style, unsafe_allow_html=True)
-st.write("<h3>Host Details</h3>", unsafe_allow_html=True)
-for column in host_df.columns:
-    st.write(f"<h3>{column}</h3>", host_df[column].iloc[0], unsafe_allow_html=True)
-
-# Write headers and data for OS Properties
-st.markdown(os_style, unsafe_allow_html=True)
-st.write("<h3>OS Properties</h3>", unsafe_allow_html=True)
-for column in os_df.columns:
-    st.write(f"<h3>{column}</h3>", os_df[column].iloc[0], unsafe_allow_html=True)
+st.write('<h2 style="color: #3f88c5;">OS Properties</h2>', unsafe_allow_html=True)
+st.table(os_df.style.set_properties(**{'font-size': '20px'}))
