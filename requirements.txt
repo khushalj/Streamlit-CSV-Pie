@@ -5,4 +5,4 @@ PyYAML==6.0
 streamlit==1.8.1
 streamlit_authenticator==0.1.5
 streamlit_option_menu==0.3.2
-lottie==0.7.0
+streamlit-lottie==0.0.3
