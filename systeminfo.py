@@ -17,8 +17,8 @@ st.write(os_style, unsafe_allow_html=True)
 # Show the data in a vertical layout
 st.write('<h2>Host Details</h2>', unsafe_allow_html=True)
 for column in host_df:
-    st.write(f"<h3>{column}</h3>", host_df[column].iloc[0])
+    st.write(f"<h3>{column}</h3>", host_df[column].iloc[0], unsafe_allow_html=True)
 
 st.write('<h2>OS Properties</h2>', unsafe_allow_html=True)
 for column in os_df:
-    st.write(f"<h3>{column}</h3>", os_df[column].iloc[0])
+    st.write(f"<h3>{column}</h3>", os_df[column].iloc[0], unsafe_allow_html=True)
