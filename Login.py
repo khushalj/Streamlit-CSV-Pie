@@ -147,7 +147,7 @@ st.sidebar.title(f"Welcome Gend Bhai !")
 with st.sidebar:
         selected = option_menu(
             menu_title= "Dashboard",
-            options=["Home", "Notification","Network Audit", "OS Audit", "Vulnerability Assessment", "Malware Logs"],
+            options=["Home", "Notifications","Network Audit", "OS Audit", "Vulnerability Assessment", "Malware Logs"],
             icons=["house", "ethernet","motherboard","braces asterisk","envelope"],
             menu_icon="cast",
             default_index=0,
@@ -155,8 +155,8 @@ with st.sidebar:
 if selected=="Home":
     st.title(f"{selected}")
 
-if selected== "Notification":
-        st.title(f"{Notifications 🗒}")
+if selected== "Notifications":
+        st.title(f"{selected}")
         #st.subheader('Notifications 🗒')
         with st.spinner("Listening..."):
             time.sleep(3)
