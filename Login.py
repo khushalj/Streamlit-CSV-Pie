@@ -92,7 +92,7 @@ def netstats():
             st.write(subset)
 
 def peripheral():
-    st.title("Peripherals Status")
+    #st.title("Peripherals Status")
 
     filename = "PeripheralsAndAdaptersReport.csv"
     df = pd.read_csv(filename)
