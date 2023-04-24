@@ -14,13 +14,11 @@ os_style = "<style>h2 {color: #3f88c5;}</style>"
 st.write(host_style, unsafe_allow_html=True)
 st.write(os_style, unsafe_allow_html=True)
 
-# Show the data in a tabular format
-col1, col2 = st.columns(2)
+# Show the data in a vertical layout
+st.write('<h2>Host Details</h2>', unsafe_allow_html=True)
+for column in host_df:
+    st.write(f"<h3>{column}</h3>", host_df[column].iloc[0])
 
-with col1:
-    st.write('<h2>Host Details</h2>', unsafe_allow_html=True)
-    st.table(host_df.style.set_properties(**{'font-size': '20px'}))
-
-with col2:
-    st.write('<h2>OS Properties</h2>', unsafe_allow_html=True)
-    st.table(os_df.style.set_properties(**{'font-size': '20px'}))
+st.write('<h2>OS Properties</h2>', unsafe_allow_html=True)
+for column in os_df:
+    st.write(f"<h3>{column}</h3>", os_df[column].iloc[0])
