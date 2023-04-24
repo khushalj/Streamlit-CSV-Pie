@@ -116,7 +116,7 @@ def portList():
     st.write(df.style.set_properties(**{'font-weight': 'bold'}))
 
 
-st.sidebar.title(f"Welcome AISH !")
+st.sidebar.title(f"Welcome Gend Bhai !")
 
 with st.sidebar:
         selected = option_menu(
