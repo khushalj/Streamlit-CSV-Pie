@@ -1,8 +1,8 @@
 import streamlit as st
 
 # Define credentials
-CORRECT_USERNAME = "securitybulls"
-CORRECT_PASSWORD = "pussyloveraish"
+CORRECT_USERNAME = "user"
+CORRECT_PASSWORD = "password"
 
 # Define login page
 def show_login():
@@ -15,14 +15,10 @@ def show_login():
     # Check credentials
     if login:
         if username == CORRECT_USERNAME and password == CORRECT_PASSWORD:
-            st.success("Logged in!")
+            st.session_state.logged_in = True
             st.experimental_rerun()
-            return True
         else:
             st.error("Incorrect username or password")
-            return False
-    else:
-        return False
 
 # Define protected page
 def show_protected():
@@ -30,9 +26,10 @@ def show_protected():
     st.write("You are now logged in!")
 
 # Show appropriate page based on login status
+if "logged_in" not in st.session_state:
+    st.session_state.logged_in = False
+
 if st.session_state.logged_in:
     show_protected()
 else:
-    if show_login():
-        st.session_state.logged_in = True
-        st.redirect("https://khushalj-streamlit-csv-pie-login-hg4xe8.streamlit.app/")
+    show_login()
