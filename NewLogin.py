@@ -18,7 +18,7 @@ def show_login(redirect_url):
             st.session_state.logged_in = True
             st.experimental_rerun()
             st.experimental_set_query_params(logged_in=True)
-            st.experimental_set_query_params(redirect_url='https://khushalj-streamlit-csv-pie-login-hg4xe8.streamlit.app/')
+            st.experimental_set_query_params(redirect_url='/Login.py')
         else:
             st.error("Incorrect username or password")
 
