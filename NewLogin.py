@@ -20,13 +20,18 @@ def app():
             st.success("Login successful!")
             st.write("Redirecting to website...")
             # Redirect to website
-            st.session_state.is_authenticated = True
-            js = "window.open('https://khushalj-streamlit-csv-pie-login-hg4xe8.streamlit.app/','_blank')"
-            html = '<img src onerror="{}">'.format(js)
-            div = '<div style="display:none">{}</div>'.format(html)
-            st.markdown(div, unsafe_allow_html=True)
+            st.experimental_set_query_params(token="abc123")
+            st.experimental_rerun()
         else:
             st.error("Incorrect username or password")
+
+    # Check if user is authenticated
+    if st.session_state.get("is_authenticated"):
+        js = "window.open('https://khushalj-streamlit-csv-pie-login-hg4xe8.streamlit.app/','_blank')"
+        html = '<img src onerror="{}">'.format(js)
+        div = '<div style="display:none">{}</div>'.format(html)
+        st.markdown(div, unsafe_allow_html=True)
+        st.session_state.pop("is_authenticated")
 
 # Run the Streamlit app
 if __name__ == '__main__':
