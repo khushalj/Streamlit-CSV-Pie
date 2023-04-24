@@ -168,14 +168,14 @@ if selected== "Home":
 if selected == "Network Audit":
         select = option_menu(
             menu_title="Network Audit",
-            options=["Open-Ports Logs", "Network Stats","Firewall Stats"],
+            options=["Listening Ports", "Network Stats","Firewall Stats"],
             icons=["bricks", "displayport", "fire"],
             menu_icon="cast",
             default_index=0,
             orientation="horizontal"
         )
         # st.title(f"{selected}")
-        if select == "Open-Ports Logs":
+        if select == "Listening Ports":
             st.title(f"{select}")
             portList()
         if select == "Firewall Stats":
