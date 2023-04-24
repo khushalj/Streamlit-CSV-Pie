@@ -1,8 +1,8 @@
 import streamlit as st
 
 # Define username and password
-username = "securitybulls"
-password = "pussyloveraish"
+username = "myusername"
+password = "mypassword"
 
 # Define Streamlit app
 def app():
@@ -24,3 +24,7 @@ def app():
             st.experimental_redirect("https://khushalj-streamlit-csv-pie-login-hg4xe8.streamlit.app/")
         else:
             st.error("Incorrect username or password")
+
+# Run the Streamlit app
+if __name__ == '__main__':
+    app()
