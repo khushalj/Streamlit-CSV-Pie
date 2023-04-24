@@ -111,7 +111,7 @@ def netstats():
 # if authentication_status:
     # ---- SIDEBAR ----
 #     authenticator.logout("Logout", "sidebar")
-st.sidebar.title(f"Welcome {name}")
+st.sidebar.title(f"Welcome Aish !")
 with st.sidebar:
         selected = option_menu(
             menu_title= "Dashboard",
