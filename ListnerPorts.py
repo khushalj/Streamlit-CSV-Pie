@@ -8,7 +8,7 @@ df = pd.read_csv("output.csv")
 st.set_page_config(page_title="Listening Port Stats")
 
 # Bold Bold headings dekhlo
-st.markdown("<h1 style='text-align: center; font-weight: bold;'>LocalAddress Listening Port Stats</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; font-weight: bold;'>Listening Port Stats 👂🏻</h1>", unsafe_allow_html=True)
 
 # Gol Gol Pie Dekho
 process_count = df["Process"].value_counts()
