@@ -10,7 +10,8 @@ import altair as alt
 from time import strftime
 import time
 import requests
-import streamlit-lottie
+from streamlit_lottie import st_lottie
+from streamlit_lottie import st_lottie_spinner
 
 def load_lottieurl(url: str):
     r = requests.get(url)
