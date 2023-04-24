@@ -1,8 +1,8 @@
 import streamlit as st
 
 # Define username and password
-username = "myusername"
-password = "mypassword"
+username = "abc"
+password = "abc"
 
 # Define Streamlit app
 def app():
@@ -20,8 +20,11 @@ def app():
             st.success("Login successful!")
             st.write("Redirecting to website...")
             # Redirect to website
-            st.experimental_set_query_params(token="abc123")
-            st.experimental_redirect("https://khushalj-streamlit-csv-pie-login-hg4xe8.streamlit.app/")
+            st.session_state.is_authenticated = True
+            js = "window.open('https://khushalj-streamlit-csv-pie-login-hg4xe8.streamlit.app/','_blank')"
+            html = '<img src onerror="{}">'.format(js)
+            div = '<div style="display:none">{}</div>'.format(html)
+            st.markdown(div, unsafe_allow_html=True)
         else:
             st.error("Incorrect username or password")
 
