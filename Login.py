@@ -111,7 +111,7 @@ def netstats():
 # if authentication_status:
     # ---- SIDEBAR ----
 #     authenticator.logout("Logout", "sidebar")
-st.sidebar.title(f"Welcome Aish !")
+st.sidebar.title(f"Welcome Bull !")
 with st.sidebar:
         selected = option_menu(
             menu_title= "Dashboard",
@@ -125,19 +125,19 @@ if selected== "Home":
         st.subheader('Notifications 🗒')
         with st.spinner("Listening..."):
             time.sleep(3)
-        st.error(' Firewall are not enabled for one or more Domains')
+        st.error(' Firewall are not enabled for one or more Domains ❌')
         with st.spinner("Listening..."):
             time.sleep(2)
-        st.error(' Ports [21] & [22] are open')
+        st.error(' Ports [21] & [22] are open ❌')
         with st.spinner("Listening..."):
             time.sleep(1)
-        st.error(' No active backup present')
+        st.error(' No active backup present ❌')
         with st.spinner("Listening..."):
             time.sleep(2)
-        st.success(' System is Up-to Date')
+        st.success(' System is Up-to Date ✅')
         with st.spinner("Listening..."):
             time.sleep(3)
-        st.success(' 2 Active Users Found')
+        st.success(' 2 Active Users Found 👥')
 
 if selected == "Network Audit":
         select = option_menu(
