@@ -15,7 +15,7 @@ st.write(host_style, unsafe_allow_html=True)
 st.write(os_style, unsafe_allow_html=True)
 
 # Show the data in a tabular format
-col1, col2 = st.beta_columns(2)
+col1, col2 = st.columns(2)
 
 with col1:
     st.write('<h2>Host Details</h2>', unsafe_allow_html=True)
