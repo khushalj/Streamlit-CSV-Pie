@@ -63,7 +63,13 @@ def firewall():
     fig1.update_yaxes(title_text="Number of Domains", tickmode='linear', dtick=1)
     st.plotly_chart(fig1)
 
-
+def os_version():
+    csv_file_path = "osversion8.csv"
+    dataframe = pd.read_csv(csv_file_path)
+    # st.header("OS Version and Properties")
+    st.image("image.png")
+    st.table(dataframe)
+    
 
 def netstats():
     # file = st.file_uploader("Upload CSV file", type=["csv"])
@@ -190,19 +196,19 @@ if selected == "Network Audit":
 if selected == "OS Audit":
         select = option_menu(
             menu_title="OS Audit",
-            options=["OS Details", "System Version", "Peripheral Devices"],
+            options=["OS Details and System Version", "Peripheral Devices"],
             icons=["bricks", "displayport", "fire"],
             menu_icon="cast",
             default_index=0,
             orientation="horizontal"
         )
-        if select == "OS Details":
+        if select == "OS Details and System Version":
             st.title(f"{select}")
-        if select == "System Version":
-            st.title(f"{select}")
+            os_version()
         if select == "Peripheral Devices":
             st.title(f"{select}")
             peripheral()
+
 
 if selected == "Vulnerability Assessment":
         select = option_menu(
