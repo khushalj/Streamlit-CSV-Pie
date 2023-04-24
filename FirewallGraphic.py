@@ -4,6 +4,9 @@ import plotly.express as px
 
 st.set_page_config(page_title="Firewall Analysis")
 
+st.markdown("<h1 style='text-align: Left; font-weight: bold;'>Firewall Analysis 🧱</h1>", unsafe_allow_html=True)
+
+
 # Read the CSV file
 df = pd.read_csv("firewall_status.csv")
 
