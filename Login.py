@@ -10,17 +10,17 @@ import altair as alt
 from time import strftime
 import time
 # --- USER AUTHENTICATION ---
-with open('config.yaml') as file:
-    config = yaml.load(file, Loader=yaml.SafeLoader)
-authenticator = stauth.Authenticate(
-    config['credentials'],
-    config['cookie']['name'],
-    config['cookie']['key'],
-    config['cookie']['expiry_days'],
-    config['preauthorized']
-)
+# with open('config.yaml') as file:
+#     config = yaml.load(file, Loader=yaml.SafeLoader)
+# authenticator = stauth.Authenticate(
+#     config['credentials'],
+#     config['cookie']['name'],
+#     config['cookie']['key'],
+#     config['cookie']['expiry_days'],
+#     config['preauthorized']
+# )
 
-name, authentication_status, username = authenticator.login('Login', 'main')
+# name, authentication_status, username = authenticator.login('Login', 'main')
 
 
 def port():
@@ -102,17 +102,17 @@ def netstats():
                                           'InterfaceDescription', 'Name', 'Source', 'SystemName'])
             st.write(subset)
 
-if authentication_status == False:
-    st.error("Username/password is incorrect")
+# if authentication_status == False:
+#     st.error("Username/password is incorrect")
 
-if authentication_status == None:
-    st.warning("Please enter your username and password")
+# if authentication_status == None:
+#     st.warning("Please enter your username and password")
 
-if authentication_status:
+# if authentication_status:
     # ---- SIDEBAR ----
-    authenticator.logout("Logout", "sidebar")
-    st.sidebar.title(f"Welcome {name}")
-    with st.sidebar:
+#     authenticator.logout("Logout", "sidebar")
+st.sidebar.title(f"Welcome {name}")
+with st.sidebar:
         selected = option_menu(
             menu_title= "Dashboard",
             options=["Home", "Network Audit", "OS Audit", "Vulnerability Assessment", "Malware Logs"],
@@ -120,7 +120,7 @@ if authentication_status:
             menu_icon="cast",
             default_index=0,
         )
-    if selected== "Home":
+if selected== "Home":
         st.title(f"{selected}")
         st.subheader('Notifications 🗒')
         with st.spinner("Listening..."):
@@ -139,7 +139,7 @@ if authentication_status:
             time.sleep(3)
         st.success(' 2 Active Users Found')
 
-    if selected == "Network Audit":
+if selected == "Network Audit":
         select = option_menu(
             menu_title="Network Audit",
             options=["Firewall Stats", "Open-Ports Logs", "Network Stats"],
@@ -161,7 +161,7 @@ if authentication_status:
 
 
 
-    if selected == "OS Audit":
+if selected == "OS Audit":
         select = option_menu(
             menu_title="OS Audit",
             options=["OS Details", "System Version", "Peripheral Devices"],
@@ -177,7 +177,7 @@ if authentication_status:
         if select == "Peripheral Devices":
             st.title(f"{select}")
 
-    if selected == "Vulnerability Assessment":
+if selected == "Vulnerability Assessment":
         select = option_menu(
             menu_title="Vulnerability Assessment",
             options=["Assessment 1", "Assessment 2", "Assessment 3"],
