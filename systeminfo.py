@@ -23,4 +23,4 @@ with col1:
 
 with col2:
     st.write('<h2>OS Properties</h2>', unsafe_allow_html=True)
-    st.table(os_df.style.set_properties(**{'font-size': '20px'})))
+    st.table(os_df.style.set_properties(**{'font-size': '20px'}))
