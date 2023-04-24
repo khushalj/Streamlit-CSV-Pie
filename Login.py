@@ -156,7 +156,7 @@ def portList():
 
 
 with st.sidebar:
-    st_lottie(lottie_hello,width=200, height=200, loop=True, quality='high', key="hello")
+    st_lottie(lottie_hello,width=300, height=200, loop=True, quality='high', key="hello")
 st.sidebar.title(f"Welcome AISH !")
 
 with st.sidebar:
