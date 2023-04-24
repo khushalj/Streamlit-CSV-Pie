@@ -148,7 +148,7 @@ with st.sidebar:
         selected = option_menu(
             menu_title= "Dashboard",
             options=["Home", "Notifications","Network Audit", "OS Audit", "Vulnerability Assessment", "Malware Logs"],
-            icons=["house", "ethernet","motherboard","braces asterisk","envelope"],
+            icons=["house","bell fill","ethernet","motherboard","braces asterisk","envelope"],
             menu_icon="cast",
             default_index=0,
         )
