@@ -11,7 +11,7 @@ df = pd.read_csv("firewall_status.csv")
 df["Status"] = df["Enabled"].apply(lambda x: "✅" if x else "❌")
 
 # color of tick and cross marks based on the value in the "Enabled" column
-df["Status"] = df["Enabled"].apply(lambda x: "<span style='color:green'>✅</span>" if x else "<span style='color:red'>❌</span>")
+df["Status"] = df["Enabled"].apply(lambda x: "✅" if x else "❌")
 
 # comparative bar chart for True and False values in the "Enabled" column
 enabled_count = df["Enabled"].value_counts()
