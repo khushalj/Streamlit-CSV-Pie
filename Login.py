@@ -22,42 +22,10 @@ import time
 
 # name, authentication_status, username = authenticator.login('Login', 'main')
 
-
-def port():
-    # Upload CSV
-    uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
-    if uploaded_file is not None:
-        df = pd.read_csv(uploaded_file)
-        # Create a dictionary to map boolean values to checkmark or cross symbols
-        # status_dict = {True: "✅", False: "❌"}
-        # # Replace the boolean values with checkmark or cross symbols
-        # df["Enabled"] = df["Enabled"].map(status_dict)
-        #Table BG
-        st.markdown(
-            '<style>div.row-widget.stRadio > div{background-color: #f4f4f4}</style>',
-            unsafe_allow_html=True,
-        )
-        total_ports = len(df)
-        open_ports = len(df[df['State'] == 'Open'])
-        close_ports = total_ports - open_ports
-        open_percentage = round(open_ports / total_ports * 100, 2)
-        close_percentage = round(close_ports / total_ports * 100, 2)
-
-        # Create a pie chart to display the data
-        data = {'State': ['Open', 'Close'], 'Percentage': [open_percentage, close_percentage]}
-        fig = px.pie(data, values='Percentage', names='State')
-        left_column, right_column = st.columns(2)
-        # Display the pie chart
-        with left_column:
-            st.write(df)
-        with right_column:
-            st.plotly_chart(fig)
-
-        # Display table
-
 def firewall():
     # Upload CSV
-    uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
+    # uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
+    uploaded_file = "firewall_status.csv"
 
     if uploaded_file is not None:
         df = pd.read_csv(uploaded_file)
@@ -78,7 +46,8 @@ def firewall():
         st.write(df)
 
 def netstats():
-    file = st.file_uploader("Upload CSV file", type=["csv"])
+    # file = st.file_uploader("Upload CSV file", type=["csv"])
+    file = "network-stats.csv"
     if file:
         df = pd.read_csv(file)
 
@@ -102,16 +71,53 @@ def netstats():
                                           'InterfaceDescription', 'Name', 'Source', 'SystemName'])
             st.write(subset)
 
-# if authentication_status == False:
-#     st.error("Username/password is incorrect")
+def peripheral():
+    st.title("Peripherals Status")
 
-# if authentication_status == None:
-#     st.warning("Please enter your username and password")
+    filename = "PeripheralsAndAdaptersReport.csv"
+    df = pd.read_csv(filename)
+    status_dict = {"OK": "✅", "ERROR": "❌"}
+    df["Status"] = df["Status"].map(status_dict)
 
-# if authentication_status:
-    # ---- SIDEBAR ----
-#     authenticator.logout("Logout", "sidebar")
-st.sidebar.title(f"Welcome Bull !")
+    st.markdown(
+        '<style>div.row-widget.stRadio > div{background-color: #f4f4f4}</style>',
+        unsafe_allow_html=True,
+    )
+    st.write(df)
+
+    total_class = len(df)
+    system_adap = len(df[df['Class'] == 'System'])
+    net_adap = total_class - system_adap
+    System_percentage = round(system_adap/ total_class * 100, 2)
+    Net_percentage = round( net_adap / total_class* 100, 2)
+
+    data = {'Class': ['System', 'Net'], 'Percentage': [System_percentage, Net_percentage]}
+    fig1 = px.pie(data, values='Percentage', names='Class', color_discrete_sequence=['yellow', 'teal'])
+
+    st.plotly_chart(fig1)
+
+def portList():
+    df = pd.read_csv("output.csv")
+    # st.set_page_config(page_title="Listening Port Stats")
+    # Bold Bold headings dekhlo
+    # st.markdown("<h1 style='text-align: center; font-weight: bold;'>Listening Port Stats 👂🏻</h1>",
+    #             unsafe_allow_html=True)
+    # Gol Gol Pie Dekho
+    process_count = df["Process"].value_counts()
+    fig1 = px.pie(values=process_count, names=process_count.index, title="Process Frequency")
+    st.plotly_chart(fig1)
+
+    # Bar Chart 🌚
+    address_count = df["LocalAddress"].value_counts()
+    fig2 = px.bar(x=address_count.index, y=address_count.values, title="Local Address Frequency")
+    st.plotly_chart(fig2)
+
+    # Table m sab dekhlo
+    st.write(df.style.set_properties(**{'font-weight': 'bold'}))
+
+
+st.sidebar.title(f"Welcome AISH !")
+
 with st.sidebar:
         selected = option_menu(
             menu_title= "Dashboard",
@@ -125,24 +131,24 @@ if selected== "Home":
         st.subheader('Notifications 🗒')
         with st.spinner("Listening..."):
             time.sleep(3)
-        st.error(' Firewall are not enabled for one or more Domains ❌')
+        st.error(' Firewall are not enabled for one or more Domains')
         with st.spinner("Listening..."):
             time.sleep(2)
-        st.error(' Ports [21] & [22] are open ❌')
+        st.error(' Ports [21] & [22] are open')
         with st.spinner("Listening..."):
             time.sleep(1)
-        st.error(' No active backup present ❌')
+        st.error(' No active backup present')
         with st.spinner("Listening..."):
             time.sleep(2)
-        st.success(' System is Up-to Date ✅')
+        st.success(' System is Up-to Date')
         with st.spinner("Listening..."):
             time.sleep(3)
-        st.success(' 2 Active Users Found 👥')
+        st.success(' 2 Active Users Found')
 
 if selected == "Network Audit":
         select = option_menu(
             menu_title="Network Audit",
-            options=["Firewall Stats", "Open-Ports Logs", "Network Stats"],
+            options=["Open-Ports Logs", "Network Stats","Firewall Stats"],
             icons=["bricks", "displayport", "fire"],
             menu_icon="cast",
             default_index=0,
@@ -151,7 +157,7 @@ if selected == "Network Audit":
         # st.title(f"{selected}")
         if select == "Open-Ports Logs":
             st.title(f"{select}")
-            port()
+            portList()
         if select == "Firewall Stats":
             st.title(f"{select}")
             firewall()
@@ -176,6 +182,7 @@ if selected == "OS Audit":
             st.title(f"{select}")
         if select == "Peripheral Devices":
             st.title(f"{select}")
+            peripheral()
 
 if selected == "Vulnerability Assessment":
         select = option_menu(
@@ -195,4 +202,5 @@ if selected == "Vulnerability Assessment":
 
 if selected == "Malware Logs":
         st.title(f"{selected}")
+
 
