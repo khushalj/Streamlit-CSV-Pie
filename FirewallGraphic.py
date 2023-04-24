@@ -1,29 +1,15 @@
 import streamlit as st
 import pandas as pd
+import plotly.express as px
 
-def main():
-    st.title("Firewall Status")
+# Read the CSV file
+df = pd.read_csv("your_file.csv")
 
-    # Upload CSV
-    uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
+# Create a comparative bar chart for True and False values in the "Enabled" column
+enabled_count = df["Enabled"].value_counts()
+fig1 = px.bar(x=enabled_count.index, y=enabled_count.values, title="Enabled Comparative Graph")
+st.plotly_chart(fig1)
 
-    if uploaded_file is not None:
-        df = pd.read_csv(uploaded_file)
-
-        # Create a dictionary to map boolean values to checkmark or cross symbols
-        status_dict = {True: "✅", False: "❌"}
-
-        # Replace the boolean values with checkmark or cross symbols
-        df["Enabled"] = df["Enabled"].map(status_dict)
-
-        #Table BG
-        st.markdown(
-            '<style>div.row-widget.stRadio > div{background-color: #f4f4f4}</style>',
-            unsafe_allow_html=True,
-        )
-
-        # Display table
-        st.write(df)
-
-if __name__ == "__main__":
-    main()
+# Create a pie chart showing the frequency of True and False values in the "Enabled" column
+fig2 = px.pie(values=enabled_count.values, names=enabled_count.index, title="Enabled Pie Chart")
+st.plotly_chart(fig2)
