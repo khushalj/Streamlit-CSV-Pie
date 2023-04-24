@@ -25,25 +25,45 @@ import time
 def firewall():
     # Upload CSV
     # uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
-    uploaded_file = "firewall_status.csv"
+    df = pd.read_csv("firewall_status.csv")
+    # Add a new column with tick or cross marks based on the value in the "Enabled" column
+    df["Status"] = df["Enabled"].apply(lambda x: "✅" if x else "❌")
+    # color of tick and cross marks based on the value in the "Enabled" column
+    df["Status"] = df["Enabled"].apply(lambda x: "✅" if x else "❌")
 
-    if uploaded_file is not None:
-        df = pd.read_csv(uploaded_file)
+    col1, col2 = st.columns(2)
+    enabled_count = df["Enabled"].value_counts()
+    colors = ["green", "red"]
+    with col1:
+        # Display the CSV file as a table with tick or cross
+        st.write("")
+        st.write("")
+        st.write("")
+        st.write("")
+        st.write("")
+        st.write("")
+        st.write("")
+        st.write("")
+        st.write("")
 
-        # Create a dictionary to map boolean values to checkmark or cross symbols
-        status_dict = {True: "✅", False: "❌"}
+        st.table(df[["Name", "Status"]].style.hide_index())
 
-        # Replace the boolean values with checkmark or cross symbols
-        df["Enabled"] = df["Enabled"].map(status_dict)
+    with col2:
+# Create a pie chart showing the frequency of True and False values in the "Enabled" column
+        fig2 = px.pie(values=enabled_count.values, names=enabled_count.index, title="Status of Firewall Across Domains",
+              color=enabled_count.index, color_discrete_sequence=colors)
+        st.plotly_chart(fig2)
 
-        #Table BG
-        st.markdown(
-            '<style>div.row-widget.stRadio > div{background-color: #f4f4f4}</style>',
-            unsafe_allow_html=True,
-        )
+ # comparative bar chart for True and False values in the "Enabled" column
 
-        # Display table
-        st.write(df)
+    fig1 = px.bar(x=enabled_count.index, y=enabled_count.values,
+                      title="Comparative analysis of Active & Inactive Firewall on Domains", color=enabled_count.index,
+                      color_discrete_sequence=colors)
+    fig1.update_xaxes(title_text="Firewall Value")
+    fig1.update_yaxes(title_text="Number of Domains", tickmode='linear', dtick=1)
+    st.plotly_chart(fig1)
+
+
 
 def netstats():
     # file = st.file_uploader("Upload CSV file", type=["csv"])
