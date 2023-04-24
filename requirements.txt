@@ -6,3 +6,4 @@ streamlit==1.8.1
 streamlit_authenticator==0.1.5
 streamlit_option_menu==0.3.2
 streamlit_lottie==0.0.3
+lottie==0.7.0
