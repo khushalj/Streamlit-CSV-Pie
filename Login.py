@@ -193,6 +193,6 @@ if selected == "Vulnerability Assessment":
         if select == "Assessment 3":
             st.title(f"{select}")
 
-    if selected == "Malware Logs":
+if selected == "Malware Logs":
         st.title(f"{selected}")
 
