@@ -9,6 +9,17 @@ import plotly.express as px
 import altair as alt
 from time import strftime
 import time
+import requests
+
+def load_lottieurl(url: str):
+    r = requests.get(url)
+    if r.status_code != 200:
+        return None
+    return r.json()
+lottie_url_search = "https://assets3.lottiefiles.com/packages/lf20_1PD1tpvlop.json"
+lottie_url_hello = "https://assets1.lottiefiles.com/packages/lf20_llbjwp92qL.json"
+lottie_hello = load_lottieurl(lottie_url_hello)
+lottie_search = load_lottieurl(lottie_url_search)
 # --- USER AUTHENTICATION ---
 # with open('config.yaml') as file:
 #     config = yaml.load(file, Loader=yaml.SafeLoader)
@@ -142,7 +153,9 @@ def portList():
     st.write(df.style.set_properties(**{'font-weight': 'bold'}))
 
 
-st.sidebar.title(f"Welcome Gend Bhai !")
+with st.sidebar:
+    st_lottie(lottie_hello, loop=True, quality='high', key="hello")
+st.sidebar.title(f" AISH !")
 
 with st.sidebar:
         selected = option_menu(
