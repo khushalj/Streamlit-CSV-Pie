@@ -171,8 +171,8 @@ with st.sidebar:
         )
 if selected=="Home":
     st.title(f"{selected}")
-    with st_lottie_spinner(lottie_welcome,width=600,height=400,loop=False,quality='high'):
-        time.sleep(9)
+#     with st_lottie_spinner(lottie_welcome,width=600,height=400,loop=False,quality='high'):
+#         time.sleep(9)
     with st_lottie_spinner(lottie_search, width=700, height=400, loop=True, quality='high'):
         time.sleep(10)
 
