@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 
 # Read the CSV file
-df = pd.read_csv("your_file.csv")
+df = pd.read_csv("firewall_status.csv")
 
 # Create a comparative bar chart for True and False values in the "Enabled" column
 enabled_count = df["Enabled"].value_counts()
