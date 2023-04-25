@@ -13,6 +13,9 @@ import requests
 from streamlit_lottie import st_lottie
 from streamlit_lottie import st_lottie_spinner
 import plotly.graph_objects as go
+import matplotlib.pyplot as plt
+import seaborn as sns
+from tabulate import tabulate
 
 def load_lottieurl(url: str):
     r = requests.get(url)
@@ -39,7 +42,56 @@ lottie_welcome=load_lottieurl(lottie_url_welcome)
 # )
 
 # name, authentication_status, username = authenticator.login('Login', 'main')
+def malware_1():
+    df = pd.read_csv('malware.csv')
 
+# create a table to summarize the data
+    table = pd.pivot_table(df, values='Occurance', index=['Malware Type', 'Folder Name'], columns='Malware Name', aggfunc=sum, fill_value=0)
+    table = pd.pivot_table(df, values='Occurance', index=['Malware Type', 'Folder Name'], columns='Malware Name', aggfunc=sum, fill_value=0)
+
+# add a border and set the background color of the headers
+    styled_table = table.style.set_properties(**{'border': '1px solid black',
+                                             'border-collapse': 'collapse'})\
+                         .set_table_styles([{'selector': 'th',
+                                             'props': [('background-color', 'lightgrey')]}])
+    display(styled_table)
+
+# create a bar plot to show the total frequency of each malware type
+    sns.barplot(x='Malware Type', y='Occurance', data=df, estimator=sum)
+    plt.title('Total Frequency by Malware Type')
+    plt.show()
+
+# create a stacked bar plot to show the frequency of each malware name by folder name
+    ax = sns.barplot(x='Folder Name', y='Occurance', hue='Malware Name', data=df)
+    plt.title('Frequency by Folder and Malware Name')
+    ax.legend(title='Malware Name', bbox_to_anchor=(1.05, 1), loc='upper left')
+    ax.set_xlabel('Folder Name')
+    plt.show()
+
+# create a pie chart to show the distribution of malware types across all folders
+    df_pie = df.groupby('Malware Type').sum().reset_index()
+    plt.pie(df_pie['Occurance'], labels=df_pie['Malware Type'], autopct='%1.1f%%')
+    plt.title('Distribution of Malware Types')
+    plt.show()
+
+# create a heatmap to show the frequency of each malware type and folder name combination
+    table_heatmap = pd.pivot_table(df, values='Occurance', index=['Folder Name'], columns='Malware Type', aggfunc=sum, fill_value=0)
+    sns.heatmap(table_heatmap, cmap='Blues', annot=True, fmt='g')
+    plt.title('Frequency by Folder and Malware Type')
+    plt.show()
+
+def malware_2():
+    df = pd.read_csv('/content/mal_sum.csv')
+    df.index += 1
+
+# print the DataFrame in a tabular form
+    print(df.to_string(index=True))
+
+# print the DataFrame using the tabulate package with the 'fancy_grid' table format
+    from tabulate import tabulate
+    table = tabulate(df, headers='keys', tablefmt='fancy_grid', showindex='always')
+    print(table)
+    
 def firewall():
     # Upload CSV
     # uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
@@ -551,5 +603,7 @@ if selected == "Vulnerability Assessment":
 
 if selected == "Malware Logs":
         st.title(f"{selected}")
+        malware_1()
+        malware_2()
 
 
