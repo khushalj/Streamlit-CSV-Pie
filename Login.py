@@ -352,9 +352,9 @@ if selected == "OS Audit":
                     st.dataframe(section_df.style.set_properties(**{'width': '100px'}), width=800)
 
             with tabs[4]:
-                 df = pd.read_csv('systeminfo.csv', names=['Name', 'Value'])
+                df = pd.read_csv('systeminfo.csv', names=['Name', 'Value'])
       
-                 sections = {
+                sections = {
                 'Hotfix Details': ['Hotfix(s)', '[01]', '[02]', '[03]', '[04]']
                   }
                 section_values = {}
