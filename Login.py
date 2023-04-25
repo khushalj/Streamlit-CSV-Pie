@@ -166,8 +166,8 @@ def malware_2():
     grouped_df = df.groupby('Severity').sum()
 
     # Create pie chart
-    fig, ax = plt.subplots(figsize=(5, 5))
-    ax.pie(grouped_df['Total'], labels=grouped_df.index, autopct='%1.1f%%', colors=['#FFC300', '#FF5733', '#C70039'])
+    fig, ax = plt.subplots(figsize=(3, 3))
+    ax.pie(grouped_df['Total'], labels=grouped_df.index, autopct='%1.1f%%', colors=['#FFC300', '#FF5733', '#C70039','#FF4162','#17DEEE'])
     ax.set_title('Severity Distribution')
 
     # Create table
