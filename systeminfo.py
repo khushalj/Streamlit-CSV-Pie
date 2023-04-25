@@ -34,4 +34,4 @@ for section, section_names in sections.items():
     section_df = pd.DataFrame(section_values[section].items(), columns=['Name', 'Value'])
     section_df = section_df.loc[section_df['Name'].isin(section_names)]
     section_df['Value'] = section_df['Value'].apply(lambda x: '✔️' if x == 'True' else ('❌' if x == 'False' else x)) # add tick or cross for True/False values
-    st.dataframe(section_df.style.set_properties(**{'width': '100px'}).set_caption(' ').set_table_styles([{'selector': 'th', 'props': [('background-color', '#D3D3D3'), ('color', 'black'), ('font-weight', 'bold'), ('font-size', '120%')]}) , width=800)
+    st.dataframe(section_df.style.set_properties(**{'width': '100px'}).set_caption(' ').set_table_styles([{'selector': 'th', 'props': [('background-color', '#D3D3D3'), ('color', 'black'), ('font-weight', 'bold'), ('font-size', '120%')]}] , width=800)
