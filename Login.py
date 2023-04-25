@@ -276,9 +276,9 @@ if selected == "OS Audit":
                     st.dataframe(section_df.style.set_properties(**{'width': '100px'}), width=800)
 
             with tabs[1]:
-                 df = pd.read_csv('systeminfo.csv', names=['Name', 'Value'])
+                df = pd.read_csv('systeminfo.csv', names=['Name', 'Value'])
       
-                 sections = {
+                sections = {
                 'OS Properties': ['OS Name', 'OS Configuration', 'OS Version', 'OS Manufacturer', 'OS Build Type',
                                   'Product ID', 'Original Install Date', 'System Boot Time']
                 }
