@@ -234,20 +234,21 @@ if selected == "OS Audit":
         )
         if select == "OS Details and System Version":
             tab_titles={
-            "Host Details",
-            "OS Properties",
-            "Hardware Properties",
-            "Logical Properties",
-            "Locale Properties",
-            "Memory Properties",
-            "Network and Adapter Properties",
-            "Hypervisor Properties",
-            "Hotfixes"
+              "Host Details",
+              "OS Properties",
+              "Hardware Properties",
+              "Logical Properties",
+              "Locale Properties",
+              "Memory Properties",
+              "Network and Adapter Properties",
+              "Hypervisor Properties",
+              "Hotfixes"
             }
             tabs = st.tabs(tab_titles)
             st.title(f"{select}")
             with tabs[0]:
-             os_version()
+                os_version()
+            
         if select == "Peripheral Devices":
             st.title(f"{select}")
             peripheral()
