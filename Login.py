@@ -166,7 +166,7 @@ def malware_2():
     grouped_df = df.groupby('Severity').sum()
 
     # Create pie chart
-    fig, ax = plt.subplots(figsize=(3, 3))
+    fig, ax = plt.subplots(figsize=(4, 4))
     ax.pie(grouped_df['Total'], labels=grouped_df.index, autopct='%1.1f%%', colors=['#FFC300', '#FF5733', '#C70039','#FF4162','#17DEEE'])
     ax.set_title('Severity Distribution')
 
@@ -198,7 +198,7 @@ def malware_2():
     from tabulate import tabulate
     table = tabulate(df, headers='keys', tablefmt='fancy_grid', showindex='always')
 #     print(table)
-    st.write(table)
+#    st.write(table)
     
 def firewall():
     # Upload CSV
