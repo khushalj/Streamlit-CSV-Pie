@@ -245,9 +245,26 @@ if selected == "OS Audit":
               "Hotfixes"
             }
             tabs = st.tabs(tab_titles)
-            st.title(f"{select}")
+            
             with tabs[0]:
+                st.title(f"{tabs[0]}")
                 os_version()
+            with tabs[1]:
+                st.title(f"{tabs[0]}")
+            with tabs[2]:
+                st.title(f"{tabs[0]}")
+            with tabs[3]:
+                st.title(f"{tabs[0]}")
+            with tabs[4]:
+                st.title(f"{tabs[0]}")
+            with tabs[5]:
+                st.title(f"{tabs[0]}")
+            with tabs[6]:
+                st.title(f"{tabs[0]}")
+            with tabs[7]:
+                st.title(f"{tabs[0]}")
+            with tabs[8]:
+                st.title(f"{tabs[0]}")
             
         if select == "Peripheral Devices":
             st.title(f"{select}")
