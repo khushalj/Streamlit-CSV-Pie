@@ -243,7 +243,7 @@ if selected == "OS Audit":
             "Network and Adapter Properties",
             "Hypervisor Properties",
             "Hotfixes"
-        }
+            }
             tabs = st.tabs(tab_titles)
             st.title(f"{select}")
             with tabs[0]:
