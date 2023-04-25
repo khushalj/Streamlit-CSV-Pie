@@ -1,8 +1,6 @@
 import streamlit as st
 import pandas as pd
 
-
-st.set_page_config(page_title="System Information")
 # read csv file
 df = pd.read_csv('systeminfo.csv', names=['Name', 'Value'])
 
@@ -15,7 +13,7 @@ sections = {
     'Locale Properties': ['System Locale', 'Input Locale', 'Time Zone'],
     'Memory Properties': ['Total Physical Memory', 'Available Physical Memory', 'Virtual Memory', 'Virtual Memory', 'Virtual Memory'],
     'Network & Network Adapter Properties': ['Domain', 'Logon Server', 'Hotfix(s)', '[01]', '[02]', '[03]', '[04]', 'Network Card(s)', '[01]', 'Connection Name', 'DHCP Enabled', 'DHCP Server', 'IP address(es)', '[01]', '[02]', 'Connection Name', 'Status', '[03]', 'Connection Name', 'DHCP Enabled', 'DHCP Server', 'IP address(es)', '[01]', '[02]', '[04]', 'Connection Name', 'DHCP Enabled', 'DHCP Server', 'IP address(es)', '[01]', '[02]', '[05]', 'Connection Name', 'DHCP Enabled', 'IP address(es)', '[01]', '[02]', '[06]', 'Connection Name', 'Status', '[07]', 'Connection Name', 'DHCP Enabled', 'IP address(es)'],
-    'Hypervisor': ['Hyper-V Requirements'],
+    'hypervisor': ['Hyper-V Requirements'],
     'Hotfix Details': ['Hotfix(s)', '[01]', '[02]', '[03]', '[04]']
 }
 
@@ -32,6 +30,7 @@ for index, row in df.iterrows():
 
 # display sections
 st.set_page_config(page_title="System Information")
+st.header("System Information")
 for section, section_names in sections.items():
     st.header(section)
     section_df = pd.DataFrame(section_values[section].items(), columns=['Name', 'Value'])
