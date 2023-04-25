@@ -16,6 +16,7 @@ import plotly.graph_objects as go
 import matplotlib.pyplot as plt
 import seaborn as sns
 from tabulate import tabulate
+from IPython.display import display
 
 def load_lottieurl(url: str):
     r = requests.get(url)
