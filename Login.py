@@ -645,17 +645,17 @@ if selected == "OS Audit":
 if selected == "Vulnerability Assessment":
         select = option_menu(
             menu_title="Vulnerability Assessment",
-            options=["Assessment 1", "Assessment 2", "Assessment 3"],
+            options=["Severity Assessment", "Directory Assessment", "Vulnerability Distribution"],
             icons=["file-bar-graph", "file-bar-graph", "file-bar-graph"],
             menu_icon="cast",
             default_index=0,
             orientation="horizontal"
         )
-        if select == "Assessment 1":
+        if select == "Severity Assessment":
             st.title(f"{select}")
-        if select == "Assessment 2":
+        if select == "Directory Assessment":
             st.title(f"{select}")
-        if select == "Assessment 3":
+        if select == "Vulnerability Distribution":
             st.title(f"{select}")
 
 if selected == "Malware Logs":
