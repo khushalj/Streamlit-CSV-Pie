@@ -187,11 +187,33 @@ if selected=="Home":
     st.container()
     col1, col2 = st.columns([1, 2])
     with col1:
-        st.markdown("<h3 style='text-align: left;'>Download your Report</h3>", unsafe_allow_html=True)
+        st.write("")
+        st.write("")
+        st.write("")
+        st.write("")
+        st.write("")
+        st.write("")
+        st.write("")
+        st.write("")
+        st.write("")
+
+        st.markdown("<h3 style='text-align: left;position: centre;'>Download your Report</h3>", unsafe_allow_html=True)
         text_contents = '''This is some text'''
         st.download_button('Download some text', text_contents)
     with col2:
-        st.write("")  # blank space to align container to the left
+        # st.write("")  # blank space to align container to the left
+
+        labels = ['Secure', 'Not Secure']
+        values = [82, 18]
+        colors = ['green', 'red']
+        # Create the pie chart figure
+        fig = go.Figure(data=[go.Pie(labels=labels, values=values, marker=dict(colors=colors))])
+        # Customize the pie chart layout
+        # st.markdown("<h6 style='text-align: justify;position: centre;'>Security status</h6>", unsafe_allow_html=True)
+        fig.update_layout(
+            showlegend=True,
+            legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
+        )
 
 if selected== "Notifications":
         st.title(f"{selected}")
