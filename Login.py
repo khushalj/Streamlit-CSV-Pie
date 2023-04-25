@@ -155,6 +155,8 @@ def malware_1():
     plt.title('Frequency by Folder and Malware Type')
     st.pyplot(fig4)
 
+    #Beginnn
+    
 def malware_2():
     # Read CSV file
     df = pd.read_csv('mal_sum.csv')
@@ -164,7 +166,7 @@ def malware_2():
     grouped_df = df.groupby('Severity').sum()
 
     # Create pie chart
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(5, 5))
     ax.pie(grouped_df['Total'], labels=grouped_df.index, autopct='%1.1f%%', colors=['#FFC300', '#FF5733', '#C70039'])
     ax.set_title('Severity Distribution')
 
@@ -185,7 +187,9 @@ def malware_2():
         st.write('')
         st.write('')
         st.write('')
-
+        
+        #KHATAM
+        
 # print the DataFrame in a tabular form
 #     print(df.to_string(index=True))
     st.write(df)
