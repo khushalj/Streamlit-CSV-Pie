@@ -139,12 +139,14 @@ def malware_2():
     df.index += 1
 
 # print the DataFrame in a tabular form
-    print(df.to_string(index=True))
+#     print(df.to_string(index=True))
+    st.write(df)
 
 # print the DataFrame using the tabulate package with the 'fancy_grid' table format
     from tabulate import tabulate
     table = tabulate(df, headers='keys', tablefmt='fancy_grid', showindex='always')
-    print(table)
+#     print(table)
+    st.write(table)
     
 def firewall():
     # Upload CSV
