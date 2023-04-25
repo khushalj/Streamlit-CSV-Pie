@@ -176,7 +176,22 @@ if selected=="Home":
 #     with st_lottie_spinner(lottie_welcome,width=600,height=400,loop=False,quality='high'):
 #         time.sleep(9)
     with st_lottie_spinner(lottie_search, width=700, height=550, loop=True, quality='high'):
-        time.sleep(10)
+        with st.spinner("Collecting data..."):
+         time.sleep(3)
+        with st.spinner("Analyzing data..."):
+         time.sleep(3)
+        with st.spinner("Just a sec, finalizing things ! "):
+         time.sleep(5)
+    # time.sleep(5)
+
+    st.container()
+    col1, col2 = st.columns([1, 2])
+    with col1:
+        st.markdown("<h3 style='text-align: left;'>Download your Report</h3>", unsafe_allow_html=True)
+        text_contents = '''This is some text'''
+        st.download_button('Download some text', text_contents)
+    with col2:
+        st.write("")  # blank space to align container to the left
 
 if selected== "Notifications":
         st.title(f"{selected}")
