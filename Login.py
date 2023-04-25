@@ -203,7 +203,6 @@ if selected=="Home":
         st.download_button('Download some text', text_contents)
     with col2:
         # st.write("")  # blank space to align container to the left
-
         labels = ['Secure', 'Not Secure']
         values = [82, 18]
         colors = ['green', 'red']
