@@ -161,7 +161,7 @@ def malware_2():
     
   #HURU
     # Read CSV file
-    df = pd.read_csv('your_file.csv')
+    df = pd.read_csv('mal_sum.csv')
 
     # Group data by Severity and sum Total values
     grouped_df = df.groupby('Severity').sum()
