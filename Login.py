@@ -247,8 +247,34 @@ if selected == "OS Audit":
             tabs = st.tabs(tab_titles)
             
             with tabs[0]:
-                st.subheader("Host Details")
-                os_version()
+#                 st.subheader("Host Details")
+                df = pd.read_csv('systeminfo.csv', names=['Name', 'Value'])
+
+            # create sections
+                sections = {
+                'Logical Properties': ['Windows Directory', 'System Directory', 'BIOS Version']
+            }
+
+            # create dictionary to store values for each section
+                section_values = {}
+                for section in sections:
+                    section_values[section] = {}
+
+            # loop through rows of dataframe and populate section values dictionary
+                for index, row in df.iterrows():
+                    for section, section_names in sections.items():
+                        if row['Name'] in section_names:
+                            section_values[section][row['Name']] = row['Value']
+
+            # display sections
+                for section, section_names in sections.items():
+                    st.header(section)
+                    section_df = pd.DataFrame(section_values[section].items(), columns=['Name', 'Value'])
+                    section_df = section_df.loc[section_df['Name'].isin(section_names)]
+                    section_df['Value'] = section_df['Value'].apply(lambda x: '✔️' if x == 'True' else (
+                        '❌' if x == 'False' else x))  # add tick or cross for True/False values
+                    st.dataframe(section_df.style.set_properties(**{'width': '100px'}), width=800)
+
             with tabs[1]:
                 st.subheader("OS Properties")
             with tabs[2]:
