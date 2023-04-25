@@ -12,6 +12,7 @@ import time
 import requests
 from streamlit_lottie import st_lottie
 from streamlit_lottie import st_lottie_spinner
+import plotly.graph_objects as go
 
 def load_lottieurl(url: str):
     r = requests.get(url)
