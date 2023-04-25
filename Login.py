@@ -166,8 +166,8 @@ st.sidebar.title(f"Welcome AISH !")
 with st.sidebar:
         selected = option_menu(
             menu_title= "Dashboard",
-            options=["Home", "Notifications","Network Audit", "OS Audit", "Vulnerability Assessment", "Malware Logs"],
-            icons=["house","bell fill","ethernet","motherboard","braces asterisk","text-paragraph"],
+            options=["Home", "Notifications","Network Audit", "OS Audit", "Malware Logs","Vulnerability Assessment"],
+            icons=["house","bell fill","ethernet","motherboard","text-paragraph","braces asterisk"],
             menu_icon="cast",
             default_index=0,
         )
