@@ -42,6 +42,52 @@ lottie_welcome=load_lottieurl(lottie_url_welcome)
 # )
 
 # name, authentication_status, username = authenticator.login('Login', 'main')
+def plot_graph():
+    df = pd.read_csv("output.csv")
+    # st.set_page_config(page_title="Listening Port Stats")
+    # Bold Bold headings dekhlo
+    # st.markdown("<h1 style='text-align: center; font-weight: bold;'>Listening Port Stats 👂🏻</h1>",
+    #             unsafe_allow_html=True)
+    # Gol Gol Pie Dekho
+    process_count = df["Process"].value_counts()
+    fig1 = px.pie(values=process_count, names=process_count.index, title="Process Frequency")
+    st.plotly_chart(fig1)
+    address_count = df["LocalAddress"].value_counts()
+    fig2 = px.bar(x=address_count.index, y=address_count.values, title="Local Address Frequency")
+    st.plotly_chart(fig2)
+
+    #netstat
+    file = "network-stats.csv"
+    if file:
+        df = pd.read_csv(file)
+
+        # Create a bar chart of InterfaceAlias and Source
+        chart = alt.Chart(df).mark_bar().encode(
+            x='InterfaceAlias',
+            y='count()',
+            color='Source'
+        ).properties(
+            width=600,
+            height=400
+        )
+        st.altair_chart(chart)
+
+    #port
+    df1 = pd.read_csv("firewall_status.csv")
+    enabled_count = df1["Enabled"].value_counts()
+    colors = ["green", "red"]
+    fig2 = px.pie(values=enabled_count.values, names=enabled_count.index, title="Status of Firewall Across Domains",
+                  color=enabled_count.index, color_discrete_sequence=colors)
+    st.plotly_chart(fig2)
+
+    # comparative bar chart for True and False values in the "Enabled" column
+
+    fig1 = px.bar(x=enabled_count.index, y=enabled_count.values,
+              title="Comparative analysis of Active & Inactive Firewall on Domains", color=enabled_count.index,
+              color_discrete_sequence=colors)
+    fig1.update_xaxes(title_text="Firewall Value")
+    fig1.update_yaxes(title_text="Number of Domains", tickmode='linear', dtick=1)
+    st.plotly_chart(fig1)
 def malware_1():
     df = pd.read_csv('malware.csv')
 
@@ -268,6 +314,7 @@ if selected=="Home":
 
         # Render the pie chart in Streamlit
         st.plotly_chart(fig, use_container_width=True)
+    plot_graph()
 
 if selected== "Notifications":
         st.title(f"{selected}")
