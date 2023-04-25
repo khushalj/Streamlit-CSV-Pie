@@ -276,21 +276,217 @@ if selected == "OS Audit":
                     st.dataframe(section_df.style.set_properties(**{'width': '100px'}), width=800)
 
             with tabs[1]:
-                st.subheader("OS Properties")
+                 df = pd.read_csv('systeminfo.csv', names=['Name', 'Value'])
+      
+                 sections = {
+                'OS Properties': ['OS Name', 'OS Configuration', 'OS Version', 'OS Manufacturer', 'OS Build Type',
+                                  'Product ID', 'Original Install Date', 'System Boot Time']
+                }
+                section_values = {}
+                for section in sections:
+                    section_values[section] = {}
+
+            # loop through rows of dataframe and populate section values dictionary
+                for index, row in df.iterrows():
+                    for section, section_names in sections.items():
+                        if row['Name'] in section_names:
+                            section_values[section][row['Name']] = row['Value']
+
+            # display sections
+                for section, section_names in sections.items():
+                    st.header(section)
+                    section_df = pd.DataFrame(section_values[section].items(), columns=['Name', 'Value'])
+                    section_df = section_df.loc[section_df['Name'].isin(section_names)]
+                    section_df['Value'] = section_df['Value'].apply(lambda x: '✔️' if x == 'True' else (
+                        '❌' if x == 'False' else x))  # add tick or cross for True/False values
+                    st.dataframe(section_df.style.set_properties(**{'width': '100px'}), width=800)
             with tabs[2]:
-                st.subheader("Hardware Properties")
+                df = pd.read_csv('systeminfo.csv', names=['Name', 'Value'])
+      
+                sections = {
+                'Hypervisor': ['Hyper-V Requirements']
+                  }
+                section_values = {}
+                for section in sections:
+                    section_values[section] = {}
+
+            # loop through rows of dataframe and populate section values dictionary
+                for index, row in df.iterrows():
+                    for section, section_names in sections.items():
+                        if row['Name'] in section_names:
+                            section_values[section][row['Name']] = row['Value']
+
+            # display sections
+                for section, section_names in sections.items():
+                    st.header(section)
+                    section_df = pd.DataFrame(section_values[section].items(), columns=['Name', 'Value'])
+                    section_df = section_df.loc[section_df['Name'].isin(section_names)]
+                    section_df['Value'] = section_df['Value'].apply(lambda x: '✔️' if x == 'True' else (
+                        '❌' if x == 'False' else x))  # add tick or cross for True/False values
+                    st.dataframe(section_df.style.set_properties(**{'width': '100px'}), width=800)
+
             with tabs[3]:
-                st.subheader("Locale Properties")
+                df = pd.read_csv('systeminfo.csv', names=['Name', 'Value'])
+      
+                sections = {
+                'Memory Properties': ['Total Physical Memory', 'Available Physical Memory', 'Virtual Memory',
+                                      'Virtual Memory', 'Virtual Memory']
+                    }
+                section_values = {}
+                for section in sections:
+                    section_values[section] = {}
+
+            # loop through rows of dataframe and populate section values dictionary
+                for index, row in df.iterrows():
+                    for section, section_names in sections.items():
+                        if row['Name'] in section_names:
+                            section_values[section][row['Name']] = row['Value']
+
+            # display sections
+                for section, section_names in sections.items():
+                    st.header(section)
+                    section_df = pd.DataFrame(section_values[section].items(), columns=['Name', 'Value'])
+                    section_df = section_df.loc[section_df['Name'].isin(section_names)]
+                    section_df['Value'] = section_df['Value'].apply(lambda x: '✔️' if x == 'True' else (
+                        '❌' if x == 'False' else x))  # add tick or cross for True/False values
+                    st.dataframe(section_df.style.set_properties(**{'width': '100px'}), width=800)
+
             with tabs[4]:
-                st.subheader("Memory Properties")
+                 df = pd.read_csv('systeminfo.csv', names=['Name', 'Value'])
+      
+                 sections = {
+                'Hotfix Details': ['Hotfix(s)', '[01]', '[02]', '[03]', '[04]']
+                  }
+                section_values = {}
+                for section in sections:
+                    section_values[section] = {}
+
+            # loop through rows of dataframe and populate section values dictionary
+                for index, row in df.iterrows():
+                    for section, section_names in sections.items():
+                        if row['Name'] in section_names:
+                            section_values[section][row['Name']] = row['Value']
+
+            # display sections
+                for section, section_names in sections.items():
+                    st.header(section)
+                    section_df = pd.DataFrame(section_values[section].items(), columns=['Name', 'Value'])
+                    section_df = section_df.loc[section_df['Name'].isin(section_names)]
+                    section_df['Value'] = section_df['Value'].apply(lambda x: '✔️' if x == 'True' else (
+                        '❌' if x == 'False' else x))  # add tick or cross for True/False values
+                    st.dataframe(section_df.style.set_properties(**{'width': '100px'}), width=800)
+
             with tabs[5]:
-                st.subheader("Network and Adapter Properties")
+                df = pd.read_csv('systeminfo.csv', names=['Name', 'Value'])
+      
+                sections = {
+                'Host Details': ['Host Name', 'Registered Owner', 'Registered Organization']
+                
+                  }
+                section_values = {}
+                for section in sections:
+                    section_values[section] = {}
+
+            # loop through rows of dataframe and populate section values dictionary
+                for index, row in df.iterrows():
+                    for section, section_names in sections.items():
+                        if row['Name'] in section_names:
+                            section_values[section][row['Name']] = row['Value']
+
+            # display sections
+                for section, section_names in sections.items():
+                    st.header(section)
+                    section_df = pd.DataFrame(section_values[section].items(), columns=['Name', 'Value'])
+                    section_df = section_df.loc[section_df['Name'].isin(section_names)]
+                    section_df['Value'] = section_df['Value'].apply(lambda x: '✔️' if x == 'True' else (
+                        '❌' if x == 'False' else x))  # add tick or cross for True/False values
+                    st.dataframe(section_df.style.set_properties(**{'width': '100px'}), width=800)
+
             with tabs[6]:
-                st.subheader("Hypervisor Properties")
+                df = pd.read_csv('systeminfo.csv', names=['Name', 'Value'])
+      
+                sections = {
+                'Hardware Properties': ['System Manufacturer', 'System Model', 'System Type', 'Processor(s)', '[01]',
+                                        'Boot Device']
+                 }
+                section_values = {}
+                for section in sections:
+                    section_values[section] = {}
+
+            # loop through rows of dataframe and populate section values dictionary
+                for index, row in df.iterrows():
+                    for section, section_names in sections.items():
+                        if row['Name'] in section_names:
+                            section_values[section][row['Name']] = row['Value']
+
+            # display sections
+                for section, section_names in sections.items():
+                    st.header(section)
+                    section_df = pd.DataFrame(section_values[section].items(), columns=['Name', 'Value'])
+                    section_df = section_df.loc[section_df['Name'].isin(section_names)]
+                    section_df['Value'] = section_df['Value'].apply(lambda x: '✔️' if x == 'True' else (
+                        '❌' if x == 'False' else x))  # add tick or cross for True/False values
+                    st.dataframe(section_df.style.set_properties(**{'width': '100px'}), width=800)
+
             with tabs[7]:
-                st.subheader("Hypervisor Properties")
+                df = pd.read_csv('systeminfo.csv', names=['Name', 'Value'])
+      
+                sections = {
+                'Locale Properties': ['System Locale', 'Input Locale', 'Time Zone']
+            }
+                section_values = {}
+                for section in sections:
+                    section_values[section] = {}
+
+            # loop through rows of dataframe and populate section values dictionary
+                for index, row in df.iterrows():
+                    for section, section_names in sections.items():
+                        if row['Name'] in section_names:
+                            section_values[section][row['Name']] = row['Value']
+
+            # display sections
+                for section, section_names in sections.items():
+                    st.header(section)
+                    section_df = pd.DataFrame(section_values[section].items(), columns=['Name', 'Value'])
+                    section_df = section_df.loc[section_df['Name'].isin(section_names)]
+                    section_df['Value'] = section_df['Value'].apply(lambda x: '✔️' if x == 'True' else (
+                        '❌' if x == 'False' else x))  # add tick or cross for True/False values
+                    st.dataframe(section_df.style.set_properties(**{'width': '100px'}), width=800)
+
             with tabs[8]:
-                st.subheader("Logical Properties")
+                df = pd.read_csv('systeminfo.csv', names=['Name', 'Value'])
+      
+                sections = {
+                'Network & Network Adapter Properties': ['Domain', 'Logon Server', 'Hotfix(s)', '[01]', '[02]', '[03]',
+                                                         '[04]', 'Network Card(s)', '[01]', 'Connection Name',
+                                                         'DHCP Enabled', 'DHCP Server', 'IP address(es)', '[01]',
+                                                         '[02]', 'Connection Name', 'Status', '[03]', 'Connection Name',
+                                                         'DHCP Enabled', 'DHCP Server', 'IP address(es)', '[01]',
+                                                         '[02]', '[04]', 'Connection Name', 'DHCP Enabled',
+                                                         'DHCP Server', 'IP address(es)', '[01]', '[02]', '[05]',
+                                                         'Connection Name', 'DHCP Enabled', 'IP address(es)', '[01]',
+                                                         '[02]', '[06]', 'Connection Name', 'Status', '[07]',
+                                                         'Connection Name', 'DHCP Enabled', 'IP address(es)']
+                    }
+                section_values = {}
+                for section in sections:
+                    section_values[section] = {}
+
+            # loop through rows of dataframe and populate section values dictionary
+                for index, row in df.iterrows():
+                    for section, section_names in sections.items():
+                        if row['Name'] in section_names:
+                            section_values[section][row['Name']] = row['Value']
+
+            # display sections
+                for section, section_names in sections.items():
+                    st.header(section)
+                    section_df = pd.DataFrame(section_values[section].items(), columns=['Name', 'Value'])
+                    section_df = section_df.loc[section_df['Name'].isin(section_names)]
+                    section_df['Value'] = section_df['Value'].apply(lambda x: '✔️' if x == 'True' else (
+                        '❌' if x == 'False' else x))  # add tick or cross for True/False values
+                    st.dataframe(section_df.style.set_properties(**{'width': '100px'}), width=800)
+
 
             
         if select == "Peripheral Devices":
