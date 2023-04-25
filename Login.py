@@ -104,35 +104,56 @@ def malware_1():
     st.write(styled_table)  
 
 # create a bar plot to show the total frequency of each malware type
-    barplot_data = df.groupby('Malware Type').sum().reset_index()
-    fig, ax = plt.subplots()
+#     barplot_data = df.groupby('Malware Type').sum().reset_index()
+#     fig, ax = plt.subplots()
+#     sns.barplot(x='Malware Type', y='Occurance', data=df, estimator=sum)
+#     plt.title('Total Frequency by Malware Type')
+# #     plt.show()
+#     st.pyplot(fig)
+    fig1 = plt.figure()
     sns.barplot(x='Malware Type', y='Occurance', data=df, estimator=sum)
     plt.title('Total Frequency by Malware Type')
-#     plt.show()
-    st.pyplot(fig)
+    st.pyplot(fig1)
 
 
 # create a stacked bar plot to show the frequency of each malware name by folder name
+#     ax = sns.barplot(x='Folder Name', y='Occurance', hue='Malware Name', data=df)
+#     plt.title('Frequency by Folder and Malware Name')
+#     ax.legend(title='Malware Name', bbox_to_anchor=(1.05, 1), loc='upper left')
+#     ax.set_xlabel('Folder Name')
+# #     plt.show()
+#     st.pyplot(fig)
+    fig2 = plt.figure()
     ax = sns.barplot(x='Folder Name', y='Occurance', hue='Malware Name', data=df)
     plt.title('Frequency by Folder and Malware Name')
     ax.legend(title='Malware Name', bbox_to_anchor=(1.05, 1), loc='upper left')
     ax.set_xlabel('Folder Name')
-#     plt.show()
-    st.pyplot(fig)
+    st.pyplot(fig2)
+
 
 # create a pie chart to show the distribution of malware types across all folders
+#     df_pie = df.groupby('Malware Type').sum().reset_index()
+#     plt.pie(df_pie['Occurance'], labels=df_pie['Malware Type'], autopct='%1.1f%%')
+#     plt.title('Distribution of Malware Types')
+# #     plt.show()
+#     st.pyplot(fig)
+    fig3 = plt.figure()
     df_pie = df.groupby('Malware Type').sum().reset_index()
     plt.pie(df_pie['Occurance'], labels=df_pie['Malware Type'], autopct='%1.1f%%')
     plt.title('Distribution of Malware Types')
-#     plt.show()
-    st.pyplot(fig)
+    st.pyplot(fig3)
 
 # create a heatmap to show the frequency of each malware type and folder name combination
+#     table_heatmap = pd.pivot_table(df, values='Occurance', index=['Folder Name'], columns='Malware Type', aggfunc=sum, fill_value=0)
+#     sns.heatmap(table_heatmap, cmap='Blues', annot=True, fmt='g')
+#     plt.title('Frequency by Folder and Malware Type')
+# #     plt.show()
+#     st.pyplot(fig)
+    fig4 = plt.figure()
     table_heatmap = pd.pivot_table(df, values='Occurance', index=['Folder Name'], columns='Malware Type', aggfunc=sum, fill_value=0)
     sns.heatmap(table_heatmap, cmap='Blues', annot=True, fmt='g')
     plt.title('Frequency by Folder and Malware Type')
-#     plt.show()
-    st.pyplot(fig)
+    st.pyplot(fig4)
 
 def malware_2():
     df = pd.read_csv('mal_sum.csv')
