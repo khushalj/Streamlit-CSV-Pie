@@ -202,7 +202,6 @@ if selected=="Home":
         text_contents = '''This is some text'''
         st.download_button('Download some text', text_contents)
     with col2:
-        # st.write("")  # blank space to align container to the left
         labels = ['Secure', 'Not Secure']
         values = [82, 18]
         colors = ['green', 'red']
@@ -214,6 +213,9 @@ if selected=="Home":
             showlegend=True,
             legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
         )
+
+        # Render the pie chart in Streamlit
+        st.plotly_chart(fig, use_container_width=True)
 
 if selected== "Notifications":
         st.title(f"{selected}")
