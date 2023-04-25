@@ -298,7 +298,7 @@ if selected=="Home":
 
         st.markdown("<h3 style='text-align: left;position: centre;'>Download your Report</h3>", unsafe_allow_html=True)
         text_contents = '''This is some text'''
-        st.download_button('Download some text', text_contents)
+        st.download_button('Download the report', text_contents)
     with col2:
         labels = ['Secure', 'Not Secure']
         values = [82, 18]
