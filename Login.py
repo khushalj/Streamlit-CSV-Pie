@@ -158,6 +158,22 @@ def malware_1():
 def malware_2():
     df = pd.read_csv('mal_sum.csv')
     df.index += 1
+    
+  #HURU
+    # Read CSV file
+    df = pd.read_csv('your_file.csv')
+
+    # Group data by Severity and sum Total values
+    grouped_df = df.groupby('Severity').sum()
+
+    # Create pie chart
+    fig, ax = plt.subplots()
+    ax.pie(grouped_df['Total'], labels=grouped_df.index, autopct='%1.1f%%')
+    ax.set_title('Severity Distribution')
+
+    # Display chart in Streamlit
+    st.pyplot(fig)
+   #KHATAM
 
 # print the DataFrame in a tabular form
 #     print(df.to_string(index=True))
