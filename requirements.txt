@@ -8,3 +8,4 @@ streamlit_option_menu==0.3.2
 streamlit-lottie==0.0.3
 lottie==0.7.0
 matplotlib==3.7.1
+seaborn==0.12.2
