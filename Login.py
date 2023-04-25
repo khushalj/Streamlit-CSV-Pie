@@ -128,7 +128,7 @@ def malware_1():
     plt.show()
 
 def malware_2():
-    df = pd.read_csv('/content/mal_sum.csv')
+    df = pd.read_csv('mal_sum.csv')
     df.index += 1
 
 # print the DataFrame in a tabular form
