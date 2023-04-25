@@ -101,7 +101,7 @@ def malware_1():
                          .set_table_styles([{'selector': 'th',
                                              'props': [('background-color', 'lightgrey')]}])
 #     display(styled_table)
-      st.write(styled_table)  
+    st.write(styled_table)  
 
 # create a bar plot to show the total frequency of each malware type
     barplot_data = df.groupby('Malware Type').sum().reset_index()
