@@ -322,7 +322,7 @@ def portList():
 
 with st.sidebar:
     st_lottie(lottie_hello,width=300, height=200, loop=True, quality='high', key="hello")
-st.sidebar.title(f"Welcome AISH !")
+st.sidebar.title(f"Welcome Auditor !")
 
 with st.sidebar:
         selected = option_menu(
@@ -338,11 +338,11 @@ if selected=="Home":
 #         time.sleep(9)
     with st_lottie_spinner(lottie_search, width=700, height=550, loop=True, quality='high'):
         with st.spinner("Collecting data..."):
-         time.sleep(3)
+         time.sleep(2)
         with st.spinner("Analyzing data..."):
+         time.sleep(2)
+        with st.spinner("Just a moment, finalizing things! "):
          time.sleep(3)
-        with st.spinner("Just a sec, finalizing things ! "):
-         time.sleep(5)
     # time.sleep(5)
 
     st.container()
