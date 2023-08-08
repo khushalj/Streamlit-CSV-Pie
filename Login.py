@@ -441,7 +441,7 @@ if st.session_state.authenticated:
                               default_index=0,
                           )
 
-                  if selected =="Home":
+                  if selected =="Overview":
                       st.title("CSI Benchmark Checks")
                       data = pd.read_csv('network_server_policy_report.csv')
                       data = add_status_column(data)
@@ -450,7 +450,7 @@ if st.session_state.authenticated:
 
 
                       
-                  if selected=="Overview":
+                  if selected=="Home":
                       st.title(f"{selected}")
                   #     with st_lottie_spinner(lottie_welcome,width=600,height=400,loop=False,quality='high'):
                   #         time.sleep(9)
