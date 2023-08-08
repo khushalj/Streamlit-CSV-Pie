@@ -354,7 +354,7 @@ if st.button("Login"):
             with st.sidebar:
                     selected = option_menu(
                         menu_title= "Dashboard",
-                        options=["Home", "Notifications","Network Audit", "OS Audit", "Malware Logs","Vulnerability Score", "Benchmark Downloads"],
+                        options=["Home", "Notifications","Network Audit", "OS Audit", "Malware Logs","Risk Score", "Benchmark Downloads"],
                         icons=["house","bell fill","ethernet","motherboard","text-paragraph","braces asterisk"],
                         menu_icon="cast",
                         default_index=0,
@@ -734,16 +734,16 @@ if st.button("Login"):
                             df= pd.read_csv('InstalledSoftware.csv', names=['DisplayName', 'Publisher', 'Version', 'Install Date', ' Directory'])
                             st.dataframe(df)
                             
-            if selected == "Vulnerability Score":
+            if selected == "Risk Score":
                     # select = option_menu(
-                    #     menu_title="Vulnerability Score",
+                    #     menu_title="Risk Score",
                     #     # options=["Severity Assessment", "Directory Assessment", "Vulnerability Distribution"],
                     #     # icons=["file-bar-graph", "file-bar-graph", "file-bar-graph"],
                     #     # menu_icon="cast",
                     #     # default_index=0,
                     #     # orientation="horizontal"
                     # )
-                    st.title("Vulnerability Score")
+                    st.title("Risk Score")
                     df = pd.read_csv('mal_sum.csv')
                     df.index += 1
 
