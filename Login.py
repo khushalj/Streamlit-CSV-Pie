@@ -34,13 +34,20 @@ def load_lottieurl(url: str):
          return None
     return r.json()
 
-st.title("Login")
+if "logged_in" not in st.session_state:
+        st.session_state.logged_in = False
 
-username = st.text_input("Username")
-password = st.text_input("Password", type="password")
+    if not st.session_state.logged_in:
+        username = st.text_input("Username")
+        password = st.text_input("Password", type="password")
+# st.title("Login")
+
+# username = st.text_input("Username")
+# password = st.text_input("Password", type="password")
 
 if st.button("Login"):
         if authenticate(username, password):
+            st.session_state.logged_in = True
             st.success("Logged in successfully!")
             lottie_url_search = "https://assets7.lottiefiles.com/packages/lf20_yJ8wNO.json"
             # lottie_url_search = "https://assets3.lottiefiles.com/packages/lf20_1PD1tpvlop.json"
@@ -354,7 +361,7 @@ if st.button("Login"):
             with st.sidebar:
                     selected = option_menu(
                         menu_title= "Dashboard",
-                        options=["Home", "Notifications","Network Audit", "OS Audit", "Malware Logs","Risk Score", "Benchmark Downloads"],
+                        options=["Home", "Notifications","Network Audit", "OS Audit", "Malware Logs","Vulnerability Score", "Benchmark Downloads"],
                         icons=["house","bell fill","ethernet","motherboard","text-paragraph","braces asterisk"],
                         menu_icon="cast",
                         default_index=0,
@@ -734,16 +741,16 @@ if st.button("Login"):
                             df= pd.read_csv('InstalledSoftware.csv', names=['DisplayName', 'Publisher', 'Version', 'Install Date', ' Directory'])
                             st.dataframe(df)
                             
-            if selected == "Risk Score":
+            if selected == "Vulnerability Score":
                     # select = option_menu(
-                    #     menu_title="Risk Score",
+                    #     menu_title="Vulnerability Score",
                     #     # options=["Severity Assessment", "Directory Assessment", "Vulnerability Distribution"],
                     #     # icons=["file-bar-graph", "file-bar-graph", "file-bar-graph"],
                     #     # menu_icon="cast",
                     #     # default_index=0,
                     #     # orientation="horizontal"
                     # )
-                    st.title("Risk Score")
+                    st.title("Vulnerability Score")
                     df = pd.read_csv('mal_sum.csv')
                     df.index += 1
 
