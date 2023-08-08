@@ -35,7 +35,7 @@ lottle_medium = " https://lottie.host/b86e4cf1-5919-43eb-9a09-63c70a7a6ab0/QgZGC
 
 secure=load_lottieurl(lottie_secure)
 notsecure = load_lottieurl(lottie_notsecure)
-medium = load_lottieurl(lottie_medium)\
+medium = load_lottieurl(lottie_medium)
 
 lottie_hello = load_lottieurl(lottie_url_hello)
 lottie_search = load_lottieurl(lottie_url_search)
