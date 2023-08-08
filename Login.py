@@ -740,12 +740,21 @@ if selected == "Vulnerability Score":
             elif severity == 'Low':
                 sum_low += grouped_df.loc['Low', 'Total']
         mid= (sum_medium+sum_critical+sum_high+sum_low)/4
-        if(mid <= 20):
-             with st_lottie_spinner(secure, width=700, height=550, loop=True, quality='high'):
-                 time.sleep(7)
-        elif(mid> 20 or mid<50):
-             with st_lottie_spinner(notsecure, width=700, height=550, loop=True, quality='high'):
-                 time.sleep(7)
+       st.container()
+       col1, col2 = st.columns([1, 2])
+       with col1:
+       
+            st.markdown("<h3 style='text-align: left;position: centre;'>According to your Malware summary your score is:</h3>", unsafe_allow_html=True)
+            text_contents = '''This is some text'''
+            st.title(mid)
+
+        with col2:
+            
+            if(mid <= 20):
+              st_lottie_spinner(secure, width=700, height=550, loop=True, quality='high')
+            elif(mid> 20 or mid<50):
+              st_lottie_spinner(notsecure, width=500, height=350, loop=True, quality='high')
+                 
             
 
 if selected == "Malware Logs":
