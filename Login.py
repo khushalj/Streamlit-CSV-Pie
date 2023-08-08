@@ -41,11 +41,11 @@ def authenticate_user(username, password):
 
     return user is not None
     
-username = st.text_input("Username")
-password = st.text_input("Password", type="password")
+# username = st.text_input("Username")
+# password = st.text_input("Password", type="password")
 # Example usage
-if st.button("Login"):
-  if authenticate_user(username, password):
+# if st.button("Login"):
+if authenticate_user('admin', 'admin'):
               print("Login successful")
               lottie_url_search = "https://assets7.lottiefiles.com/packages/lf20_yJ8wNO.json"
               # lottie_url_search = "https://assets3.lottiefiles.com/packages/lf20_1PD1tpvlop.json"
@@ -830,7 +830,7 @@ if st.button("Login"):
                       st.write("---")
   
     
-  else:
+else:
               print("Invalid credentials")
 
 
