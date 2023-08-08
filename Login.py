@@ -336,7 +336,7 @@ st.sidebar.title(f"Welcome Auditor !")
 with st.sidebar:
         selected = option_menu(
             menu_title= "Dashboard",
-            options=["Home", "Notifications","Network Audit", "OS Audit", "Malware Logs","Vulnerability Score"],
+            options=["Home", "Notifications","Network Audit", "OS Audit", "Malware Logs","Vulnerability Score", "Benchmark Downloads"],
             icons=["house","bell fill","ethernet","motherboard","text-paragraph","braces asterisk"],
             menu_icon="cast",
             default_index=0,
@@ -776,3 +776,9 @@ if selected == "Malware Logs":
         malware_1()
         malware_2()
 
+if selected_option == "Benchmark Downloads":
+    download_link = "https://drive.google.com/file/d/1OOqDssJnUQrXfWLwPSZrnBR0U-1CSHB2/view?usp=sharing"
+    if st.button("Download File"):
+        st.write("Downloading...")
+        download_file(download_link, "downloaded_file.ext")
+        st.write("Download complete!")
