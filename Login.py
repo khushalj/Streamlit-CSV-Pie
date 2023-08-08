@@ -30,10 +30,10 @@ def authenticate(username, password):
 
 st.title("Login")
 
-    username = st.text_input("Username")
-    password = st.text_input("Password", type="password")
+username = st.text_input("Username")
+password = st.text_input("Password", type="password")
 
-    if st.button("Login"):
+if st.button("Login"):
         if authenticate(username, password):
             st.success("Logged in successfully!")
             lottie_url_search = "https://assets7.lottiefiles.com/packages/lf20_yJ8wNO.json"
