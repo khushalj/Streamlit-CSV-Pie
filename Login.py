@@ -41,11 +41,25 @@ def authenticate_user(username, password):
 
     return user is not None
     
-username = st.text_input("Username")
-password = st.text_input("Password", type="password")
+# username = st.text_input("Username")
+# password = st.text_input("Password", type="password")
+
+if 'authenticated' not in st.session_state:
+    st.session_state.authenticated = False
+
+if not st.session_state.authenticated:
+    username = st.text_input("Username")
+    password = st.text_input("Password", type="password")
+
+    if st.button("Login"):
+        if authenticate_user(username, password):
+            st.session_state.authenticated = True
+            st.success("Login successful")
+        else:
+            st.error("Login failed")
+            
 # Example usage
-if st.button("Login"):
-    if authenticate_user(username, password):
+if st.session_state.authenticated:
                   print("Login successful")
                   lottie_url_search = "https://assets7.lottiefiles.com/packages/lf20_yJ8wNO.json"
                   # lottie_url_search = "https://assets3.lottiefiles.com/packages/lf20_1PD1tpvlop.json"
