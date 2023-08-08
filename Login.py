@@ -423,7 +423,10 @@ if st.session_state.authenticated:
                       # Table m sab dekhlo
                       st.write(df.style.set_properties(**{'font-weight': 'bold'}))
       
-      
+                  def add_status_column(data):
+                        data["Status"] = data.apply(lambda row: "✔" if row["DesiredValue"] == row["CurrentValue"] else "", axis=1)
+                        return data
+
                   with st.sidebar:
                       st_lottie(lottie_hello,width=300, height=200, loop=True, quality='high', key="hello")
                   st.sidebar.title(f"Welcome Auditor !")
@@ -431,12 +434,22 @@ if st.session_state.authenticated:
                   with st.sidebar:
                           selected = option_menu(
                               menu_title= "Dashboard",
-                              options=["Home", "Notifications","Network Audit", "OS Audit", "Malware Logs","Risk Score", "Benchmark Downloads", "RSS"],
+                              options=["Home","Overview", "Notifications","Network Audit", "OS Audit", "Malware Logs","Risk Score", "Benchmark Downloads", "RSS"],
                               icons=["house","bell fill","ethernet","motherboard","text-paragraph","braces asterisk","pin","rss"],
                               menu_icon="cast",
                               default_index=0,
                           )
-                  if selected=="Home":
+
+                  if selected == "Home":
+                      st.title("CSI Benchmark Checks")
+                      data = pd.read_csv('network_server_policy_report.csv')
+                      data = add_status_column(data)
+                     # Display table
+                      st.table(data)
+
+
+                      
+                  if selected=="Overview":
                       st.title(f"{selected}")
                   #     with st_lottie_spinner(lottie_welcome,width=600,height=400,loop=False,quality='high'):
                   #         time.sleep(9)
