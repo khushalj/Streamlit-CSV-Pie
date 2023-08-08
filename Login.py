@@ -37,7 +37,7 @@ def load_lottieurl(url: str):
 if "logged_in" not in st.session_state:
         st.session_state.logged_in = False
 
-    if not st.session_state.logged_in:
+if not st.session_state.logged_in:
         username = st.text_input("Username")
         password = st.text_input("Password", type="password")
 # st.title("Login")
