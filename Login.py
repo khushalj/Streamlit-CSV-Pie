@@ -17,42 +17,35 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from tabulate import tabulate
 from IPython.display import display
+import sqlite3
 
-VALID_CREDENTIALS = {
-    "user1": "password1",
-    "user2": "password2",
-    "user3": "password3"
-}
-
-
-def authenticate(username, password):
-    return VALID_CREDENTIALS.get(username) == password
-    
+# VALID_CREDENTIALS = {
+#     "user1": "password1",
+#     "user2": "password2",
+#     "user3": "password3"
+# }
 def load_lottieurl(url: str):
     r = requests.get(url)
     if r.status_code != 200:
          return None
     return r.json()
+  
+def authenticate_user(username, password):
+    conn = sqlite3.connect('users.db')
+    cursor = conn.cursor()
 
-def main():
-    # st.title("Login")
+    cursor.execute('SELECT * FROM users WHERE username=? AND password=?', (username, password))
+    user = cursor.fetchone()
 
-    if "logged_in" not in st.session_state:
-        st.session_state.logged_in = False
+    conn.close()
 
-    if not st.session_state.logged_in:
-        username = st.text_input("Username")
-        password = st.text_input("Password", type="password")
-
-        if st.button("Login"):
-            if authenticate(username, password):
-                st.session_state.logged_in = True
-                st.success("Logged in successfully!")
-
-    if st.session_state.logged_in:
-        run_main_app()
-
-def run_main_app():
+    return user is not None
+    
+username = st.text_input("Username")
+password = st.text_input("Password", type="password")
+# Example usage
+if authenticate_user(username, password):
+            print("Login successful")
             lottie_url_search = "https://assets7.lottiefiles.com/packages/lf20_yJ8wNO.json"
             # lottie_url_search = "https://assets3.lottiefiles.com/packages/lf20_1PD1tpvlop.json"
             lottie_url_hello = "https://lottie.host/99a459fa-f4cb-444f-824f-02a6125845c5/juEKUWKgfr.json"
@@ -834,11 +827,10 @@ def run_main_app():
                     download_link = f'<a href="{item[1]}" download><button>Download</button></a>'
                     st.markdown(download_link, unsafe_allow_html=True)
                     st.write("---")
+  
+    
+else:
+            print("Invalid credentials")
 
-if __name__ == "__main__":
-    main()
-# st.title("Login")
 
-# username = st.text_input("Username")
-# password = st.text_input("Password", type="password")
 
