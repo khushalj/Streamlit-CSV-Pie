@@ -776,7 +776,7 @@ if selected == "Malware Logs":
         malware_1()
         malware_2()
 
-if selected_option == "Benchmark Downloads":
+if selected == "Benchmark Downloads":
     download_link = "https://drive.google.com/file/d/1OOqDssJnUQrXfWLwPSZrnBR0U-1CSHB2/view?usp=sharing"
     if st.button("Download File"):
         st.write("Downloading...")
