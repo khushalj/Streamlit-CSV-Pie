@@ -18,11 +18,39 @@ import seaborn as sns
 from tabulate import tabulate
 from IPython.display import display
 
-def load_lottieurl(url: str):
-    r = requests.get(url)
-    if r.status_code != 200:
-        return None
-    return r.json()
+# Dictionary of valid credentials
+VALID_CREDENTIALS = {
+    "user1": "password1",
+    "user2": "password2",
+    "user3": "password3"
+}
+
+def authenticate(username, password):
+    return VALID_CREDENTIALS.get(username) == password
+
+def run_main_app():
+    # Put your code snippet for the main app here
+    st.write("Running code for the main app...")
+    def load_lottieurl(url: str):
+        r = requests.get(url)
+        if r.status_code != 200:
+            return None
+        return r.json()
+
+def main():
+    st.title("Login")
+
+    username = st.text_input("Username")
+    password = st.text_input("Password", type="password")
+
+    if st.button("Login"):
+        if authenticate(username, password):
+            st.success("Logged in successfully!")
+            run_main_app()
+        else:
+            st.error("Authentication failed")
+
+
 
 lottie_url_search = "https://assets7.lottiefiles.com/packages/lf20_yJ8wNO.json"
 # lottie_url_search = "https://assets3.lottiefiles.com/packages/lf20_1PD1tpvlop.json"
@@ -328,6 +356,7 @@ def portList():
     # Table m sab dekhlo
     st.write(df.style.set_properties(**{'font-weight': 'bold'}))
 
+main()
 
 with st.sidebar:
     st_lottie(lottie_hello,width=300, height=200, loop=True, quality='high', key="hello")
@@ -400,7 +429,7 @@ if selected== "Notifications":
         st.error(' Firewall are not enabled for one or more Domains 🧱❌')
         with st.spinner("Listening..."):
             time.sleep(2)
-        st.error(' Ports [21] & [22] are open ⚠️')
+        st.error(' Ports [21] & [22] are open ⚠')
         with st.spinner("Listening..."):
             time.sleep(1)
         st.error(' No active backup present ❓')
@@ -485,7 +514,7 @@ if selected == "OS Audit":
                     st.header(section)
                     section_df = pd.DataFrame(section_values[section].items(), columns=['Name', 'Value'])
                     section_df = section_df.loc[section_df['Name'].isin(section_names)]
-                    section_df['Value'] = section_df['Value'].apply(lambda x: '✔️' if x == 'True' else (
+                    section_df['Value'] = section_df['Value'].apply(lambda x: '✔' if x == 'True' else (
                         '❌' if x == 'False' else x))  # add tick or cross for True/False values
                     st.dataframe(section_df.style.set_properties(**{'width': '100px'}), width=800)
 
@@ -511,7 +540,7 @@ if selected == "OS Audit":
                     st.header(section)
                     section_df = pd.DataFrame(section_values[section].items(), columns=['Name', 'Value'])
                     section_df = section_df.loc[section_df['Name'].isin(section_names)]
-                    section_df['Value'] = section_df['Value'].apply(lambda x: '✔️' if x == 'True' else (
+                    section_df['Value'] = section_df['Value'].apply(lambda x: '✔' if x == 'True' else (
                         '❌' if x == 'False' else x))  # add tick or cross for True/False values
                     st.dataframe(section_df.style.set_properties(**{'width': '100px'}), width=800)
             with tabs[2]:
@@ -535,7 +564,7 @@ if selected == "OS Audit":
                     st.header(section)
                     section_df = pd.DataFrame(section_values[section].items(), columns=['Name', 'Value'])
                     section_df = section_df.loc[section_df['Name'].isin(section_names)]
-                    section_df['Value'] = section_df['Value'].apply(lambda x: '✔️' if x == 'True' else (
+                    section_df['Value'] = section_df['Value'].apply(lambda x: '✔' if x == 'True' else (
                         '❌' if x == 'False' else x))  # add tick or cross for True/False values
                     st.dataframe(section_df.style.set_properties(**{'width': '100px'}), width=800)
 
@@ -561,7 +590,7 @@ if selected == "OS Audit":
                     st.header(section)
                     section_df = pd.DataFrame(section_values[section].items(), columns=['Name', 'Value'])
                     section_df = section_df.loc[section_df['Name'].isin(section_names)]
-                    section_df['Value'] = section_df['Value'].apply(lambda x: '✔️' if x == 'True' else (
+                    section_df['Value'] = section_df['Value'].apply(lambda x: '✔' if x == 'True' else (
                         '❌' if x == 'False' else x))  # add tick or cross for True/False values
                     st.dataframe(section_df.style.set_properties(**{'width': '100px'}), width=800)
 
@@ -586,7 +615,7 @@ if selected == "OS Audit":
                     st.header(section)
                     section_df = pd.DataFrame(section_values[section].items(), columns=['Name', 'Value'])
                     section_df = section_df.loc[section_df['Name'].isin(section_names)]
-                    section_df['Value'] = section_df['Value'].apply(lambda x: '✔️' if x == 'True' else (
+                    section_df['Value'] = section_df['Value'].apply(lambda x: '✔' if x == 'True' else (
                         '❌' if x == 'False' else x))  # add tick or cross for True/False values
                     st.dataframe(section_df.style.set_properties(**{'width': '100px'}), width=800)
 
@@ -612,7 +641,7 @@ if selected == "OS Audit":
                     st.header(section)
                     section_df = pd.DataFrame(section_values[section].items(), columns=['Name', 'Value'])
                     section_df = section_df.loc[section_df['Name'].isin(section_names)]
-                    section_df['Value'] = section_df['Value'].apply(lambda x: '✔️' if x == 'True' else (
+                    section_df['Value'] = section_df['Value'].apply(lambda x: '✔' if x == 'True' else (
                         '❌' if x == 'False' else x))  # add tick or cross for True/False values
                     st.dataframe(section_df.style.set_properties(**{'width': '100px'}), width=800)
 
@@ -638,7 +667,7 @@ if selected == "OS Audit":
                     st.header(section)
                     section_df = pd.DataFrame(section_values[section].items(), columns=['Name', 'Value'])
                     section_df = section_df.loc[section_df['Name'].isin(section_names)]
-                    section_df['Value'] = section_df['Value'].apply(lambda x: '✔️' if x == 'True' else (
+                    section_df['Value'] = section_df['Value'].apply(lambda x: '✔' if x == 'True' else (
                         '❌' if x == 'False' else x))  # add tick or cross for True/False values
                     st.dataframe(section_df.style.set_properties(**{'width': '100px'}), width=800)
 
@@ -663,7 +692,7 @@ if selected == "OS Audit":
                     st.header(section)
                     section_df = pd.DataFrame(section_values[section].items(), columns=['Name', 'Value'])
                     section_df = section_df.loc[section_df['Name'].isin(section_names)]
-                    section_df['Value'] = section_df['Value'].apply(lambda x: '✔️' if x == 'True' else (
+                    section_df['Value'] = section_df['Value'].apply(lambda x: '✔' if x == 'True' else (
                         '❌' if x == 'False' else x))  # add tick or cross for True/False values
                     st.dataframe(section_df.style.set_properties(**{'width': '100px'}), width=800)
 
@@ -697,7 +726,7 @@ if selected == "OS Audit":
                     st.header(section)
                     section_df = pd.DataFrame(section_values[section].items(), columns=['Name', 'Value'])
                     section_df = section_df.loc[section_df['Name'].isin(section_names)]
-                    section_df['Value'] = section_df['Value'].apply(lambda x: '✔️' if x == 'True' else (
+                    section_df['Value'] = section_df['Value'].apply(lambda x: '✔' if x == 'True' else (
                         '❌' if x == 'False' else x))  # add tick or cross for True/False values
                     st.dataframe(section_df.style.set_properties(**{'width': '100px'}), width=800)
 
@@ -805,4 +834,3 @@ if selected == "Benchmark Downloads":
         download_link = f'<a href="{item[1]}" download><button>Download</button></a>'
         st.markdown(download_link, unsafe_allow_html=True)
         st.write("---")
-
