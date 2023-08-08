@@ -1,8 +1,28 @@
 import streamlit as st
 import feedparser
+import importlib
+
+def check_requirements(requirements_file):
+    with open(requirements_file, 'r') as file:
+        requirements = file.read().splitlines()
+    
+    not_installed = []
+    for requirement in requirements:
+        try:
+            importlib.import_module(requirement)
+        except ImportError:
+            not_installed.append(requirement)
+    
+    return not_installed
 
 def main():
     st.title("RSS Feed Reader")
+    
+    # Check required packages
+    missing_packages = check_requirements('requirements.txt')
+    if missing_packages:
+        st.error(f"The following required packages are missing: {', '.join(missing_packages)}")
+        return
     
     # Input field for the RSS feed URL
     feed_url = st.text_input("Enter RSS Feed URL", "http://feeds.feedburner.com/TheHackersNews")
