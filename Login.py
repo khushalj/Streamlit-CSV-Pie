@@ -26,7 +26,7 @@ def load_lottieurl(url: str):
 
 lottie_url_search = "https://assets7.lottiefiles.com/packages/lf20_yJ8wNO.json"
 # lottie_url_search = "https://assets3.lottiefiles.com/packages/lf20_1PD1tpvlop.json"
-lottie_url_hello = "https://assets3.lottiefiles.com/packages/lf20_wci9dxOSrs.json"
+lottie_url_hello = "https://lottie.host/99a459fa-f4cb-444f-824f-02a6125845c5/juEKUWKgfr.json"
 lottie_url_welcome= "https://assets1.lottiefiles.com/packages/lf20_llbjwp92qL.json"
 
 lottie_secure = "https://lottie.host/d4276b3c-799a-4681-a1f8-72f190c160f5/EgjSUeDZkT.json"
