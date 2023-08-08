@@ -699,15 +699,15 @@ if selected == "OS Audit":
 
 
 if selected == "Vulnerability Score":
-        select = option_menu(
-            menu_title="Vulnerability Score",
-            # options=["Severity Assessment", "Directory Assessment", "Vulnerability Distribution"],
-            # icons=["file-bar-graph", "file-bar-graph", "file-bar-graph"],
-            # menu_icon="cast",
-            # default_index=0,
-            # orientation="horizontal"
-        )
-        
+        # select = option_menu(
+        #     menu_title="Vulnerability Score",
+        #     # options=["Severity Assessment", "Directory Assessment", "Vulnerability Distribution"],
+        #     # icons=["file-bar-graph", "file-bar-graph", "file-bar-graph"],
+        #     # menu_icon="cast",
+        #     # default_index=0,
+        #     # orientation="horizontal"
+        # )
+        st.title("Vulnerability Score")
         # if select == "Severity Assessment":
         #     st.title(f"{select}")
         # if select == "Directory Assessment":
