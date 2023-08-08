@@ -91,6 +91,18 @@ if st.session_state.authenticated:
                   # )
       
                   # name, authentication_status, username = authenticator.login('Login', 'main')
+                  def check_requirements(requirements_file):
+                        with open(requirements_file, 'r') as file:
+                            requirements = file.read().splitlines()
+                        
+                        not_installed = []
+                        for requirement in requirements:
+                            try:
+                                pkg_resources.require(requirement)
+                            except pkg_resources.DistributionNotFound:
+                                not_installed.append(requirement)
+                        
+                        return not_installed
                   def parse_rss_feed(feed_url):
                         response = requests.get(feed_url)
                         if response.status_code == 200:
@@ -420,7 +432,7 @@ if st.session_state.authenticated:
                           selected = option_menu(
                               menu_title= "Dashboard",
                               options=["Home", "Notifications","Network Audit", "OS Audit", "Malware Logs","Risk Score", "Benchmark Downloads", "RSS"],
-                              icons=["house","bell fill","ethernet","motherboard","text-paragraph","braces asterisk","rss"],
+                              icons=["house","bell fill","ethernet","motherboard","text-paragraph","braces asterisk","score","rss"],
                               menu_icon="cast",
                               default_index=0,
                           )
