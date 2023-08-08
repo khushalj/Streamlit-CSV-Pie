@@ -368,7 +368,7 @@ if selected=="Home":
         st.write("")
 
         st.markdown("<h3 style='text-align: left;position: centre;'>Download your Report</h3>", unsafe_allow_html=True)
-        text_contents = '''This is some text'''
+        text_contents = 'https://drive.google.com/file/d/189KgOr74ThDJVLVqbb8sSb9yTmewKi7r/view?usp=sharing'
         st.download_button('Download the report', text_contents)
     with col2:
         labels = ['Secure', 'Not Secure']
