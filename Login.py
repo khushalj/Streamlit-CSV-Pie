@@ -743,7 +743,7 @@ if selected == "Vulnerability Score":
         if(mid <= 20):
              with st_lottie_spinner(secure, width=700, height=550, loop=True, quality='high'):
                  time.sleep(7)
-        elif(mid> 20 or mid<50)
+        elif(mid> 20 or mid<50):
              with st_lottie_spinner(notsecure, width=700, height=550, loop=True, quality='high'):
                  time.sleep(7)
             
