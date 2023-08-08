@@ -839,11 +839,6 @@ if st.session_state.authenticated:
                           malware_2()
       
                   if selected == "Benchmark Downloads":
-                      # download_link = "https://drive.google.com/file/d/1OOqDssJnUQrXfWLwPSZrnBR0U-1CSHB2/view?usp=sharing"
-                      # if st.button("Download File"):
-                      #     st.write("Downloading...")
-                      #     download_file(download_link, "downloaded_file.ext")
-                      #     st.write("Download complete!")
       
                       # Define data for the table
                       data = [
@@ -863,7 +858,7 @@ if st.session_state.authenticated:
                           st.markdown(download_link, unsafe_allow_html=True)
                           st.write("---")
       
-                    if selected == "RSS":
+                  if selected == "RSS":
                         st.title("Latest in Cyber World")
                         # Check required packages
                         missing_packages = check_requirements('requirements.txt')
