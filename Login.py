@@ -31,9 +31,11 @@ lottie_url_welcome= "https://assets1.lottiefiles.com/packages/lf20_llbjwp92qL.js
 
 lottie_secure = "https://lottie.host/d4276b3c-799a-4681-a1f8-72f190c160f5/EgjSUeDZkT.json"
 lottie_notsecure = "https://lottie.host/837d5a5c-67bd-43b4-84b5-29d566d9dba8/gqEqoFPb4U.json"
+lottle_medium = " https://lottie.host/b86e4cf1-5919-43eb-9a09-63c70a7a6ab0/QgZGCVHoVU.json"
 
 secure=load_lottieurl(lottie_secure)
 notsecure = load_lottieurl(lottie_notsecure)
+medium = load_lottieurl(lottie_medium)\
 
 lottie_hello = load_lottieurl(lottie_url_hello)
 lottie_search = load_lottieurl(lottie_url_search)
@@ -747,8 +749,7 @@ if selected == "Vulnerability Score":
                 sum_high += grouped_df.loc['High', 'Total']
             elif severity == 'Low':
                 sum_low += grouped_df.loc['Low', 'Total']
-        # mid= (sum_medium+sum_critical+sum_high+sum_low)/4
-        mid=15
+        mid= (sum_medium+sum_critical+sum_high+sum_low)/4
         st.container()
         col1, col2 = st.columns([1, 2])
         with col1:
@@ -765,10 +766,10 @@ if selected == "Vulnerability Score":
         with col2:
             if(mid <= 20):
               st_lottie(secure, width=700, height=550, loop=True, quality='high')
-            elif(mid> 20 and mid<50):
+            elif(mid> 20 and mid<=50):
+              st_lottie(medium, width=500, height=350, loop=True, quality='high')
+            elif(mid>50):
               st_lottie(notsecure, width=500, height=350, loop=True, quality='high')
-                 
-            
 
 if selected == "Malware Logs":
         st.title(f"{selected}")
