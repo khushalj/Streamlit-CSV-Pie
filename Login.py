@@ -732,7 +732,8 @@ if selected == "Vulnerability Score":
                 sum_low += grouped_df.loc['Low', 'Total']
         mid= (sum_medium+sum_critical+sum_high+sum_low)/4
         if(mid <= 20):
-             with st_lottie_spinner(secure, width=700, height=550, loop=False, quality='high')
+             with st_lottie_spinner(secure, width=700, height=550, loop=False, quality='high'):
+                 time.sleep(3)
         # elif(mid> 20 && mid<50)
             
 
