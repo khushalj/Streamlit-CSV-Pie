@@ -749,11 +749,10 @@ if selected == "Vulnerability Score":
             st.title(mid)
 
         with col2:
-            
             if(mid <= 20):
-              st_lottie_spinner(secure, width=700, height=550, loop=True, quality='high')
-            elif(mid> 20 or mid<50):
-              st_lottie_spinner(notsecure, width=500, height=350, loop=True, quality='high')
+              st_lottie(secure, width=700, height=550, loop=True, quality='high')
+            elif(mid> 20 and mid<50):
+              st_lottie(notsecure, width=500, height=350, loop=True, quality='high')
                  
             
 
