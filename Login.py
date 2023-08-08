@@ -111,7 +111,7 @@ if st.session_state.authenticated:
                             return None
 
                   def rss():
-                       st.title("Latest in Cyber World")
+                        st.title("Latest in Cyber World")
                         # Check required packages
                         missing_packages = check_requirements('requirements.txt')
                         if missing_packages:
