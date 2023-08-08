@@ -35,7 +35,7 @@ def load_lottieurl(url: str):
     return r.json()
 
 def main():
-    st.title("Login")
+    # st.title("Login")
 
     if "logged_in" not in st.session_state:
         st.session_state.logged_in = False
