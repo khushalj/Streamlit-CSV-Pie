@@ -1,0 +1,2 @@
+"PolicyName","DesiredValue","CurrentValue","Status"
+"Microsoft network server: Amount of idle time required before suspending session","15","15","Policy already set to 15 or fewer minute(s)"
