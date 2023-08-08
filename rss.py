@@ -3,7 +3,7 @@ import requests
 import xml.etree.ElementTree as ET
 import importlib
 
-def check_requirements(requirements_file):
+def check_requirements(requirements.txt):
     with open(requirements_file, 'r') as file:
         requirements = file.read().splitlines()
     
