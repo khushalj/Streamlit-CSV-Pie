@@ -441,12 +441,12 @@ if st.session_state.authenticated:
                               default_index=0,
                           )
 
-                  if selected =="Overview":
-                      st.title("CSI Benchmark Checks")
-                      data = pd.read_csv('network_server_policy_report.csv')
-                      data = add_status_column(data)
-                     # Display table
-                      st.table(data)
+                  # if selected =="Overview":
+                  #     st.title("CSI Benchmark Checks")
+                  #     data = pd.read_csv('network_server_policy_report.csv')
+                  #     data = add_status_column(data)
+                  #    # Display table
+                  #     st.table(data)
 
 
                       
