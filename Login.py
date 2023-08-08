@@ -28,6 +28,10 @@ lottie_url_search = "https://assets7.lottiefiles.com/packages/lf20_yJ8wNO.json"
 # lottie_url_search = "https://assets3.lottiefiles.com/packages/lf20_1PD1tpvlop.json"
 lottie_url_hello = "https://assets3.lottiefiles.com/packages/lf20_wci9dxrs.json"
 lottie_url_welcome= "https://assets1.lottiefiles.com/packages/lf20_llbjwp92qL.json"
+
+lottie_secure = "https://lottie.host/d4276b3c-799a-4681-a1f8-72f190c160f5/EgjSUeDZkT.json"
+secure=load_lottieurl(lottie_secure)
+
 lottie_hello = load_lottieurl(lottie_url_hello)
 lottie_search = load_lottieurl(lottie_url_search)
 lottie_welcome=load_lottieurl(lottie_url_welcome)
@@ -327,7 +331,7 @@ st.sidebar.title(f"Welcome Auditor !")
 with st.sidebar:
         selected = option_menu(
             menu_title= "Dashboard",
-            options=["Home", "Notifications","Network Audit", "OS Audit", "Malware Logs","Vulnerability Assessment"],
+            options=["Home", "Notifications","Network Audit", "OS Audit", "Malware Logs","Vulnerability Score"],
             icons=["house","bell fill","ethernet","motherboard","text-paragraph","braces asterisk"],
             menu_icon="cast",
             default_index=0,
@@ -694,25 +698,46 @@ if selected == "OS Audit":
             peripheral()
 
 
-if selected == "Vulnerability Assessment":
+if selected == "Vulnerability Score":
         select = option_menu(
-            menu_title="Vulnerability Assessment",
-            options=["Severity Assessment", "Directory Assessment", "Vulnerability Distribution"],
-            icons=["file-bar-graph", "file-bar-graph", "file-bar-graph"],
-            menu_icon="cast",
-            default_index=0,
-            orientation="horizontal"
+            menu_title="Vulnerability Score",
+            # options=["Severity Assessment", "Directory Assessment", "Vulnerability Distribution"],
+            # icons=["file-bar-graph", "file-bar-graph", "file-bar-graph"],
+            # menu_icon="cast",
+            # default_index=0,
+            # orientation="horizontal"
         )
-        if select == "Severity Assessment":
-            st.title(f"{select}")
-        if select == "Directory Assessment":
-            st.title(f"{select}")
-        if select == "Vulnerability Distribution":
-            st.title(f"{select}")
+        
+        # if select == "Severity Assessment":
+        #     st.title(f"{select}")
+        # if select == "Directory Assessment":
+        #     st.title(f"{select}")
+        # if select == "Vulnerability Distribution":
+        #     st.title(f"{select}")
+        # Initialize variables to store sums
+        sum_medium = 0
+        sum_critical = 0
+        sum_high = 0
+        sum_low=0
+
+# Iterate through the unique severity levels
+        for severity in df['Severity'].unique():
+            if severity == 'Medium':
+                sum_medium += grouped_df.loc['Medium', 'Total']
+            elif severity == 'Critical':
+                sum_critical += grouped_df.loc['Critical', 'Total']
+            elif severity == 'High':
+                sum_high += grouped_df.loc['High', 'Total']
+            elif severity == 'Low':
+                sum_low += grouped_df.loc['Low', 'Total']
+        mid= (sum_medium+sum_critical+sum_high+sum_low)/4
+        if(mid <= 20):
+             with st_lottie_spinner(secure, width=700, height=550, loop=False, quality='high')
+        # elif(mid> 20 && mid<50)
+            
 
 if selected == "Malware Logs":
         st.title(f"{selected}")
         malware_1()
         malware_2()
-
 
