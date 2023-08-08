@@ -109,6 +109,32 @@ if st.session_state.authenticated:
                             return feed_entries
                         else:
                             return None
+
+                  def rss():
+                       st.title("Latest in Cyber World")
+                        # Check required packages
+                        missing_packages = check_requirements('requirements.txt')
+                        if missing_packages:
+                            st.error(f"The following required packages are missing: {', '.join(missing_packages)}")
+                            return
+                        
+                        # Input field for the RSS feed URL
+                        feed_url = st.selectbox("Select RSS Feed URL", [
+                            "http://feeds.feedburner.com/TheHackersNews",
+                            "https://www.meity.gov.in/deity.xml"
+                        ])
+                        
+                        if st.button("Fetch"):
+                            feed_entries = parse_rss_feed(feed_url)
+                            if feed_entries:
+                                st.header(feed_entries[0]["title"])
+                                for entry in feed_entries:
+                                    st.subheader(entry["title"])
+                                    st.write(entry["summary"])
+                                    st.write(f"Published on: {entry['published']}")
+                                    st.write(f"Link: {entry['link']}")
+                            else:
+                                st.warning("Error fetching or parsing the RSS feed.")
                   def plot_graph():
                       df = pd.read_csv("output.csv")
                       # st.set_page_config(page_title="Listening Port Stats")
@@ -859,30 +885,7 @@ if st.session_state.authenticated:
                           st.write("---")
       
                   if selected == "RSS":
-                        st.title("Latest in Cyber World")
-                        # Check required packages
-                        missing_packages = check_requirements('requirements.txt')
-                        if missing_packages:
-                            st.error(f"The following required packages are missing: {', '.join(missing_packages)}")
-                            return
-                        
-                        # Input field for the RSS feed URL
-                        feed_url = st.selectbox("Select RSS Feed URL", [
-                            "http://feeds.feedburner.com/TheHackersNews",
-                            "https://www.meity.gov.in/deity.xml"
-                        ])
-                        
-                        if st.button("Fetch"):
-                            feed_entries = parse_rss_feed(feed_url)
-                            if feed_entries:
-                                st.header(feed_entries[0]["title"])
-                                for entry in feed_entries:
-                                    st.subheader(entry["title"])
-                                    st.write(entry["summary"])
-                                    st.write(f"Published on: {entry['published']}")
-                                    st.write(f"Link: {entry['link']}")
-                            else:
-                                st.warning("Error fetching or parsing the RSS feed.")
+                       rss()
                         
     # else:
     #               print("Invalid credentials")
