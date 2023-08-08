@@ -18,6 +18,8 @@ import seaborn as sns
 from tabulate import tabulate
 from IPython.display import display
 import sqlite3
+import xml.etree.ElementTree as ET
+import pkg_resources
 
 # VALID_CREDENTIALS = {
 #     "user1": "password1",
@@ -89,6 +91,24 @@ if st.session_state.authenticated:
                   # )
       
                   # name, authentication_status, username = authenticator.login('Login', 'main')
+                  def parse_rss_feed(feed_url):
+                        response = requests.get(feed_url)
+                        if response.status_code == 200:
+                            root = ET.fromstring(response.content)
+                            feed_entries = []
+                            
+                            for item in root.iter("item"):
+                                entry = {
+                                    "title": item.find("title").text,
+                                    "summary": item.find("description").text,
+                                    "published": item.find("pubDate").text,
+                                    "link": item.find("link").text
+                                }
+                                feed_entries.append(entry)
+                            
+                            return feed_entries
+                        else:
+                            return None
                   def plot_graph():
                       df = pd.read_csv("output.csv")
                       # st.set_page_config(page_title="Listening Port Stats")
@@ -373,8 +393,8 @@ if st.session_state.authenticated:
                   with st.sidebar:
                           selected = option_menu(
                               menu_title= "Dashboard",
-                              options=["Home", "Notifications","Network Audit", "OS Audit", "Malware Logs","Risk Score", "Benchmark Downloads"],
-                              icons=["house","bell fill","ethernet","motherboard","text-paragraph","braces asterisk"],
+                              options=["Home", "Notifications","Network Audit", "OS Audit", "Malware Logs","Risk Score", "Benchmark Downloads", "RSS"],
+                              icons=["house","bell fill","ethernet","motherboard","text-paragraph","braces asterisk","rss"],
                               menu_icon="cast",
                               default_index=0,
                           )
@@ -843,7 +863,32 @@ if st.session_state.authenticated:
                           st.markdown(download_link, unsafe_allow_html=True)
                           st.write("---")
       
-        
+                    if selected == "RSS":
+                        st.title("Latest in Cyber World")
+                        # Check required packages
+                        missing_packages = check_requirements('requirements.txt')
+                        if missing_packages:
+                            st.error(f"The following required packages are missing: {', '.join(missing_packages)}")
+                            return
+                        
+                        # Input field for the RSS feed URL
+                        feed_url = st.selectbox("Select RSS Feed URL", [
+                            "http://feeds.feedburner.com/TheHackersNews",
+                            "https://www.meity.gov.in/deity.xml"
+                        ])
+                        
+                        if st.button("Fetch"):
+                            feed_entries = parse_rss_feed(feed_url)
+                            if feed_entries:
+                                st.header(feed_entries[0]["title"])
+                                for entry in feed_entries:
+                                    st.subheader(entry["title"])
+                                    st.write(entry["summary"])
+                                    st.write(f"Published on: {entry['published']}")
+                                    st.write(f"Link: {entry['link']}")
+                            else:
+                                st.warning("Error fetching or parsing the RSS feed.")
+                        
     # else:
     #               print("Invalid credentials")
 
