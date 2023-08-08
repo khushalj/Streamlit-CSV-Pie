@@ -31,7 +31,7 @@ def load_lottieurl(url: str):
     return r.json()
   
 def authenticate_user(username, password):
-    conn = sqlite3.connect('users.db')
+    conn = sqlite3.connect('sqlite.db')
     cursor = conn.cursor()
 
     cursor.execute('SELECT * FROM users WHERE username=? AND password=?', (username, password))
