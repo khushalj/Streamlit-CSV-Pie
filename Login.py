@@ -34,21 +34,25 @@ def load_lottieurl(url: str):
          return None
     return r.json()
 
-if "logged_in" not in st.session_state:
+def main():
+    st.title("Login")
+
+    if "logged_in" not in st.session_state:
         st.session_state.logged_in = False
 
-if not st.session_state.logged_in:
+    if not st.session_state.logged_in:
         username = st.text_input("Username")
         password = st.text_input("Password", type="password")
-# st.title("Login")
 
-# username = st.text_input("Username")
-# password = st.text_input("Password", type="password")
+        if st.button("Login"):
+            if authenticate(username, password):
+                st.session_state.logged_in = True
+                st.success("Logged in successfully!")
 
-if st.button("Login"):
-        if authenticate(username, password):
-            st.session_state.logged_in = True
-            st.success("Logged in successfully!")
+    if st.session_state.logged_in:
+        run_main_app()
+
+def run_main_app():
             lottie_url_search = "https://assets7.lottiefiles.com/packages/lf20_yJ8wNO.json"
             # lottie_url_search = "https://assets3.lottiefiles.com/packages/lf20_1PD1tpvlop.json"
             lottie_url_hello = "https://lottie.host/99a459fa-f4cb-444f-824f-02a6125845c5/juEKUWKgfr.json"
@@ -829,7 +833,12 @@ if st.button("Login"):
                     st.write(f"**{item[0]}**")
                     download_link = f'<a href="{item[1]}" download><button>Download</button></a>'
                     st.markdown(download_link, unsafe_allow_html=True)
-                    st.write("---")           
-            
-        else:
-            st.error("Authentication failed")
+                    st.write("---")
+
+if __name__ == "__main__":
+    main()
+# st.title("Login")
+
+# username = st.text_input("Username")
+# password = st.text_input("Password", type="password")
+
