@@ -746,6 +746,10 @@ if selected == "Vulnerability Score":
         with col1:
             st.write(" ")
             st.write(" ")
+            st.write(" ")
+            st.write(" ")
+            st.write(" ")
+            st.write(" ")
             st.markdown("<h3 style='text-align: left;position: centre;'>According to your Malware summary your score is:</h3>", unsafe_allow_html=True)
             text_contents = '''This is some text'''
             st.title(mid)
