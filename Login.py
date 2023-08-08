@@ -367,9 +367,14 @@ if selected=="Home":
         st.write("")
         st.write("")
 
+        # st.markdown("<h3 style='text-align: left;position: centre;'>Download your Report</h3>", unsafe_allow_html=True)
+        # text_contents = https://drive.google.com/file/d/189KgOr74ThDJVLVqbb8sSb9yTmewKi7r/view?usp=sharing
+        # st.download_button('Download the report', text_contents)
         st.markdown("<h3 style='text-align: left;position: centre;'>Download your Report</h3>", unsafe_allow_html=True)
-        text_contents = 'https://drive.google.com/file/d/189KgOr74ThDJVLVqbb8sSb9yTmewKi7r/view?usp=sharing'
-        st.download_button('Download the report', text_contents)
+
+# Download button with the link
+        report_link = 'https://drive.google.com/file/d/189KgOr74ThDJVLVqbb8sSb9yTmewKi7r/view?usp=sharing'
+        st.markdown(f'<a href="{report_link}" download><button>Download the report</button></a>', unsafe_allow_html=True)
     with col2:
         labels = ['Secure', 'Not Secure']
         values = [82, 18]
