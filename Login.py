@@ -16,7 +16,7 @@ import plotly.graph_objects as go
 import matplotlib.pyplot as plt
 import seaborn as sns
 from tabulate import tabulate
-from IPython.display import display
+from IPython.display import display
 
 VALID_CREDENTIALS = {
     "user1": "password1",
@@ -27,7 +27,12 @@ VALID_CREDENTIALS = {
 
 def authenticate(username, password):
     return VALID_CREDENTIALS.get(username) == password
-
+    
+def load_lottieurl(url: str):
+    r = requests.get(url)
+    if r.status_code != 200:
+        return None
+    return r.json()
 st.title("Login")
 
 username = st.text_input("Username")
