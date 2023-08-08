@@ -31,7 +31,7 @@ lottie_url_welcome= "https://assets1.lottiefiles.com/packages/lf20_llbjwp92qL.js
 
 lottie_secure = "https://lottie.host/d4276b3c-799a-4681-a1f8-72f190c160f5/EgjSUeDZkT.json"
 lottie_notsecure = "https://lottie.host/837d5a5c-67bd-43b4-84b5-29d566d9dba8/gqEqoFPb4U.json"
-lottle_medium = " https://lottie.host/b86e4cf1-5919-43eb-9a09-63c70a7a6ab0/QgZGCVHoVU.json"
+lottie_medium = " https://lottie.host/b86e4cf1-5919-43eb-9a09-63c70a7a6ab0/QgZGCVHoVU.json"
 
 secure=load_lottieurl(lottie_secure)
 notsecure = load_lottieurl(lottie_notsecure)
