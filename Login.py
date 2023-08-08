@@ -782,23 +782,23 @@ if selected == "Malware Logs":
         malware_2()
 
 if selected == "Benchmark Downloads":
-    download_link = "https://drive.google.com/file/d/1OOqDssJnUQrXfWLwPSZrnBR0U-1CSHB2/view?usp=sharing"
-    if st.button("Download File"):
-        st.write("Downloading...")
-        download_file(download_link, "downloaded_file.ext")
-        st.write("Download complete!")
+    # download_link = "https://drive.google.com/file/d/1OOqDssJnUQrXfWLwPSZrnBR0U-1CSHB2/view?usp=sharing"
+    # if st.button("Download File"):
+    #     st.write("Downloading...")
+    #     download_file(download_link, "downloaded_file.ext")
+    #     st.write("Download complete!")
 
     # Define data for the table
     data = [
-        ("Report 1", "https://drive.google.com/file/d/1OOqDssJnUQrXfWLwPSZrnBR0U-1CSHB2/view?usp=sharing"),
+        ("CSI Linux Benchmark Book", "https://drive.google.com/file/d/1OOqDssJnUQrXfWLwPSZrnBR0U-1CSHB2/view?usp=sharing"),
         # ("Report 2", "https://drive.google.com/file/d/efgh5678/view?usp=sharing"),
         # ("Report 3", "https://drive.google.com/file/d/ijkl9012/view?usp=sharing")
     ]
 
-# Title
+    # Title
     st.markdown("<h3 style='text-align: left;'>Download Reports</h3>", unsafe_allow_html=True)
 
-# Create the table
+    # Create the table
     for item in data:
         st.write(f"**{item[0]}**")
         download_link = f'<a href="{item[1]}" download><button>Download</button></a>'
