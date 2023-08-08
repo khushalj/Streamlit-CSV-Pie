@@ -20,7 +20,6 @@ from IPython.display import display
 import sqlite3
 import xml.etree.ElementTree as ET
 import pkg_resources
-# from streamlit.elements import image_proto
 
 # VALID_CREDENTIALS = {
 #     "user1": "password1",
