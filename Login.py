@@ -791,8 +791,9 @@ if selected == "Benchmark Downloads":
     # Define data for the table
     data = [
         ("CSI Linux Benchmark Book", "https://drive.google.com/file/d/1OOqDssJnUQrXfWLwPSZrnBR0U-1CSHB2/view?usp=sharing"),
-        # ("Report 2", "https://drive.google.com/file/d/efgh5678/view?usp=sharing"),
-        # ("Report 3", "https://drive.google.com/file/d/ijkl9012/view?usp=sharing")
+        ("CSI Windows 10 Benchmark Book", "https://drive.google.com/file/d/1qYKd6gvoDbKYDa0YTvjobP9Ky_0fOGFA/view?usp=sharing"),
+        ("CSI Mac Benchmark Book", "https://drive.google.com/file/d/1EXNJdt438D_2gO4lPLu4oBGvEqxpRvgQ/view?usp=sharing"),
+        ("CSI Debian Linux Benchmark Book", "https://drive.google.com/file/d/1v4oqagVpCwpEfHa_Wt41j6j83Q7wpHmT/view?usp=sharing")
     ]
 
     # Title
