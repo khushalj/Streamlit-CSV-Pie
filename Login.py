@@ -782,11 +782,11 @@ if st.button("Login"):
 
                     with col2:
                         if(mid <= 20):
-                        st_lottie(secure, width=700, height=550, loop=True, quality='high')
+                            st_lottie(secure, width=700, height=550, loop=True, quality='high')
                         elif(mid> 20 and mid<=50):
-                        st_lottie(medium, width=500, height=350, loop=True, quality='high')
+                            st_lottie(medium, width=500, height=350, loop=True, quality='high')
                         elif(mid>50):
-                        st_lottie(notsecure, width=500, height=350, loop=True, quality='high')
+                            st_lottie(notsecure, width=500, height=350, loop=True, quality='high')
 
             if selected == "Malware Logs":
                     st.title(f"{selected}")
