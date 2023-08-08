@@ -708,6 +708,12 @@ if selected == "Vulnerability Score":
         #     # orientation="horizontal"
         # )
         st.title("Vulnerability Score")
+        df = pd.read_csv('mal_sum.csv')
+        df.index += 1
+
+    # Group data by Severity and sum Total values
+        grouped_df = df.groupby('Severity').sum()
+    
         # if select == "Severity Assessment":
         #     st.title(f"{select}")
         # if select == "Directory Assessment":
