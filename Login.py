@@ -441,7 +441,7 @@ if st.session_state.authenticated:
                               default_index=0,
                           )
 
-                  if selected == "Home":
+                  if selected =="Home":
                       st.title("CSI Benchmark Checks")
                       data = pd.read_csv('network_server_policy_report.csv')
                       data = add_status_column(data)
