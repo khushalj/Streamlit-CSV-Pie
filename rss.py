@@ -1,5 +1,6 @@
 import streamlit as st
-import feedparser
+import requests
+import xml.etree.ElementTree as ET
 import importlib
 
 def check_requirements(requirements_file):
@@ -15,6 +16,25 @@ def check_requirements(requirements_file):
     
     return not_installed
 
+def parse_rss_feed(feed_url):
+    response = requests.get(feed_url)
+    if response.status_code == 200:
+        root = ET.fromstring(response.content)
+        feed_entries = []
+        
+        for item in root.iter("item"):
+            entry = {
+                "title": item.find("title").text,
+                "summary": item.find("description").text,
+                "published": item.find("pubDate").text,
+                "link": item.find("link").text
+            }
+            feed_entries.append(entry)
+        
+        return feed_entries
+    else:
+        return None
+
 def main():
     st.title("RSS Feed Reader")
     
@@ -29,18 +49,16 @@ def main():
     
     if st.button("Fetch"):
         if feed_url:
-            # Fetch the RSS feed using feedparser
-            feed = feedparser.parse(feed_url)
-            
-            if 'title' in feed.feed:
-                st.header(feed.feed.title)
-            
-            # Display the feed entries
-            for entry in feed.entries:
-                st.subheader(entry.title)
-                st.write(entry.summary)
-                st.write(f"Published on: {entry.published}")
-                st.write(f"Link: {entry.link}")
+            feed_entries = parse_rss_feed(feed_url)
+            if feed_entries:
+                st.header(feed_entries[0]["title"])
+                for entry in feed_entries:
+                    st.subheader(entry["title"])
+                    st.write(entry["summary"])
+                    st.write(f"Published on: {entry['published']}")
+                    st.write(f"Link: {entry['link']}")
+            else:
+                st.warning("Error fetching or parsing the RSS feed.")
         else:
             st.warning("Please enter a valid RSS Feed URL and click 'Fetch'.")
 
