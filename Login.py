@@ -26,7 +26,7 @@ def load_lottieurl(url: str):
 
 lottie_url_search = "https://assets7.lottiefiles.com/packages/lf20_yJ8wNO.json"
 # lottie_url_search = "https://assets3.lottiefiles.com/packages/lf20_1PD1tpvlop.json"
-lottie_url_hello = "https://assets3.lottiefiles.com/packages/lf20_wci9dxrs.json"
+lottie_url_hello = "https://assets3.lottiefiles.com/packages/lf20_wci9dxOSrs.json"
 lottie_url_welcome= "https://assets1.lottiefiles.com/packages/lf20_llbjwp92qL.json"
 
 lottie_secure = "https://lottie.host/d4276b3c-799a-4681-a1f8-72f190c160f5/EgjSUeDZkT.json"
@@ -433,7 +433,7 @@ if selected == "Network Audit":
 if selected == "OS Audit":
         select = option_menu(
             menu_title="OS Audit",
-            options=["OS Details and System Version", "Peripheral Devices"],
+            options=["OS Details and System Version", "Peripheral Devices", "Intrusion" ],
             icons=["bricks", "displayport", "fire"],
             menu_icon="cast",
             default_index=0,
@@ -699,8 +699,16 @@ if selected == "OS Audit":
         if select == "Peripheral Devices":
             st.title(f"{select}")
             peripheral()
-
-
+            
+        if select == "Intrusion":
+            tab_titles={
+              "Installed"
+            }
+            tabs = st.tabs(tab_titles)
+            with tabs[0]:
+                df= pd.read_csv('InstalledSoftware.csv', names=['DisplayName', 'Publisher', 'Version', 'Install Date', ' Directory'])
+                st.dataframe(df)
+                
 if selected == "Vulnerability Score":
         # select = option_menu(
         #     menu_title="Vulnerability Score",
