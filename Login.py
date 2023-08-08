@@ -30,7 +30,10 @@ lottie_url_hello = "https://assets3.lottiefiles.com/packages/lf20_wci9dxrs.json"
 lottie_url_welcome= "https://assets1.lottiefiles.com/packages/lf20_llbjwp92qL.json"
 
 lottie_secure = "https://lottie.host/d4276b3c-799a-4681-a1f8-72f190c160f5/EgjSUeDZkT.json"
+lottie_notsecure = "https://lottie.host/837d5a5c-67bd-43b4-84b5-29d566d9dba8/gqEqoFPb4U.json"
+
 secure=load_lottieurl(lottie_secure)
+notsecure = load_lottieurl(lottie_notsecure)
 
 lottie_hello = load_lottieurl(lottie_url_hello)
 lottie_search = load_lottieurl(lottie_url_search)
@@ -737,10 +740,12 @@ if selected == "Vulnerability Score":
             elif severity == 'Low':
                 sum_low += grouped_df.loc['Low', 'Total']
         mid= (sum_medium+sum_critical+sum_high+sum_low)/4
-        if(mid <= 50):
-             with st_lottie_spinner(secure, width=700, height=550, loop=False, quality='high'):
-                 time.sleep(3)
-        # elif(mid> 20 && mid<50)
+        if(mid <= 20):
+             with st_lottie_spinner(secure, width=700, height=550, loop=True, quality='high'):
+                 time.sleep(7)
+        elif(mid> 20 && mid<50)
+             with st_lottie_spinner(notsecure, width=700, height=550, loop=True, quality='high'):
+                 time.sleep(7)
             
 
 if selected == "Malware Logs":
