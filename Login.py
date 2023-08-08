@@ -740,9 +740,9 @@ if selected == "Vulnerability Score":
             elif severity == 'Low':
                 sum_low += grouped_df.loc['Low', 'Total']
         mid= (sum_medium+sum_critical+sum_high+sum_low)/4
-       st.container()
-       col1, col2 = st.columns([1, 2])
-       with col1:
+        st.container()
+        col1, col2 = st.columns([1, 2])
+        with col1:
        
             st.markdown("<h3 style='text-align: left;position: centre;'>According to your Malware summary your score is:</h3>", unsafe_allow_html=True)
             text_contents = '''This is some text'''
