@@ -432,7 +432,7 @@ if st.session_state.authenticated:
                           selected = option_menu(
                               menu_title= "Dashboard",
                               options=["Home", "Notifications","Network Audit", "OS Audit", "Malware Logs","Risk Score", "Benchmark Downloads", "RSS"],
-                              icons=["house","bell fill","ethernet","motherboard","text-paragraph","braces asterisk","score","rss"],
+                              icons=["house","bell fill","ethernet","motherboard","text-paragraph","braces asterisk","risk","rss"],
                               menu_icon="cast",
                               default_index=0,
                           )
