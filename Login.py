@@ -20,6 +20,7 @@ from IPython.display import display
 import sqlite3
 import xml.etree.ElementTree as ET
 import pkg_resources
+from streamlit.elements import image_proto
 
 # VALID_CREDENTIALS = {
 #     "user1": "password1",
@@ -435,7 +436,7 @@ if st.session_state.authenticated:
                           selected = option_menu(
                               menu_title= "Dashboard",
                               options=["Home","Overview", "Notifications","Network Audit", "OS Audit", "Malware Logs","Risk Score", "Benchmark Downloads", "RSS"],
-                              icons=["house","bell fill","ethernet","motherboard","text-paragraph","braces asterisk","pin","rss"],
+                              icons=["house","chart","bell fill","ethernet","motherboard","text-paragraph","braces asterisk","pin","rss"],
                               menu_icon="cast",
                               default_index=0,
                           )
