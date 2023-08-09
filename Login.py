@@ -424,7 +424,7 @@ if st.session_state.authenticated:
                       st.write(df.style.set_properties(**{'font-weight': 'bold'}))
       
                   def add_status_column(data):
-                        data["Status"] = data.apply(lambda row: "✔" if row["DesiredValue"] == row["CurrentValue"] else "", axis=1)
+                        data["Status"] = data.apply(lambda row: "✔️" if row["DesiredValue"] == row["CurrentValue"] else "❌", axis=1)
                         return data
 
                   with st.sidebar:
@@ -474,13 +474,6 @@ if st.session_state.authenticated:
                       
                       # data_interactive_logon = pd.read_csv('interactive_logon_policy_report.csv')
                       # data_interactive_logon = add_status_column(data_interactive_logon)
-                      
-
-                      
-
-                      
-                     # Display table
-                      st.table(data)
 
 
                       
