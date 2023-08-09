@@ -497,7 +497,7 @@ if st.session_state.authenticated:
                       st.table(DigitallySignCommunicationIfServerAgreesPolicyReport_Vertical)
 
                       SendUnencryptedPasswordPolicyReport_Vertical = pd.read_csv('SendUnencryptedPasswordPolicyReport_Vertical.csv')
-                      SendUnencryptedPasswordPolicyReport_Vertical = add_status_column(SendUnencryptedPasswordPolicyReport_Vertical)
+                      # SendUnencryptedPasswordPolicyReport_Vertical = add_status_column(SendUnencryptedPasswordPolicyReport_Vertical)
                       st.table(SendUnencryptedPasswordPolicyReport_Vertical)
 
                       BlockMicrosoftAccountsPolicyReport = pd.read_csv('BlockMicrosoftAccountsPolicyReport.csv')
