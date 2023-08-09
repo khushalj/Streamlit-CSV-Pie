@@ -431,7 +431,7 @@ if st.session_state.authenticated:
                         return data
                   def add_mitigation_column(data):
                         data["Mitigation"] = data.apply(
-                            lambda row: "" if row["Status"] == "✔️" else "Add mitigation here", axis=1
+                            lambda row: "-" if row["Status"] == "✔️" else "digitally_sign_policy_report = add_status_column(digitally_sign_policy_report)", axis=1
                         )
                         return data
 
