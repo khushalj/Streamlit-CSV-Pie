@@ -903,7 +903,7 @@ if st.session_state.authenticated:
                               with tabs[0]:
                                   df= pd.read_csv('InstalledSoftware.csv', names=['DisplayName', 'Publisher', 'Version', 'Install Date', ' Directory'])
                                   st.dataframe(df)
-                                  
+    
                   if selected == "Risk Score":
                           # select = option_menu(
                           #     menu_title="Risk Score",
@@ -914,6 +914,19 @@ if st.session_state.authenticated:
                           #     # orientation="horizontal"
                           # )
                           st.title("Risk Score")
+                          
+                          df = pd.read_csv('cvss_results.csv)
+                          col1, col2 = st.columns([1, 2])
+                          with col1:
+                              st.header("CVSS Score")
+                              st.title("39.67")
+                          with col2:
+                              st.dataframe(df)
+                          
+      
+                  if selected == "Malware Logs":
+                          st.title(f"{selected}")
+                                           
                           df = pd.read_csv('mal_sum.csv')
                           df.index += 1
       
@@ -963,9 +976,6 @@ if st.session_state.authenticated:
                                   st_lottie(medium, width=500, height=350, loop=True, quality='high')
                               elif(mid>50):
                                   st_lottie(notsecure, width=500, height=350, loop=True, quality='high')
-      
-                  if selected == "Malware Logs":
-                          st.title(f"{selected}")
                           malware_1()
                           malware_2()
       
