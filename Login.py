@@ -202,14 +202,14 @@ if st.session_state.authenticated:
                       table.loc[first_malware_type, 'Recommendation'] = 'https://www.avast.com/c-adware'
                       "max-height: 400px; overflow-y: scroll; "
                       "border-collapse: collapse; border: 1px solid black;"
-table_html = (
-    table.style
-    .set_properties(**{'border': '1px solid black'})
-    .set_table_styles([{'selector': 'th', 'props': [('background-color', 'lightgrey')]}])
-    .set_table_attributes(f'style="{table_style}"')
-    .hide_index()
-    .render()
-)
+                      table_html = (
+                            table.style
+                            .set_properties(**{'border': '1px solid black'})
+                            .set_table_styles([{'selector': 'th', 'props': [('background-color', 'lightgrey')]}])
+                            .set_table_attributes(f'style="{table_style}"')
+                            .hide_index()
+                            .render()
+                        )
                       st.markdown(table.to_markdown(), unsafe_allow_html=True)
                   # add a border and set the background color of the headers
                       styled_table = table.style.set_properties(**{'border': '1px solid black',
