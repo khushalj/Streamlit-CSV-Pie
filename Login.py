@@ -915,7 +915,7 @@ if st.session_state.authenticated:
                           # )
                           st.title("CVSS Score")
                           df = pd.read_csv('cvss_results.csv')
-                          col1, col2 = st.columns([3, 2.5])
+                          col1, col2 = st.columns([3, 1.5])
                           with col1:
                              
                               st.title("39.67")
