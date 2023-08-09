@@ -924,7 +924,7 @@ if st.session_state.authenticated:
                               data = [["Attack Vector (AV)", "Attack Complexity (AC)"],
                                         ["Attack Requirements (AT)", "Privileges Required (PR)"],
                                         ["User Interaction (UI)", "CIA"],
-                                        ["Scope"]
+                                        ["Scope", " "]
                                     ]
                                     
                               st.table(data)
