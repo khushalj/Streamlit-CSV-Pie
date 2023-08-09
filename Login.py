@@ -401,7 +401,7 @@ if st.session_state.authenticated:
                       filename = "AllDevicesHistory.csv"
                       df = pd.read_csv(filename)
                       status_dict = {"OK": "✅", "ERROR": "❌"}
-                      df["Status"] = df["Status"].map(status_dict)
+                      df["ConnectionStatus"] = df["ConnectionStatus"].map(status_dict)
       
                       st.markdown(
                           '<style>div.row-widget.stRadio > div{background-color: #f4f4f4}</style>',
