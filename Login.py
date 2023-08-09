@@ -430,10 +430,15 @@ if st.session_state.authenticated:
                         data["Status"] = data.apply(lambda row: "✔️" if row["DesiredValue"] == row["CurrentValue"] else "❌", axis=1)
                         return data
                   def add_mitigation_column(data):
-                        data["Mitigation"] = data.apply(  
-                            lambda row: "-" if row["Status"] == "✔️" else f'<a href="https://www.tenable.com/audits/items/CIS_MS_Windows_10_Enterprise_Level_1_v1.8.1.audit:fac5016a870882aedf1c8e00c037a2a0"><button>View</button></a>', axis=1
-                        )
+                        hyperlink_label = "Visit"
+                        hyperlink_url = "https://www.tenable.com/audits/items/CIS_MS_Windows_10_Enterprise_Level_1_v1.8.1.audit:fac5016a870882aedf1c8e00c037a2a0"
+                        data["Mitigation"] = data.apply(lambda row: "-" if row["Status"] == "✔️" else f'[View]({hyperlink_url})', axis=1)
                         return data
+
+                        # data["Mitigation"] = data.apply(  
+                        #     lambda row: "-" if row["Status"] == "✔️" else f'<a href="https://www.tenable.com/audits/items/CIS_MS_Windows_10_Enterprise_Level_1_v1.8.1.audit:fac5016a870882aedf1c8e00c037a2a0"><button>View</button></a>', axis=1
+                        # )
+                        # return data
 
                   with st.sidebar:
                       st_lottie(lottie_hello,width=300, height=200, loop=True, quality='high', key="hello")
