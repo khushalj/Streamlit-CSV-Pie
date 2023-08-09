@@ -200,7 +200,7 @@ if st.session_state.authenticated:
                       table = pd.pivot_table(df, values='Occurance', index=['Malware Type', 'Folder Name'], columns='Malware Name', aggfunc=sum, fill_value=0).assign(Recommendation='Recommendations')
                       first_malware_type = table.index.levels[0][0]
                       table.loc[first_malware_type, 'Recommendation'] = 'https://www.avast.com/c-adware'
-                          "max-height: 400px; overflow-y: scroll; "
+                      "max-height: 400px; overflow-y: scroll; "
     "border-collapse: collapse; border: 1px solid black;"
 )
 table_html = (
