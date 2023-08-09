@@ -20,6 +20,7 @@ from IPython.display import display
 import sqlite3
 import xml.etree.ElementTree as ET
 import pkg_resources
+from streamlit_modal import Modal
 
 # VALID_CREDENTIALS = {
 #     "user1": "password1",
@@ -453,8 +454,12 @@ if st.session_state.authenticated:
                       data_network_server = add_status_column( data_network_server)
                       st.table(data_network_server)
                      # Create a button to show the description dialog box
-                      if st.button("Description"):
-                       st.popup("This is a sample description text. You can replace this with your own description.")
+                     modal = Modal(key="Demo Key",title="test")
+                     
+                     open_modal = st.button(label='button')
+                     if open_modal:
+                        with modal.container():
+                        st.markdown('testtesttesttesttesttesttesttest')
                       
                       data_last_signedin = pd.read_csv('last_signedin_policy_report.csv')
                       data_last_signedin = add_status_column(data_last_signedin)
