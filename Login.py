@@ -454,13 +454,11 @@ if st.session_state.authenticated:
                       data_network_server = add_status_column( data_network_server)
                       st.table(data_network_server)
                      # Create a button to show the description dialog box
-                      modal = Modal(key="Demo Key",title="Short description")
+                      modal = Modal(key="network server",title="Description")
                       open_modal = st.button(label='Description')
-                      for col in st.columns(8):
-                        with col:
-                          if open_modal:
-                            with modal.container():
-                             st.markdown('testtesttesttesttesttesttesttest')
+                      if open_modal:
+                         with modal.container():
+                             st.markdown('This policy setting determines whether packet signing is required by the SMB client component.')
                       
                       data_last_signedin = pd.read_csv('last_signedin_policy_report.csv')
                       data_last_signedin = add_status_column(data_last_signedin)
