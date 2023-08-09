@@ -451,6 +451,8 @@ if st.session_state.authenticated:
                   if selected =="Config Review":
                       st.title("CIS Benchmark Checks")
                       st.write (" CIS Benchmarks from the Center for Internet Security (CIS) are a set of globally recognized and consensus-driven best practices to help security practitioners implement and manage their cybersecurity defenses. Developed with a global community of security experts, the guidelines help organizations proactively safeguard against emerging risks. Companies implement the CIS Benchmark guidelines to limit configuration-based security vulnerabilities in their digital assets.")
+                      st.write(" ")
+                      st.header("Config Review")
                       data_network_server = pd.read_csv('network_server_policy_report.csv')
                       data_network_server = add_status_column( data_network_server)
                       st.table(data_network_server)
