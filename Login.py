@@ -488,7 +488,7 @@ if st.session_state.authenticated:
                       digitally_sign_policy_report = pd.read_csv('digitally_sign_policy_report.csv')
                       digitally_sign_policy_report = add_status_column(digitally_sign_policy_report)
                       st.table(digitally_sign_policy_report)
-                      add_mitigation_column(digitally_sign_policy_report)
+                      # add_mitigation_column(digitally_sign_policy_report)
                       
                       modal = Modal(key="digitally_sign_policy_report",title="Description")
                       open_modal = st.button(label='Description.')
