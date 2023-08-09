@@ -477,6 +477,20 @@ if st.session_state.authenticated:
                       st.table(admin_password)
                       # print_policy_report = pd.read_csv('print_policy_report.csv')
                       # print_policy_report = add_status_column(print_policy_report)
+    
+                      DigitallySignCommunicationIfServerAgreesPolicyReport_Vertical = pd.read_csv('DigitallySignCommunicationIfServerAgreesPolicyReport_Vertical.csv')
+                      DigitallySignCommunicationIfServerAgreesPolicyReport_Vertical = add_status_column(DigitallySignCommunicationIfServerAgreesPolicyReport_Vertical)
+                      st.table(DigitallySignCommunicationIfServerAgreesPolicyReport_Vertical)
+
+                      SendUnencryptedPasswordPolicyReport_Vertical = pd.read_csv('SendUnencryptedPasswordPolicyReport_Vertical.csv')
+                      SendUnencryptedPasswordPolicyReport_Vertical = add_status_column(SendUnencryptedPasswordPolicyReport_Vertical)
+                      st.table(SendUnencryptedPasswordPolicyReport_Vertical)
+
+                      BlockMicrosoftAccountsPolicyReport = pd.read_csv('BlockMicrosoftAccountsPolicyReport.csv')
+                      st.table(BlockMicrosoftAccountsPolicyReport)
+
+                      DigitallySignCommunicationPolicyReport_Vertical = pd.read_csv('DigitallySignCommunicationPolicyReport_Vertical.csv')
+                      st.table(DigitallySignCommunicationPolicyReport_Vertical)
                       
                       
 
