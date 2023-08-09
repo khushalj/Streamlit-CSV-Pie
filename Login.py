@@ -915,7 +915,7 @@ if st.session_state.authenticated:
                           # )
                           
                           df = pd.read_csv('cvss_results.csv')
-                          col1, col2 = st.columns([1, 2])
+                          col1, col2 = st.columns([3, 1])
                           with col1:
                               st.title("CVSS Score")
                               st.title("39.67")
@@ -930,6 +930,12 @@ if st.session_state.authenticated:
                               st.write("Scope ")
                              
                           with col2:
+                              st.write(" ")
+                              st.write(" ")
+                              st.write(" ")
+                              st.write(" ")
+                              st.write(" ")
+                              st.write(" ")
                               st.dataframe(df)
                           
       
