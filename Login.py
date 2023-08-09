@@ -200,6 +200,7 @@ if st.session_state.authenticated:
                       table = pd.pivot_table(df, values='Occurance', index=['Malware Type', 'Folder Name'], columns='Malware Name', aggfunc=sum, fill_value=0).assign(Recommendation='Recommendations')
                       first_malware_type = table.index.levels[0][0]
                       table.loc[first_malware_type, 'Recommendation'] = 'https://www.avast.com/c-adware'
+                      st.markdown(table.to_markdown(), unsafe_allow_html=True)
                   # add a border and set the background color of the headers
                       styled_table = table.style.set_properties(**{'border': '1px solid black',
                                                               'border-collapse': 'collapse'})\
