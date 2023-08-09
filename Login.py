@@ -408,9 +408,10 @@ if st.session_state.authenticated:
                           unsafe_allow_html=True,
                       )
                       st.write(df)
-      
-                      total_class = len(df)
-                      system_adap = len(df[df['Class'] == 'System'])
+                      
+                      df1= pd.read_csv('PeripheralsAndAdaptersReport.csv')
+                      total_class = len(df1)
+                      system_adap = len(df1[df1['Class'] == 'System'])
                       net_adap = total_class - system_adap
                       System_percentage = round(system_adap/ total_class * 100, 2)
                       Net_percentage = round( net_adap / total_class* 100, 2)
