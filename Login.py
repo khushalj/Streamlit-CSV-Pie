@@ -201,7 +201,7 @@ if st.session_state.authenticated:
                       first_malware_type = table.index.levels[0][0]
                       table.loc[first_malware_type, 'Recommendation'] = 'https://www.avast.com/c-adware'
                       table_style = (
-                          "max-height: 100px; max-width: 100px; overflow: auto; "
+                          "max-height: 100px; max-width: 100px; overflow: scroll; "
                           "border-collapse: collapse; border: 1px solid black;"
                       )
                       table_html = (
@@ -212,7 +212,6 @@ if st.session_state.authenticated:
                           .hide_index()
                           .render()
                     )
-                      container_html = f'<div style="{container_style}">{table_html}</div>'
                     
                       st.markdown(table.to_markdown(), unsafe_allow_html=True)
                   # add a border and set the background color of the headers
