@@ -429,6 +429,11 @@ if st.session_state.authenticated:
                   def add_status_column(data):
                         data["Status"] = data.apply(lambda row: "✔️" if row["DesiredValue"] == row["CurrentValue"] else "❌", axis=1)
                         return data
+                  def add_mitigation_column(data):
+                        data["Mitigation"] = data.apply(
+                            lambda row: "" if row["Status"] == "✔️" else "Add mitigation here", axis=1
+                        )
+                        return data
 
                   with st.sidebar:
                       st_lottie(lottie_hello,width=300, height=200, loop=True, quality='high', key="hello")
@@ -447,30 +452,37 @@ if st.session_state.authenticated:
                       st.title("CSI Benchmark Checks")
                       data_network_server = pd.read_csv('network_server_policy_report.csv')
                       data_network_server = add_status_column( data_network_server)
+                      data_network_server = add_mitigation_column(data_network_server)
                       st.table(data_network_server)
                       
                       data_last_signedin = pd.read_csv('last_signedin_policy_report.csv')
                       data_last_signedin = add_status_column(data_last_signedin)
+                      data_last_signedin = add_mitigation_column(data_last_signedin)
                       st.table(data_last_signedin)
                       
                       data_interactive_logon = pd.read_csv('interactive_logon_policy_report.csv')
                       data_interactive_logon = add_status_column(data_interactive_logon)
+                      data_interactive_logon = add_mitigation_column(data_interactive_logon)
                       st.table(data_interactive_logon)
                       
                       security_policy_report = pd.read_csv('security_policy_report.csv')
                       security_policy_report = add_status_column(security_policy_report)
+                      security_policy_report = add_mitigation_column(security_policy_report)
                       st.table(security_policy_report)
                       
                       audit_policy_report = pd.read_csv('audit_policy_report.csv')
                       audit_policy_report = add_status_column(audit_policy_report)
+                      audit_policy_report = add_mitigation_column(audit_policy_report)
                       st.table(audit_policy_report)
                       
                       allow_anonymous_policy_report = pd.read_csv('allow_anonymous_policy_report.csv')
                       allow_anonymous_policy_report = add_status_column(allow_anonymous_policy_report)
+                      allow_anonymous_policy_report = add_mitigation_column(allow_anonymous_policy_report)
                       st.table(allow_anonymous_policy_report)
                       
                       digitally_sign_policy_report = pd.read_csv('digitally_sign_policy_report.csv')
                       digitally_sign_policy_report = add_status_column(digitally_sign_policy_report)
+                      digitally_sign_policy_report = add_mitigation_column(digitally_sign_policy_report)
                       st.table(digitally_sign_policy_report)
                      
                       admin_password = pd.read_csv('admin_password.csv')
