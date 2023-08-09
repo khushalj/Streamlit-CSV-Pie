@@ -441,7 +441,7 @@ if st.session_state.authenticated:
                       st.write(df.style.set_properties(**{'font-weight': 'bold'}))
       
                   def add_status_column(data):
-                        data["Status"] = data.apply(lambda row: "✔️" if row["DesiredValue"] == row["CurrentValue"] or row["DesiredStatus"] == row["CurrentStatus"]  else "❌", axis=1)
+                        data["Status"] = data.apply(lambda row: "✔️" if row["DesiredValue"] == row["CurrentValue"] else "❌", axis=1)
                         return data
 
                   with st.sidebar:
