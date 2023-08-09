@@ -209,7 +209,8 @@ if st.session_state.authenticated:
                       
                     
                       st.markdown(table.to_markdown(), unsafe_allow_html=True)
-      
+                      report_link = "https://drive.google.com/file/d/11Qqrwx7rA4K-Hrm499j7aliUmLmcOjsQ/view?usp=sharing"
+                      st.markdown(f'<a href="{report_link}" download><button>Download the Malware Destinations</button></a>', unsafe_allow_html=True)
                   # create a bar plot to show the total frequency of each malware type
                   #     barplot_data = df.groupby('Malware Type').sum().reset_index()
                   #     fig, ax = plt.subplots()
@@ -564,7 +565,7 @@ if st.session_state.authenticated:
                           st.markdown("<h3 style='text-align: left;position: centre;'>Download your Report</h3>", unsafe_allow_html=True)
       
                   # Download button with the link
-                          report_link = 'https://drive.google.com/file/d/189KgOr74ThDJVLVqbb8sSb9yTmewKi7r/view?usp=sharing'
+                          report_link = 'https://drive.google.com/file/d/1Y44mZF_28zOWwMbPVBpkUZAxlYubHSBI/view?usp=sharing'
                           st.markdown(f'<a href="{report_link}" download><button>Download the report</button></a>', unsafe_allow_html=True)
                       with col2:
                           labels = ['Secure', 'Not Secure']
