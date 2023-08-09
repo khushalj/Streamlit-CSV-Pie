@@ -1,0 +1,2 @@
+"PolicyName","DesiredValue","CurrentValue","Status"
+"Interactive logon: Don't display last signed-in","1","1","Policy already set to Enabled"

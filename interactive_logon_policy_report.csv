@@ -1,0 +1,2 @@
+"PolicyName","DesiredValue","CurrentValue","Status"
+"Interactive logon: Do not require CTRL+ALT+DEL","0","0","Policy already set to Disabled"

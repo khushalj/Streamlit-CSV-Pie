@@ -1,0 +1,2 @@
+"PolicyName","DesiredValue","CurrentValue","Status"
+"Accounts: Limit local account use of blank passwords to console logon only","1","1","Policy already set to Enabled"
