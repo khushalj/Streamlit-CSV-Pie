@@ -431,11 +431,7 @@ if st.session_state.authenticated:
                         return data
                   def add_mitigation_column(data):
                         data["Mitigation"] = data.apply(
-                            lambda row: "-" if row["Status"] == "✔️" else 
-                            hyperlink_label = "Visit Mitigation"
-                            hyperlink_url = "https://www.tenable.com/audits/items/CIS_MS_Windows_10_Enterprise_Level_1_v1.8.1.audit:fac5016a870882aedf1c8e00c037a2a0"
-                            hyperlink_md = f"[{hyperlink_label}]({hyperlink_url})"
-                            st.markdown(hyperlink_md), axis=1
+                            lambda row: "-" if row["Status"] == "✔️" else f'<a href="https://www.tenable.com/audits/items/CIS_MS_Windows_10_Enterprise_Level_1_v1.8.1.audit:fac5016a870882aedf1c8e00c037a2a0"></a>', axis=1
                         )
                         return data
 
@@ -1010,4 +1006,3 @@ if st.session_state.authenticated:
 
 # username = st.text_input("Username")
 # password = st.text_input("Password", type="password")
-
