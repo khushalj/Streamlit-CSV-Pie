@@ -1,0 +1,24 @@
+Metric,Weight,Value
+AV,0.85,N
+AV,0.62,A
+AV,0.55,L
+AV,0.2,P
+AC,0.77,L
+AC,0.44,H
+PR,0.85,N
+PR,0.62,L
+PR,0.27,H
+UI,0.85,N
+UI,0.62,R
+S,6.42,U
+S,7.52,C
+C,0,N
+C,0.22,L
+C,0.56,H
+I,0,N
+I,0.22,L
+I,0.56,H
+A,0,N
+A,0.22,L
+A,0.56,H
+Base Impact Score,39.16,CVSS:3.1/AV:0.85/AC:0.77/PR:0.62/UI:0.85/S:6.42/C:0.22/I:0.22/A:0
