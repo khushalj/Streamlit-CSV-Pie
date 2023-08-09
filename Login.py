@@ -207,7 +207,7 @@ if st.session_state.authenticated:
                               return '[Trojan Recommendation](https://example.com/trojan)'
                           elif index == 'adware':
                               return '[Adware Recommendation](https://example.com/adware)'
-                          else:S
+                          else:
                               return ''
                           table['Recommendation'] = table.index.get_level_values('Malware Name').map(get_recommendation_link)
       
