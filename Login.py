@@ -209,7 +209,7 @@ if st.session_state.authenticated:
                               return '[Adware Recommendation](https://example.com/adware)'
                           else:
                               return ''
-                table['Recommendation'] = table.index.get_level_values('Malware Name').map(get_recommendation_link)
+                          table['Recommendation'] = table.index.get_level_values('Malware Name').map(get_recommendation_link)
       
                   # add a border and set the background color of the headers
                       styled_table = table.style.set_properties(**{'border': '1px solid black',
