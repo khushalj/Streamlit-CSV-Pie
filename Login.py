@@ -913,14 +913,23 @@ if st.session_state.authenticated:
                           #     # default_index=0,
                           #     # orientation="horizontal"
                           # )
-                          st.title("CVSS Score")
+                          st.title("CVSS Score: 39.67")
+                          st.write("CVSS Base Parameters")
+                          st.write("Attack Vector (AV) ")
+                          st.write("Attack Complexity (AC) ")
+                         # st.write("Attack Requirements (AT) ")
+                          st.write("Privileges Required (PR) ")
+                          st.write("User Interaction (UI) ")
+                          st.write("CIA ")
+                          st.write("Scope ")
+
                           
                           df = pd.read_csv('cvss_results.csv')
                           col1, col2 = st.columns([1, 2])
                           with col1:
                              
                               st.write("The Common Vulnerability Scoring System (CVSS) provides a way to capture the principal characteristics of a vulnerability and produce a numerical score reflecting its severity. The numerical score can then be translated into a qualitative representation (such as low, medium, high, and critical) to help organizations properly assess and prioritize their vulnerability management processes.CVSS is a published standard used by organizations worldwide, and the SIG's mission is to continue to improve it.")
-                              st.title("39.67")
+                            #  st.title("39.67")
                           with col2:
                               st.dataframe(df)
                           
