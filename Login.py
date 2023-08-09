@@ -434,13 +434,13 @@ if st.session_state.authenticated:
                   with st.sidebar:
                           selected = option_menu(
                               menu_title= "Dashboard",
-                              options=["Home","Overview", "Notifications","Network Audit", "OS Audit", "Malware Logs","Risk Score", "Benchmark Downloads", "RSS"],
-                              icons=["house","magnifier","bell fill","ethernet","motherboard","text-paragraph","braces asterisk","pin","rss"],
+                              options=["Home","Config Review", "Notifications","Network Audit", "OS Audit", "Malware Logs","Risk Score", "Benchmark Downloads", "RSS"],
+                              icons=["house","notebook","bell fill","ethernet","motherboard","text-paragraph","braces asterisk","pin","rss"],
                               menu_icon="cast",
                               default_index=0,
                           )
 
-                  if selected =="Home":
+                  if selected =="Config Review":
                       st.title("CSI Benchmark Checks")
                       data_network_server = pd.read_csv('network_server_policy_report.csv')
                       data_network_server = add_status_column( data_network_server)
@@ -478,7 +478,7 @@ if st.session_state.authenticated:
                       
 
                       
-                  if selected=="Overview":
+                  if selected=="Home":
                       st.title(f"{selected}")
                   #     with st_lottie_spinner(lottie_welcome,width=600,height=400,loop=False,quality='high'):
                   #         time.sleep(9)
