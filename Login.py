@@ -205,8 +205,6 @@ if st.session_state.authenticated:
                                           .set_table_styles([{'selector': 'th',
                                                               'props': [('background-color', 'lightgrey')]}])
 
-                      recommendation_data = ["Recommendation A"] * len(table.index) 
-                      table['Recommendation'] = recommendation_data
                   #     display(styled_table)
                       st.write(styled_table)  
       
