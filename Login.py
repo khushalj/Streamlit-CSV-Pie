@@ -499,7 +499,7 @@ if st.session_state.authenticated:
                       st.table(digitally_sign_policy_report)
                       add_mitigation_column(digitally_sign_policy_report)
                       modal = Modal(key="digitally_sign_policy_report",title="Description")
-                      open_modal = st.button(label='Description')
+                      open_modal = st.button(label='Description.')
                       if open_modal:
                          with modal.container():
                              st.markdown('This policy setting determines whether packet signing is required by the SMB client component.')
