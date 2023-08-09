@@ -463,8 +463,8 @@ if st.session_state.authenticated:
                       digitally_sign_policy_report = pd.read_csv('digitally_sign_policy_report.csv')
                       digitally_sign_policy_report = add_status_column(digitally_sign_policy_report)
                       
-                      print_policy_report = pd.read_csv('print_policy_report.csv')
-                      print_policy_report = add_status_column(print_policy_report)
+                      # print_policy_report = pd.read_csv('print_policy_report.csv')
+                      # print_policy_report = add_status_column(print_policy_report)
                       
                       # data_interactive_logon = pd.read_csv('interactive_logon_policy_report.csv')
                       # data_interactive_logon = add_status_column(data_interactive_logon)
