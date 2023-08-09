@@ -1,2 +1,2 @@
-Property  ,PolicyName     , DesiredStatus   ,CurrentStatus
+Property  ,PolicyName     , DesiredValue   ,CurrentValue
 Value    , Microsoft network client: Digitally sign communications (if server agrees)   , Enabled    ,Enabled
