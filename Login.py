@@ -915,7 +915,7 @@ if st.session_state.authenticated:
                           # )
                           st.title("Risk Score")
                           
-                          df = pd.read_csv('cvss_results.csv)
+                          df = pd.read_csv('cvss_results.csv')
                           col1, col2 = st.columns([1, 2])
                           with col1:
                               st.header("CVSS Score")
