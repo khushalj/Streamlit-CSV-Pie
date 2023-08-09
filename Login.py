@@ -452,9 +452,9 @@ if st.session_state.authenticated:
                       data_network_server = pd.read_csv('network_server_policy_report.csv')
                       data_network_server = add_status_column( data_network_server)
                       st.table(data_network_server)
-                        # Create a button to show the description dialog box
+                     # Create a button to show the description dialog box
                       if st.button("Description"):
-                      st.popup("This is a sample description text. You can replace this with your own description.")
+                       st.popup("This is a sample description text. You can replace this with your own description.")
                       
                       data_last_signedin = pd.read_csv('last_signedin_policy_report.csv')
                       data_last_signedin = add_status_column(data_last_signedin)
