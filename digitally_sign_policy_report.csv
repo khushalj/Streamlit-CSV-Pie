@@ -1,2 +1,2 @@
-"PolicyName","DesiredValue","CurrentValue","Status"
-"Microsoft network server: Digitally sign communications (always)","1","0","Policy set to Enabled"
+PolicyName,DesiredValue,CurrentValue,Status
+Microsoft network server: Digitally sign communications (always),1,0,Policy set to Enabled
