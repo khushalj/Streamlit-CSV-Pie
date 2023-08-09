@@ -449,7 +449,7 @@ if st.session_state.authenticated:
                           )
 
                   if selected =="Config Review":
-                      st.title("cis Benchmark Checks")
+                      st.title("CIS Benchmark Checks")
                       data_network_server = pd.read_csv('network_server_policy_report.csv')
                       data_network_server = add_status_column( data_network_server)
                       st.table(data_network_server)
@@ -983,10 +983,10 @@ if st.session_state.authenticated:
       
                       # Define data for the table
                       data = [
-                          ("cis Linux Benchmark Book", "https://drive.google.com/file/d/1OOqDssJnUQrXfWLwPSZrnBR0U-1CSHB2/view?usp=sharing"),
-                          ("cis Windows 10 Benchmark Book", "https://drive.google.com/file/d/1qYKd6gvoDbKYDa0YTvjobP9Ky_0fOGFA/view?usp=sharing"),
-                          ("cis Mac Benchmark Book", "https://drive.google.com/file/d/1EXNJdt438D_2gO4lPLu4oBGvEqxpRvgQ/view?usp=sharing"),
-                          ("cis Debian Linux Benchmark Book", "https://drive.google.com/file/d/1v4oqagVpCwpEfHa_Wt41j6j83Q7wpHmT/view?usp=sharing")
+                          ("CIS Linux Benchmark Book", "https://drive.google.com/file/d/1OOqDssJnUQrXfWLwPSZrnBR0U-1CSHB2/view?usp=sharing"),
+                          ("CIS Windows 10 Benchmark Book", "https://drive.google.com/file/d/1qYKd6gvoDbKYDa0YTvjobP9Ky_0fOGFA/view?usp=sharing"),
+                          ("CIS Mac Benchmark Book", "https://drive.google.com/file/d/1EXNJdt438D_2gO4lPLu4oBGvEqxpRvgQ/view?usp=sharing"),
+                          ("CIS Debian Linux Benchmark Book", "https://drive.google.com/file/d/1v4oqagVpCwpEfHa_Wt41j6j83Q7wpHmT/view?usp=sharing")
                       ]
       
                       # Title
