@@ -522,11 +522,9 @@ if st.session_state.authenticated:
                       open_modal = st.button(label='Mitigation')
                       if open_modal:
                          with modal.container():
-                             st.markdown('To establish the recommended configuration via GP, set the following UI path to Enabled:
-
-Computer Configuration\Policies\Windows Settings\Security Settings\Local Policies\Security Options\Microsoft network client: Digitally sign communications (always)')
+                             st.markdown("To establish the recommended configuration via GP, set the following UI path to Enabled:Computer Configuration\Policies\Windows Settings\Security Settings\Local Policies\Security Options\Microsoft network client: Digitally sign communications (always)")
                              
-                      admin_password = pd.read_csv('admin_password.csv')
+                      admin_password = pd.read_csv('admin_password.csv') 
                       st.table(admin_password)
                       modal = Modal(key="network server",title="Description")
                       open_modal = st.button(label='Description')
