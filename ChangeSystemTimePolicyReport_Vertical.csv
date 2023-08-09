@@ -1,0 +1,2 @@
+Property,PolicyName,DesiredGroups,CurrentStatus,DesiredGroupsPresent,DesiredTimezone,CurrentTimezone
+Value,Change the system time,"Administrators, LOCAL SERVICE",Enabled,System.Object[],Pacific Standard Time,Pacific Standard Time

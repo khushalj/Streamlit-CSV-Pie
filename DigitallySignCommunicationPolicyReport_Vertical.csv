@@ -1,0 +1,4 @@
+"Property","Value"
+"PolicyName","Microsoft network client: Digitally sign communications (always)"
+"DesiredStatus","Enabled"
+"CurrentStatus","Disabled"
