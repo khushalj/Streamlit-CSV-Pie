@@ -279,7 +279,7 @@ if st.session_state.authenticated:
                       st.write(df)
       
                       # Display chart and table side by side
-                      col1, col2 = st.beta_columns([1, 2])
+                      col1, col2 = st.columns([1, 2])
                       with col1:
                           st.write('')
                       with col2:
