@@ -921,10 +921,17 @@ if st.session_state.authenticated:
                               st.title("39.67")
                               st.write("The Common Vulnerability Scoring System (CVSS) provides a way to capture the principal characteristics of a vulnerability and produce a numerical score reflecting its severity. The numerical score can then be translated into a qualitative representation (such as low, medium, high, and critical) to help organizations properly assess and prioritize their vulnerability management processes.CVSS is a published standard used by organizations worldwide, and the SIG's mission is to continue to improve it.")
                               st.header("CVSS Base Parameters")
-                              st.write("Attack Vector (AV) , Attack Complexity (AC) ")
-                              st.write("Attack Requirements (AT) , Privileges Required (PR) ")
-                              st.write("User Interaction (UI) , CIA ")
-                              st.write("Scope ")
+                              data = [["Attack Vector (AV)", "Attack Complexity (AC)"],
+                                        ["Attack Requirements (AT)", "Privileges Required (PR)"],
+                                        ["User Interaction (UI)", "CIA"],
+                                        ["Scope"]
+                                    ]
+                                    
+                              st.table(data)
+                              # st.write("Attack Vector (AV) , Attack Complexity (AC) ")
+                              # st.write("Attack Requirements (AT) , Privileges Required (PR) ")
+                              # st.write("User Interaction (UI) , CIA ")
+                              # st.write("Scope ")
                              
                           with col2:
                               st.write(" ")
