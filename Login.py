@@ -432,7 +432,7 @@ if st.session_state.authenticated:
                   def add_mitigation_column(data):
                      if any(data["Status"] != "✔️"): 
                        report_link = 'https://drive.google.com/file/d/189KgOr74ThDJVLVqbb8sSb9yTmewKi7r/view?usp=sharing'
-                       st.markdown(f'<a href="{report_link}" download><button>Download the report</button></a>', unsafe_allow_html=True)
+                       st.markdown(f'<a href="{report_link}" download><button>View</button></a>', unsafe_allow_html=True)
 
                   with st.sidebar:
                       st_lottie(lottie_hello,width=300, height=200, loop=True, quality='high', key="hello")
@@ -451,17 +451,14 @@ if st.session_state.authenticated:
                       st.title("CSI Benchmark Checks")
                       data_network_server = pd.read_csv('network_server_policy_report.csv')
                       data_network_server = add_status_column( data_network_server)
-                      # data_network_server = add_mitigation_column(data_network_server)
                       st.table(data_network_server)
                       
                       data_last_signedin = pd.read_csv('last_signedin_policy_report.csv')
                       data_last_signedin = add_status_column(data_last_signedin)
-                      # data_last_signedin = add_mitigation_column(data_last_signedin)
                       st.table(data_last_signedin)
                       
                       data_interactive_logon = pd.read_csv('interactive_logon_policy_report.csv')
                       data_interactive_logon = add_status_column(data_interactive_logon)
-                      # data_interactive_logon = add_mitigation_column(data_interactive_logon)
                       st.table(data_interactive_logon)
                       
                       security_policy_report = pd.read_csv('security_policy_report.csv')
