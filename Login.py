@@ -198,19 +198,8 @@ if st.session_state.authenticated:
       
                   # create a table to summarize the data
                       table = pd.pivot_table(df, values='Occurance', index=['Malware Type', 'Folder Name'], columns='Malware Name', aggfunc=sum, fill_value=0).assign(Recommendation='Recommendations')
-                      def get_recommendation_link(index):
-                          if index == 'ransomware':
-                              return '[Ransomware Recommendation](https://example.com/ransomware)'
-                          elif index == 'virus':
-                              return '[Virus Recommendation](https://example.com/virus)'
-                          elif index == 'trojan':
-                              return '[Trojan Recommendation](https://example.com/trojan)'
-                          elif index == 'adware':
-                              return '[Adware Recommendation](https://example.com/adware)'
-                          else:
-                              return ''
-                          table['Recommendation'] = table.index.get_level_values('Malware Name').map(get_recommendation_link)
-      
+                      first_malware_type = table.index.levels[0][0]
+                      table.loc[first_malware_type, 'Recommendation'] = 'https://www.avast.com/c-adware'
                   # add a border and set the background color of the headers
                       styled_table = table.style.set_properties(**{'border': '1px solid black',
                                                               'border-collapse': 'collapse'})\
