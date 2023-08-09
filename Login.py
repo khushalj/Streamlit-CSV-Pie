@@ -197,7 +197,7 @@ if st.session_state.authenticated:
                       df = pd.read_csv('malware.csv')
       
                   # create a table to summarize the data
-                      table = pd.pivot_table(df, values='Occurance', index=['Malware Type', 'Folder Name', 'Recommendation'], columns='Malware Name', aggfunc=sum, fill_value=0)
+                      table = pd.pivot_table(df, values='Occurance', index=['Malware Type', 'Folder Name'], columns='Malware Name', aggfunc=sum, fill_value=0).assign(Recommendation='Recommendations')
       
                   # add a border and set the background color of the headers
                       styled_table = table.style.set_properties(**{'border': '1px solid black',
