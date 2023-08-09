@@ -198,16 +198,16 @@ if st.session_state.authenticated:
       
                   # create a table to summarize the data
                       table = pd.pivot_table(df, values='Occurance', index=['Malware Type', 'Folder Name'], columns='Malware Name', aggfunc=sum, fill_value=0).assign(Recommendation='Recommendations')
-                      def get_recommendation_link(malware_name):
-                          if malware_name == 'ransomware':
+                      def get_recommendation_link(index):
+                          if index == 'ransomware':
                               return '[Ransomware Recommendation](https://example.com/ransomware)'
-                          elif malware_name == 'virus':
+                          elif index == 'virus':
                               return '[Virus Recommendation](https://example.com/virus)'
-                          elif malware_name == 'trojan':
+                          elif index == 'trojan':
                               return '[Trojan Recommendation](https://example.com/trojan)'
-                          elif malware_name == 'adware':
+                          elif index == 'adware':
                               return '[Adware Recommendation](https://example.com/adware)'
-                          else:
+                          else:S
                               return ''
                           table['Recommendation'] = table.index.get_level_values('Malware Name').map(get_recommendation_link)
       
