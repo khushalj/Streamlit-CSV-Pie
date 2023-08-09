@@ -482,31 +482,17 @@ if st.session_state.authenticated:
                       security_policy_report = add_status_column(security_policy_report)
                       # security_policy_report = add_mitigation_column(security_policy_report)
                       st.table(security_policy_report)
-                      modal = Modal(key="security_policy_report",title="Description")
-                      open_modal = st.button(label='Description')
-                      if open_modal:
-                         with modal.container():
-                             st.markdown('This policy setting determines whether packet signing is required by the SMB client component.')
                              
                       audit_policy_report = pd.read_csv('audit_policy_report.csv')
                       audit_policy_report = add_status_column(audit_policy_report)
                       # audit_policy_report = add_mitigation_column(audit_policy_report)
                       st.table(audit_policy_report)
-                      modal = Modal(key="audit_policy_report",title="Description")
-                      open_modal = st.button(label='Description')
-                      if open_modal:
-                         with modal.container():
-                             st.markdown('This policy setting determines whether packet signing is required by the SMB client component.')
+                 
                              
                       allow_anonymous_policy_report = pd.read_csv('allow_anonymous_policy_report.csv')
                       allow_anonymous_policy_report = add_status_column(allow_anonymous_policy_report)
                       # allow_anonymous_policy_report = add_mitigation_column(allow_anonymous_policy_report)
                       st.table(allow_anonymous_policy_report)
-                      modal = Modal(key="allow_anonymous_policy_report",title="Description")
-                      open_modal = st.button(label='Description')
-                      if open_modal:
-                         with modal.container():
-                             st.markdown('This policy setting determines whether packet signing is required by the SMB client component.')
                              
                       digitally_sign_policy_report = pd.read_csv('digitally_sign_policy_report.csv')
                       digitally_sign_policy_report = add_status_column(digitally_sign_policy_report)
@@ -527,47 +513,26 @@ if st.session_state.authenticated:
                              
                       admin_password = pd.read_csv('admin_password.csv') 
                       st.table(admin_password)
-                      modal = Modal(key="admin_passwordr",title="Description")
-                      open_modal = st.button(label='Description')
-                      if open_modal:
-                         with modal.container():
-                             st.markdown('This policy setting determines whether packet signing is required by the SMB client component.')
+                      
                       # print_policy_report = pd.read_csv('print_policy_report.csv')
                       # print_policy_report = add_status_column(print_policy_report)
     
                       DigitallySignCommunicationIfServerAgreesPolicyReport_Vertical = pd.read_csv('DigitallySignCommunicationIfServerAgreesPolicyReport_Vertical.csv')
                       # DigitallySignCommunicationIfServerAgreesPolicyReport_Vertical = add_status_column(DigitallySignCommunicationIfServerAgreesPolicyReport_Vertical)
                       st.table(DigitallySignCommunicationIfServerAgreesPolicyReport_Vertical)
-                      modal = Modal(key="DigitallySignCommunicationIfServerAgreesPolicyReport_Verticalr",title="Description")
-                      open_modal = st.button(label='Description')
-                      if open_modal:
-                         with modal.container():
-                             st.markdown('This policy setting determines whether packet signing is required by the SMB client component.')
-
+                     
                       SendUnencryptedPasswordPolicyReport_Vertical = pd.read_csv('SendUnencryptedPasswordPolicyReport_Vertical.csv')
                       # SendUnencryptedPasswordPolicyReport_Vertical = add_status_column(SendUnencryptedPasswordPolicyReport_Vertical)
                       st.table(SendUnencryptedPasswordPolicyReport_Vertical)
-                      modal = Modal(key="SendUnencryptedPasswordPolicyReport_Vertical",title="Description")
-                      open_modal = st.button(label='Description')
-                      if open_modal:
-                         with modal.container():
-                             st.markdown('This policy setting determines whether packet signing is required by the SMB client component.')
+                     
 
                       BlockMicrosoftAccountsPolicyReport = pd.read_csv('BlockMicrosoftAccountsPolicyReport.csv')
                       st.table(BlockMicrosoftAccountsPolicyReport)
-                      modal = Modal(key="BlockMicrosoftAccountsPolicyReportr",title="Description")
-                      open_modal = st.button(label='Description')
-                      if open_modal:
-                         with modal.container():
-                             st.markdown('This policy setting determines whether packet signing is required by the SMB client component.')
+                      
 
                       DigitallySignCommunicationPolicyReport_Vertical = pd.read_csv('DigitallySignCommunicationPolicyReport_Vertical.csv')
                       st.table(DigitallySignCommunicationPolicyReport_Vertical)
-                      modal = Modal(key="DigitallySignCommunicationPolicyReport_Vertical",title="Description")
-                      open_modal = st.button(label='Description')
-                      if open_modal:
-                         with modal.container():
-                             st.markdown('This policy setting determines whether packet signing is required by the SMB client component.')
+                      
                       
                       
 
