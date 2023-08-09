@@ -212,6 +212,7 @@ if st.session_state.authenticated:
                           .hide_index()
                           .render()
                     )
+                    container_html = f'<div style="{container_style}">{table_html}</div>'
                     
                       st.markdown(table.to_markdown(), unsafe_allow_html=True)
                   # add a border and set the background color of the headers
