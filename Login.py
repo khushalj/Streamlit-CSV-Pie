@@ -463,20 +463,11 @@ if st.session_state.authenticated:
                       data_last_signedin = pd.read_csv('last_signedin_policy_report.csv')
                       data_last_signedin = add_status_column(data_last_signedin)
                       st.table(data_last_signedin)
-                      modal = Modal(key="network server",title="Description")
-                      open_modal = st.button(label='Description')
-                      if open_modal:
-                         with modal.container():
-                             st.markdown('This policy setting determines whether packet signing is required by the SMB client component.')
                       
                       data_interactive_logon = pd.read_csv('interactive_logon_policy_report.csv')
                       data_interactive_logon = add_status_column(data_interactive_logon)
                       st.table(data_interactive_logon)
-                      modal = Modal(key="network server",title="Description")
-                      open_modal = st.button(label='Description')
-                      if open_modal:
-                         with modal.container():
-                             st.markdown('This policy setting determines whether packet signing is required by the SMB client component.')
+                  
                              
                       security_policy_report = pd.read_csv('security_policy_report.csv')
                       security_policy_report = add_status_column(security_policy_report)
@@ -498,6 +489,7 @@ if st.session_state.authenticated:
                       digitally_sign_policy_report = add_status_column(digitally_sign_policy_report)
                       st.table(digitally_sign_policy_report)
                       add_mitigation_column(digitally_sign_policy_report)
+                      
                       modal = Modal(key="digitally_sign_policy_report",title="Description")
                       open_modal = st.button(label='Description.')
                       if open_modal:
