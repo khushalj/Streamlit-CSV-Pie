@@ -431,8 +431,8 @@ if st.session_state.authenticated:
                         return data
                   def add_mitigation_column(data):
                      if any(data["Status"] != "✔️"): 
-                       report_link = 'https://drive.google.com/file/d/189KgOr74ThDJVLVqbb8sSb9yTmewKi7r/view?usp=sharing'
-                       st.markdown(f'<a href="{report_link}" download><button>View</button></a>', unsafe_allow_html=True)
+                       report_link = 'https://www.tenable.com/audits/items/CIS_MS_Windows_10_Enterprise_Level_1_v1.8.1.audit:fac5016a870882aedf1c8e00c037a2a0'
+                       st.markdown(f'<a href="{report_link}" download><button>View Mitigation </button></a>', unsafe_allow_html=True)
 
                   with st.sidebar:
                       st_lottie(lottie_hello,width=300, height=200, loop=True, quality='high', key="hello")
