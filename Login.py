@@ -493,7 +493,7 @@ if st.session_state.authenticated:
                       # print_policy_report = add_status_column(print_policy_report)
     
                       DigitallySignCommunicationIfServerAgreesPolicyReport_Vertical = pd.read_csv('DigitallySignCommunicationIfServerAgreesPolicyReport_Vertical.csv')
-                      DigitallySignCommunicationIfServerAgreesPolicyReport_Vertical = add_status_column(DigitallySignCommunicationIfServerAgreesPolicyReport_Vertical)
+                      # DigitallySignCommunicationIfServerAgreesPolicyReport_Vertical = add_status_column(DigitallySignCommunicationIfServerAgreesPolicyReport_Vertical)
                       st.table(DigitallySignCommunicationIfServerAgreesPolicyReport_Vertical)
 
                       SendUnencryptedPasswordPolicyReport_Vertical = pd.read_csv('SendUnencryptedPasswordPolicyReport_Vertical.csv')
