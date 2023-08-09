@@ -205,28 +205,9 @@ if st.session_state.authenticated:
                                                               'border-collapse': 'collapse'})\
                                           .set_table_styles([{'selector': 'th',
                                                               'props': [('background-color', 'lightgrey')]}])
-                      #table_style = (
-                       #   "max-height: 100px; max-width: 100px; overflow: scroll; "
-                        #  "border-collapse: collapse; border: 1px solid black;"
-                      #)
-                      #table_html = (
-                       #   table.style
-                        #  .set_properties(**{'border': '1px solid black'})
-                         # .set_table_styles([{'selector': 'th', 'props': [('background-color', 'lightgrey')]}])
-                          #.set_table_attributes(f'style="{table_style}"')
-                          #.hide_index()
-                          #.render()
-                    #)
+                      
                     
                       st.markdown(table.to_markdown(), unsafe_allow_html=True)
-                  # add a border and set the background color of the headers
-                      styled_table = table.style.set_properties(**{'border': '1px solid black',
-                                                              'border-collapse': 'collapse'})\
-                                          .set_table_styles([{'selector': 'th',
-                                                              'props': [('background-color', 'lightgrey')]}])
-
-                  #     display(styled_table)
-                      st.write(styled_table)  
       
                   # create a bar plot to show the total frequency of each malware type
                   #     barplot_data = df.groupby('Malware Type').sum().reset_index()
