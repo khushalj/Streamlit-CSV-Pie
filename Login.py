@@ -382,7 +382,7 @@ if st.session_state.authenticated:
                   def peripheral():
                       #st.title("Peripherals Status")
       
-                      filename = "AllDevicesHistory.csv"
+                      filename = "PeripheralsAndAdaptersReport.csv"
                       df = pd.read_csv(filename)
                       status_dict = {"OK": "✅", "ERROR": "❌"}
                       df["Status"] = df["Status"].map(status_dict)
